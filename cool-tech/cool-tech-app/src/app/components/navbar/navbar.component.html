@@ -1,3 +1,9 @@
 <h2>CoolTech</h2>
 <p>Stay cool in the summer...</p>
 <p>...but not too frosty in the winter.</p>
+
+<button mat-button [matMenuTriggerFor]="menu">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>add to cart</button>
+  <button mat-menu-item>save for later </button>
+</mat-menu>
