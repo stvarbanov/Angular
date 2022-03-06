@@ -1,13 +1,14 @@
+
 header {
   display: flex;
   justify-content: space-between;
   background-color: cadetblue;
+  padding: 8px;
 }
 
 .logo-wrapper {
   display: flex;
   flex-direction: row;
-  padding: 2px;
   font-size: 16px;
 }
 
@@ -15,19 +16,21 @@ header {
   display: block;
   height: 15px;
   margin: 10px 5px;
+  color: white;
 }
 
 .logo-text {
   display: block;
   justify-content: space-evenly;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
+  
 }
 
 .logo-text p {
-  margin: 3px;
+  margin: 6px;
   font-style: italic;
-
+  color: white;
 }
 
 .nav {
@@ -36,13 +39,20 @@ header {
   display: flex;
   justify-content: space-between;
   text-align: center;
-
+  margin-right: 45px;
 }
 
 .nav-item {
-  margin: 8px;
+  margin: 0px;
+  margin-right: 12px;
   text-align: center;
   letter-spacing: 0.7px;
+
+}
+
+.nav-item i{
+  padding-bottom: 6px;
+  color:white;
 
 }
 
@@ -52,4 +62,9 @@ header {
   color: white;
   text-transform: uppercase;
 
-}
+}  
+
+.nav-item-link:hover {
+  color: black;
+}  
+
