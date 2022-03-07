@@ -1,0 +1,33 @@
+//TODO create html/css templates per pages
+
+//TODO separate pages on components
+
+//TODO add pages:
+//TODO -admin add tech
+//TODO -admin add service
+//TODO -admin see all request queries
+
+//TODO profile page
+//TODO -you see your queries
+//TODO -you see your order
+
+//TODO update auth 
+
+//TODO admin can login from profile page
+
+//TODO user is asked to register when buy tech or service
+
+//TODO update server for CRUD
+
+//TODO update db models
+
+//TODO create services to read from db 
+
+//TODO add routing
+
+//TODO add state management in components
+
+//TODO add route guards
+
+//TODO make the admin pages a separate module
+
