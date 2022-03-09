@@ -19,9 +19,12 @@ import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: 'browse-tech', component: DevicesComponent },
-  { path: 'our-services',component: ServicesComponent }
+  { path: 'our-services',component: ServicesComponent },
+  { path: 'projects',component: ProjectsComponent },
+  { path: 'request-help',component: RequestComponent },
+  { path: 'auth/profile',component: ProfileComponent },
 ]
-
+// TODO - move profile routing in AuthModule 
 
 @NgModule({
   declarations: [
