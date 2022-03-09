@@ -1,0 +1,30 @@
+ /* SERVICES */
+
+ .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+.service {
+    background-color: aliceblue;
+    display: flex;
+    flex: 35%;
+
+    height: 350px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.service mat-card .img-container {
+    overflow: hidden;
+    display: flex;
+    width: 340px;
+    height: 280px;
+
+}
+
+.service mat-card div img {
+    width: 360px;
+}
