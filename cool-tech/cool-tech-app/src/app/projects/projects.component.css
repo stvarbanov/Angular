@@ -23,6 +23,7 @@
 
 .project-img {
   overflow: hidden;
+  border-radius:25px ;
 }
 
 .project-img img {
