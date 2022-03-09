@@ -1,7 +1,5 @@
 //TODO create html/css templates per pages
 
-//TODO separate pages on components
-
 //TODO add pages:
 //TODO -admin add tech
 //TODO -admin add service

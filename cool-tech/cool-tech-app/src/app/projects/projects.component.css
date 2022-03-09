@@ -1,0 +1,61 @@
+.projects {
+  display: flex;
+  justify-content: row;
+
+}
+
+.project-card {}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px;
+  background-color: azure;
+  padding: 32px;
+  position: relative
+}
+
+.project-title {
+  font-size: 25px;
+  font-weight: 600px;
+}
+
+.project-img {
+  overflow: hidden;
+}
+
+.project-img img {
+  width: 420px;
+  height: 350px;
+
+}
+
+.project-description {
+  display: none;
+  overflow-wrap: break-word;
+}
+
+.project-img:hover+.project-description,
+.project-description:hover {
+  display: flex;
+  position: absolute;
+
+  color: white;
+
+  margin: 15px;
+  top: 125px;
+  left: 25px;
+  right:50px;
+  font-size: 18px;
+  overflow-wrap: break-word;
+
+}
+
+.project-img:hover {
+  filter: brightness(30%);
+}
+
+.project-description:hover+.project-img {
+  filter: brightness(30%);
+}
