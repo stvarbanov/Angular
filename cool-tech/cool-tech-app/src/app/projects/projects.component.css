@@ -4,8 +4,6 @@
 
 }
 
-.project-card {}
-
 .project {
   display: flex;
   flex-direction: column;
