@@ -23,7 +23,7 @@
 
 .project-img {
   overflow: hidden;
-  border-radius:25px ;
+  border-radius: 25px;
 }
 
 .project-img img {
@@ -47,7 +47,7 @@
   margin: 15px;
   top: 125px;
   left: 25px;
-  right:50px;
+  right: 50px;
   font-size: 18px;
   overflow-wrap: break-word;
 
@@ -57,6 +57,7 @@
   filter: brightness(30%);
 }
 
+.project-description:hover+.project-img img,
 .project-description:hover+.project-img {
   filter: brightness(30%);
 }
