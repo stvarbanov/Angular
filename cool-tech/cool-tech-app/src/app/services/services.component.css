@@ -2,9 +2,17 @@
 
  .services {
    display: flex;
-   justify-content: column;
+   flex-direction: column;
+   
 
  }
+
+ .service-box {
+   display: flex;
+   flex-direction: column;
+   flex: 45%;
+ }
+
 
  .service {
    background-color: aliceblue;
@@ -12,21 +20,36 @@
    flex-direction: row;
 
    height: 350px;
-   width: 900px;
+   width: 100%;
    border-radius: 20px;
    text-align: center;
+   padding: 15px 35px;
+   
  }
 
- .service mat-card .img-container {
+ .service:nth-child(odd) {
+   flex-direction: row-reverse;
+
+ }
+
+
+ .service-title {
+   display: block;
+   font-size: 32px;
+ }
+
+ .service .img-container {
    overflow: hidden;
-   display: flex;
-   width: 340px;
-   height: 280px;
-
+   width: 540px;
+   height: 350px;
+   border-radius: 18px;
+   box-shadow: 0px 0px 12px 1px #000000;
  }
 
- .service mat-card div img {
-   width: 360px;
- }
+ .service div img {
+   display: block;
 
- 
+ }
+.service-text{
+  
+}
