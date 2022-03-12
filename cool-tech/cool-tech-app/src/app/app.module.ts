@@ -10,10 +10,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
   
 import { DevicesComponent } from './components/devices/devices.component';
-import { ServicesComponent } from './services/services.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { RequestComponent } from './request/request.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ServicesComponent } from './components/services/services.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { RequestComponent } from './components/request/request.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 
 

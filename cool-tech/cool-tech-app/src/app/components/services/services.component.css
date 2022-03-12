@@ -3,7 +3,6 @@
  .services {
    display: flex;
    flex-direction: column;
-   
 
  }
 
@@ -11,20 +10,24 @@
    display: flex;
    flex-direction: column;
    flex: 45%;
+   max-width: 750px;
  }
 
 
  .service {
-   background-color: aliceblue;
+
    display: flex;
    flex-direction: row;
-
+   justify-content: center;
+   /* max-width: 1500px; */
+   /* margin-left: 100px; */
    height: 350px;
    width: 100%;
+
    border-radius: 20px;
    text-align: center;
    padding: 15px 35px;
-   
+   gap: 50px
  }
 
  .service:nth-child(odd) {
@@ -34,14 +37,16 @@
 
 
  .service-title {
+   padding-top: 35px;
    display: block;
    font-size: 32px;
  }
 
  .service .img-container {
    overflow: hidden;
-   width: 540px;
-   height: 350px;
+   max-width: 420px;
+
+   height: 280px;
    border-radius: 18px;
    box-shadow: 0px 0px 12px 1px #000000;
  }
@@ -49,7 +54,9 @@
  .service div img {
    display: block;
 
+
  }
-.service-text{
-  
-}
+
+ .service-text {
+   padding-top: 45px;
+ }
