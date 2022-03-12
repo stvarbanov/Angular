@@ -1,17 +1,18 @@
 .projects {
   display: flex;
-  justify-content: row;
-
+  flex-wrap: wrap;
 }
 
 .project {
+  flex: 35px;
   display: flex;
   flex-direction: column;
   text-align: center;
   border: 1px;
   background-color: azure;
   padding: 32px;
-  position: relative
+  position: relative;
+  
 }
 
 .project-title {

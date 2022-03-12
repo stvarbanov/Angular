@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClient, HttpClientModule,HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/authconfig.interceptor.js';
+
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -42,11 +45,18 @@ const routes: Routes = [
     MatMenuModule,
     MatCardModule,
     RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   exports: [
     RouterModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
