@@ -19,7 +19,6 @@ import { RequestComponent } from './components/request/request.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { AlertComponent } from './components/alert/alert.component';
 
 
 
@@ -45,7 +44,7 @@ const routes: Routes = [
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    AlertComponent
+
   ],
   imports: [
     BrowserModule,
