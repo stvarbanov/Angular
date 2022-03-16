@@ -17,21 +17,19 @@ import { ServicesComponent } from './components/services/services.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { RequestComponent } from './components/request/request.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 
-
+import { AuthModule } from './auth/auth.module';
 
 const routes: Routes = [
   { path: 'browse-tech', component: DevicesComponent },
   { path: 'our-services', component: ServicesComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'request-help', component: RequestComponent },
-  { path: 'auth/profile', component: ProfileComponent },
-  { path: 'auth/login', component: LoginComponent },
-  { path: 'auth/register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent },
+
 ]
-// TODO - move profile routing in AuthModule 
+// TODO - move profile routing in routing module
+
 
 @NgModule({
   declarations: [
@@ -42,17 +40,15 @@ const routes: Routes = [
     ProjectsComponent,
     RequestComponent,
     ProfileComponent,
-    LoginComponent,
-    RegisterComponent,
-
   ],
   imports: [
+    AuthModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatMenuModule,
     MatCardModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     RouterModule
