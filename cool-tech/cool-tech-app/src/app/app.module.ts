@@ -19,13 +19,36 @@ import { RequestComponent } from './components/request/request.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { AuthModule } from './auth/auth.module';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+
+import { AdminModule } from './admin/admin.module';
+
 
 const routes: Routes = [
   { path: 'browse-tech', component: DevicesComponent },
   { path: 'our-services', component: ServicesComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'request-help', component: RequestComponent },
-  { path: 'profile', component: ProfileComponent },
+  {
+    path: 'auth', children: [
+      {
+        path: 'profile', component: ProfileComponent
+      },
+      {
+        path: 'login', component: LoginComponent
+      },
+      {
+        path: 'register', component: RegisterComponent
+      },
+      //add admin route
+      // {
+      //   path: 'admin', component: RegisterComponent
+      // },
+    ]
+
+  },
+
 
 ]
 // TODO - move profile routing in routing module
@@ -43,6 +66,8 @@ const routes: Routes = [
   ],
   imports: [
     AuthModule,
+    AdminModule,
+
     BrowserModule,
     BrowserAnimationsModule,
     MatMenuModule,
