@@ -16,13 +16,13 @@ import { DevicesComponent } from './components/devices/devices.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { RequestComponent } from './components/request/request.component';
-import { ProfileComponent } from './components/profile/profile.component';
 
 import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
 import { AdminModule } from './admin/admin.module';
+import { ProfileComponent } from './auth/profile/profile.component';
 
 
 const routes: Routes = [
@@ -61,8 +61,7 @@ const routes: Routes = [
     DevicesComponent,
     ServicesComponent,
     ProjectsComponent,
-    RequestComponent,
-    ProfileComponent,
+    RequestComponent, 
   ],
   imports: [
     AuthModule,
