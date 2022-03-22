@@ -2,8 +2,14 @@
 
 <h3>Admin - see 3 other - add tech, add service, add project, view all help request </h3>
 
+<span><br></span>
+<span><br></span>
+<span><br></span>
+<span><br></span>
+
 <div *ngIf="isLoggedIn">
-    yes
+    <h3>isLoggedIn = true</h3>
+
     <ul class="profile-buttons">
 
         <li class="profile-button">
@@ -16,5 +22,10 @@
             <a class="profile-item-link" routerLink="/auth/register" routerLinkActive="active">
                 Register</a>
         </li>
+        <!-- <li class="profile-button">
+            <i class="fa-solid fa-address-card"></i>
+            <a class="profile-item-link" routerLink="/auth/admin" routerLinkActive="active">
+                I am Admin</a>
+        </li> -->
     </ul>
 </div>

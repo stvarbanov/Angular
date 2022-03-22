@@ -1,0 +1,20 @@
+.profile-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+  justify-content: center;
+}
+
+.profile-button {
+
+  padding: 15px;
+  background-color: cadetblue;
+  color: white;
+  border-radius: 25px;
+}
+
+.profile-item-link {
+  color: white;
+  text-decoration: none;
+  padding-left: 15px;
+}
