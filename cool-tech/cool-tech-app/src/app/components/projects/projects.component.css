@@ -25,15 +25,20 @@
 .project-img {
   overflow: hidden;
   border-radius: 25px;
+  width: 400px;
 }
 
 .project-img img {
-  width: 320px;
+  width: 400px;
   height: 250px;
 
 }
-.project-side-wrapper{
-  max-width:1000px
+
+.project-side-wrapper {
+  max-width: 600px;
+  padding-left: 15px;
+
+
 }
 
 
@@ -70,4 +75,8 @@ aside h3 {
   display: block;
   margin-top: 10px;
   padding: 10px;
+}
+
+.gallery{
+  margin-top: 45px;
 }
