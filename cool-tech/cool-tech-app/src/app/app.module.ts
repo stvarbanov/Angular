@@ -24,6 +24,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './auth/profile/profile.component';
 
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: 'browse-tech', component: DevicesComponent },
@@ -73,6 +74,7 @@ const routes: Routes = [
     MatCardModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    FormsModule
   ],
   exports: [
     RouterModule
