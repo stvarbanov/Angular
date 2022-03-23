@@ -60,3 +60,33 @@
  .service-text {
    padding-top: 45px;
  }
+
+ aside {
+  /* display: none; */
+  width: 30%;
+  padding-left: 15px;
+  margin-left: 15px;
+  float: right;
+  font-style: italic;
+  background-color: lightgray;
+
+}
+.services-wrapper {
+  display: flex;
+
+}
+.input {
+
+  margin: 20px 0px 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 300px;
+
+}
+.input label {
+  margin-bottom: 5px;
+}
+
+.h3{
+  margin: 10px;
+}

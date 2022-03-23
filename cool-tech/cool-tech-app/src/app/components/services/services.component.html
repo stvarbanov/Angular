@@ -1,51 +1,84 @@
-<div class="services">
+<div class="services-wrapper">
+    <div class="services">
 
-    <mat-card class="service">
-        <div class="img-container">
-            <img mat-card-image
-                src="https://www.lucas-nuelle.us/images/axilon/NEUBILD/Versuche/R0/R0_RCC31-h310-ar.jpg">
-        </div>
-        <article class="service-box">
-            <h3 class="service-title"> Installation </h3>
-            <span class="service-text">
-                <p>Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Vel cumque iusto quia ex
-                    facilis quo officiis architecto nihil exercitationem ratione deleniti, nesciunt repudiandae recusandae
-                    reprehenderit obcaecati laborum labore ipsum mollitia.
-                   qui dolor
-                    blanditiis, quos, earum harum!</p>
-                <p>Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Vel cumque iusto quia ex
-                    facilis quo officiis architecto nihil exercitationem ratione deleniti, nesciunt repudiandae recusandae
-                    rio repudiandae. Atque praesentium incidunt enim, mollitia exercitationem
-                    alias. Asperiores ex vel omnis aut placeat temporibus totam nihil eligendi, saepe sequi dolor
-                    blanditiis, quos, earum harum!</p>
-            </span>
-        </article>
-    </mat-card>
-    <mat-card class="service">
-        <div class="img-container">
-            <img mat-card-image
-                src="https://www.lucas-nuelle.us/images/axilon/NEUBILD/Versuche/R0/R0_RCC31-h310-ar.jpg">
-        </div>
-        <article class="service-box">
-            <h3 class="service-title"> Troubleshooting </h3>
-            <span class="service-text">
-                <p>Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Vel cumque iusto quia ex
-                    facilis quo officiis architecto nihil exercitationem ratione deleniti, nesciunt repudiandae recusandae
-                    reprehenderit obcaecati laborum labore ipsum mollitia.
-                   qui dolor
-                    blanditiis, quos, earum harum!</p>
-                <p>Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Vel cumque iusto quia ex
-                    facilis quo officiis architecto nihil exercitationem ratione deleniti, nesciunt repudiandae recusandae
-                    rio repudiandae. Atque praesentium incidunt enim, mollitia exercitationem
-                    alias. Asperiores ex vel omnis aut placeat temporibus totam nihil eligendi, saepe sequi dolor
-                    blanditiis, quos, earum harum!</p>
-            </span>
-        </article>
-    </mat-card>
+        <mat-card class="service">
+            <div class="img-container">
+                <img mat-card-image
+                    src="https://www.lucas-nuelle.us/images/axilon/NEUBILD/Versuche/R0/R0_RCC31-h310-ar.jpg">
+            </div>
+            <article class="service-box">
+                <h3 class="service-title"> Installation </h3>
+                <span class="service-text">
+                    <p>Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit. Vel cumque iusto quia ex
+                        facilis quo officiis architecto nihil exercitationem ratione deleniti, nesciunt repudiandae
+                        recusandae
+                        reprehenderit obcaecati laborum labore ipsum mollitia.
+                        qui dolor
+                        blanditiis, quos, earum harum!</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit. Vel cumque iusto quia ex
+                        facilis quo officiis architecto nihil exercitationem ratione deleniti, nesciunt repudiandae
+                        recusandae
+                        rio repudiandae. Atque praesentium incidunt enim, mollitia exercitationem
+                        alias. Asperiores ex vel omnis aut placeat temporibus totam nihil eligendi, saepe sequi dolor
+                        blanditiis, quos, earum harum!</p>
+                </span>
+            </article>
+        </mat-card>
+        <mat-card class="service">
+            <div class="img-container">
+                <img mat-card-image
+                    src="https://www.lucas-nuelle.us/images/axilon/NEUBILD/Versuche/R0/R0_RCC31-h310-ar.jpg">
+            </div>
+            <article class="service-box">
+                <h3 class="service-title"> Troubleshooting </h3>
+                <span class="service-text">
+                    <p>Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit. Vel cumque iusto quia ex
+                        facilis quo officiis architecto nihil exercitationem ratione deleniti, nesciunt repudiandae
+                        recusandae
+                        reprehenderit obcaecati laborum labore ipsum mollitia.
+                        qui dolor
+                        blanditiis, quos, earum harum!</p>
+                    <p>Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit. Vel cumque iusto quia ex
+                        facilis quo officiis architecto nihil exercitationem ratione deleniti, nesciunt repudiandae
+                        recusandae
+                        rio repudiandae. Atque praesentium incidunt enim, mollitia exercitationem
+                        alias. Asperiores ex vel omnis aut placeat temporibus totam nihil eligendi, saepe sequi dolor
+                        blanditiis, quos, earum harum!</p>
+                </span>
+            </article>
+        </mat-card>
+    </div>
+    <aside>
+        <h3>Admin panel for services</h3>
+        <h3>Hide if not logged as admin</h3>
 
 
+        <h3>Add service</h3>
+
+        <form class="login" action="" method="post">
+            <div class="input">
+                <input type="text" class="input-field" id="title" name="title" />
+                <label class="add-title">Service title</label>
+            </div>
+            <div class="input">
+                <input type="text" class="input-field" id="imageURL" name="imageURL" />
+                <label class="add-image">Image URL</label>
+            </div>
+            <div class="input">
+                <textarea type="text" class="input-field" id="description" name="description"></textarea>
+                <label class="add-text">Description</label>
+            </div>
+
+
+            <div class="action">
+                <button class="action-button" (click)="addServiceFormSubmit()">Add project</button>
+            </div>
+        </form>
+
+
+    </aside>
 </div>
