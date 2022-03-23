@@ -33,23 +33,21 @@
 
         <h3>Add project</h3>
 
-        <form class="login" action="" method="post">
+        <form #projectForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">
-                <input type="text" class="input-field" id="title" name="title" />
-                <label class="add-title">Project title</label>
+                <input class="form-control" id="title" name="title" ngModel />
+                <label for="title" class="add-title">Project title</label>
             </div>
             <div class="input">
-                <input type="text" class="input-field" id="imageURL" name="imageURL" />
-                <label class="add-image">Image URL</label>
+                <input class="form-control" id="imageURL" name="imageURL" ngModel />
+                <label for="imageURL" class="add-image">Image URL</label>
             </div>
             <div class="input">
-                <textarea type="text" class="input-field" id="description" name="description"></textarea>
-                <label class="add-description">Description</label>
+                <textarea class="form-control" id="description" name="description" ngModel></textarea>
+                <label for="description" class="add-text">Description</label>
             </div>
-
-
             <div class="action">
-                <button class="action-button" (click)="addProjectFormSubmit()">Add project</button>
+                <button class="action-button">Add project</button>
             </div>
         </form>
 

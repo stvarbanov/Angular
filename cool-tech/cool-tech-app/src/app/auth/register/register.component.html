@@ -1,38 +1,37 @@
+<section id="register-page">
+    <div class="boxing">
 
-    <section id="register-page">
-        <div class="boxing">
+        <h2 class="heading">
+            Create a profile here
+        </h2>
 
-            <h2 class="heading">
-                Create a profile here
-            </h2>
-
-            <form class="card-form" >
-                <div class="input">
-                    <input type="text" class="input-field" placeholder="ivan98" id="username" name="username" />
-                    <label class="username">Username</label>
-                </div>
-                <div class="input">
-                    <input type="text" class="input-field" placeholder="ivan@gmail.com" id="email" name="email" />
-                    <label class="email">Email</label>
-                </div>
-                <div class="input">
-                    <input type="password" class="input-field" id="password" name="password" placeholder="******" />
-                    <label class="password">Password</label>
-                </div>
-                <div class="input">
-                    <input type="password" class="input-field" id="re-password" name="rePassword"
-                        placeholder="******" />
-                    <label class="re-password">Repeat Password</label>
-                </div>
-                <div class="action">
-                    <button class="action-button"  (click)="handleRegisterFormSubmit()">Get started</button>
-                </div>
-            </form>
-
-            <div class="card-info">
-                <small>Already have an account? <a href="/auth/login"> Sign in </a>
-                </small>
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class=" input">
+                <input type="text" class="input-field" placeholder="ivan98" id="username" name="username" ngModel />
+                <label for="username">Username</label>
             </div>
+            <div class="input">
+                <input type="text" class="input-field" placeholder="ivan@gmail.com" id="email" name="email" ngModel />
+                <label for="email">Email</label>
+            </div>
+            <div class="input">
+                <input type="password" class="input-field" id="password" name="password" placeholder="******" ngModel />
+                <label for="password">Password</label>
+            </div>
+            <div class="input">
+                <input type="password" class="input-field" id="re-password" name="rePassword" placeholder="******"
+                    ngModel />
+                <label for="re-password">Repeat Password</label>
+            </div>
+            <div class="action">
+                <button class="action-button">Get started</button>
+            </div>
+        </form>
 
+        <div class="card-info">
+            <small>Already have an account? <a href="/auth/login"> Sign in </a>
+            </small>
         </div>
-    </section>
+
+    </div>
+</section>

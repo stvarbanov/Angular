@@ -1,28 +1,33 @@
 .img-container img {
-  width: 250px;
+  width: 260px;
   border-radius: 8px;
 }
 
-.cards mat-card .img-container {
+.cards .device .img-container {
   overflow: hidden;
   display: flex;
   width: 200px;
-  height: 280px;
+  height: 180px;
 
+  overflow: hidden;
 }
 
-.cards mat-card {
+.device {
 
-  max-width: 350px;
+  max-width: 210px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  width: 210px;
+  height: 350px;
+  gap: 5px;
 }
 
 .cards {
   display: flex;
   flex-wrap: wrap;
+  min-width: 950px;
+  gap: 15px;
 }
 
 .device {
@@ -37,9 +42,9 @@
 
 .device-buy {
   display: block;
-  width: 150px;
-  padding: 10px;
-  font-size: 22px;
+  width: 100px;
+  padding: 6px;
+  font-size: 16px;
   border-radius: 11px;
   color: white;
   background-color: cadetblue;
@@ -50,4 +55,40 @@
 
   background-color: rgb(13, 60, 80);
   border-color: rgb(45, 121, 51);
+}
+
+aside {
+  /* display: none; */
+  width: 30%;
+  padding-left: 15px;
+  margin-left: 15px;
+  float: right;
+  font-style: italic;
+  background-color: lightgray;
+  /* position: sticky;
+  right: 0; */
+}
+
+.devices-wrapper {
+  display: flex;
+
+}
+
+.input {
+
+  margin: 20px 0px 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 300px;
+
+}
+
+.input label {
+  margin-bottom: 5px;
+}
+
+aside h3 {
+  display: block;
+  margin-top: 10px;
+  padding: 10px;
 }

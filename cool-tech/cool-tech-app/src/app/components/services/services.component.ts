@@ -10,7 +10,6 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
   @ViewChild('serviceForm') serviceForm!: NgForm;
 
-
   constructor() { }
 
   ngOnInit(): void {
