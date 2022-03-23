@@ -1,0 +1,32 @@
+#login-page {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: aquamarine;
+  padding: 50px;
+
+  color: rgb(114, 110, 110);
+}
+
+.input {
+
+  margin: 20px 0px 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 300px;
+
+}
+
+.card-info {
+  margin: 5px;
+}
+
+.input label {
+  margin-bottom: 5px;
+}
+
+.heading {
+  font-size: 25px;
+  font-weight: 600;
+
+}

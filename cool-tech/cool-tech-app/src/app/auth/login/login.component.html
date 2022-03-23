@@ -1,25 +1,25 @@
-<div><section id="register-page">
-    <div className="boxing">
+<div><section id="login-page">
+    <div class="boxing">
 
-        <h2 className="heading">
+        <h2 class="heading">
             Login to the platform
         </h2>
 
-        <form className="card-form" onSubmit={handleLoginFormSubmit}>
-            <div className="input">
-                <input type="text" className="input-field" placeholder="ivan98" id="username" name="username" />
-                <label className="username">Username</label>
+        <form class="login" action="" method="post">
+            <div class="input">
+                <input type="text" class="input-field" placeholder="ivan98" id="username" name="username" />
+                <label class="username">Username</label>
             </div>
-            <div className="input">
-                <input type="password" className="input-field" id="password" name="password" placeholder="******" />
-                <label className="password">Password</label>
+            <div class="input">
+                <input type="password" class="input-field" id="password" name="password" placeholder="******" />
+                <label class="password">Password</label>
             </div>
-            <div className="action">
-                <button className="action-button">Login</button>
+            <div class="action">
+                <button class="action-button" (click)="handleLoginFormSubmit()">Login</button>
             </div>
         </form>
 
-        <div className="card-info">
+        <div class="card-info">
             <small>No account?<a href="/auth/register">Register here</a>
             </small>
         </div>

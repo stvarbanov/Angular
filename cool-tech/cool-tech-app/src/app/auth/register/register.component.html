@@ -1,36 +1,36 @@
 
     <section id="register-page">
-        <div className="boxing">
+        <div class="boxing">
 
-            <h2 className="heading">
+            <h2 class="heading">
                 Create a profile here
             </h2>
 
-            <form className="card-form" onSubmit={handleRegisterFormSubmit}>
-                <div className="input">
-                    <input type="text" className="input-field" placeholder="ivan98" id="username" name="username" />
-                    <label className="username">Username</label>
+            <form class="card-form" >
+                <div class="input">
+                    <input type="text" class="input-field" placeholder="ivan98" id="username" name="username" />
+                    <label class="username">Username</label>
                 </div>
-                <div className="input">
-                    <input type="text" className="input-field" placeholder="ivan@gmail.com" id="email" name="email" />
-                    <label className="email">Email</label>
+                <div class="input">
+                    <input type="text" class="input-field" placeholder="ivan@gmail.com" id="email" name="email" />
+                    <label class="email">Email</label>
                 </div>
-                <div className="input">
-                    <input type="password" className="input-field" id="password" name="password" placeholder="******" />
-                    <label className="password">Password</label>
+                <div class="input">
+                    <input type="password" class="input-field" id="password" name="password" placeholder="******" />
+                    <label class="password">Password</label>
                 </div>
-                <div className="input">
-                    <input type="password" className="input-field" id="re-password" name="rePassword"
+                <div class="input">
+                    <input type="password" class="input-field" id="re-password" name="rePassword"
                         placeholder="******" />
-                    <label className="re-password">Repeat Password</label>
+                    <label class="re-password">Repeat Password</label>
                 </div>
-                <div className="action">
-                    <button className="action-button">Get started</button>
+                <div class="action">
+                    <button class="action-button"  (click)="handleRegisterFormSubmit()">Get started</button>
                 </div>
             </form>
 
-            <div className="card-info">
-                <small>Already have an account?<a href="/auth/login"> Sign in</a>
+            <div class="card-info">
+                <small>Already have an account? <a href="/auth/login"> Sign in </a>
                 </small>
             </div>
 
