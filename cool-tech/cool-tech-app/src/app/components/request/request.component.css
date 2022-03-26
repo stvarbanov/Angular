@@ -1,0 +1,23 @@
+form {
+  display: flex;
+  flex-direction: column;
+  width: 330px;
+  /* display: none; */
+  padding-left: 15px;
+  margin-left: 15px;
+
+  font-style: italic;
+  background-color: rgb(146, 250, 152);
+  /* position: sticky;
+   right: 0; */
+  ;
+}
+
+.input {
+
+  margin: 20px 0px 10px;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 300px;
+
+}

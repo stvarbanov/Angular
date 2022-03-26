@@ -1,3 +1,49 @@
 <h3>if logged in - autopopulates user data - create request</h3>
 
 <h3>if guest - ask for register - create request</h3>
+
+<div class="request-wrapper">
+    <!-- new request - hide for admin -->
+    <form #requestForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="input">
+            <input class="form-control" id="title" name="title" ngModel />
+            <label for="title" class="add-title">Title</label>
+        </div>
+        <div class="input">
+            <input class="form-control" id="city" name="city" ngModel />
+            <label for="city" class="add-city">City</label>
+        </div>
+        <div class="input">
+            <input class="form-control" id="adress" name="adress" ngModel />
+            <label for="adress" class="add-adress">Adress</label>
+        </div>
+
+        <div class="input">
+            <input class="form-control" id="issue" name="issue" ngModel />
+            <label for="issue" class="add-issue">What's wrong?</label>
+        </div>
+
+        <div class="action">
+            <button class="action-button">Submit (requires registration)</button>
+        </div>
+    </form>
+    <!-- my requests - show all from this user -->
+    <div class="requests">
+        <div class="request">
+            <span class="request-img-container">
+                <img>
+            </span>
+            <div class="request-user"> User: </div>
+            <div class="request-title"> Title: </div>
+            <div class="request-city"> City: </div>
+            <div class="request-adress"> Adress: </div>
+            <div class="request-issue"> Issue: </div>
+            <!-- <div class="request-issue"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, rem. </div> -->
+            <div class="request-buttons">
+                <button class="request-buy">Edit</button>
+                <button class="request-details">Delete</button>
+            </div>
+        </div>
+    </div>
+    <!-- only for admin - show all requests -->
+</div>
