@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Request } from 'src/app/models/models.js';
+import { Request } from 'src/app/models/models';
 
 @Component({
   selector: 'app-request',
