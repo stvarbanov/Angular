@@ -15,7 +15,7 @@ form {
 
 .input {
 
-  margin: 20px 0px 10px;
+  margin: 20px 0px 0px;
   display: flex;
   flex-direction: column-reverse;
   width: 300px;
