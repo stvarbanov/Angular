@@ -1,9 +1,10 @@
-.img-container img {
+.device-img-container img {
   width: 260px;
-  border-radius: 8px;
+  height: 220px;
+  object-fit: scale-down;
 }
 
-.cards .device .img-container {
+.device-img-container {
   overflow: hidden;
   display: flex;
   width: 200px;
@@ -17,10 +18,14 @@
   max-width: 210px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   width: 210px;
-  height: 350px;
+
   gap: 5px;
+  border-radius: 15px;
+}
+
+.device div {
+  margin: 3%;
 }
 
 .cards {
@@ -32,6 +37,7 @@
 
 .device {
   flex: 35%;
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +46,13 @@
 
 }
 
-.device-buy {
+.device-buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.device-buy,
+.device-details {
   display: block;
   width: 100px;
   padding: 6px;
@@ -51,7 +63,8 @@
   border-color: rgb(120, 122, 122);
 }
 
-.device-buy:hover {
+.device-buy:hover,
+.device-details:hover {
 
   background-color: rgb(13, 60, 80);
   border-color: rgb(45, 121, 51);
