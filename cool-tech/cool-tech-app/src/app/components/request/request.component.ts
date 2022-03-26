@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Request } from 'src/app/models/models.js';
 
 @Component({
   selector: 'app-request',
@@ -20,6 +21,9 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
   onSubmit() {
     alert(JSON.stringify(this.requestForm.value));
+
+   var request = new Request();
+   
   }
 
 }
