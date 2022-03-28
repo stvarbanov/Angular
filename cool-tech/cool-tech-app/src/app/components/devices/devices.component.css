@@ -28,12 +28,7 @@
   margin: 3%;
 }
 
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  min-width: 950px;
-  gap: 15px;
-}
+
 
 .device {
   flex: 35%;
@@ -70,9 +65,14 @@
   border-color: rgb(45, 121, 51);
 }
 
+.devices-wrapper {
+  display: flex;
+
+}
+
 aside {
   /* display: none; */
-  width: 30%;
+  width: 25%;
   padding-left: 15px;
   margin-left: 15px;
   float: right;
@@ -82,9 +82,12 @@ aside {
   right: 0; */
 }
 
-.devices-wrapper {
+.cards {
   display: flex;
-
+  flex-wrap: wrap;
+  min-width: 950px;
+  gap: 15px;
+  width: 75%;
 }
 
 .input {
