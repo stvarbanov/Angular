@@ -5,7 +5,7 @@ const noteSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    state:{
+    state: {
         type: String,
         enum: ['To Do', 'In Progress', 'Done'],
         required: true
@@ -18,7 +18,6 @@ const noteSchema = new mongoose.Schema({
         {
             type: mongoose.Types.ObjectId,
             ref: 'User'
-
         }
     ],
 

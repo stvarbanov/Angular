@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Device } from '../../models/models';
+import { DeviceService } from '../../services/device.service';
 
 @Component({
   selector: 'app-devices',
@@ -8,19 +10,36 @@ import { NgForm } from '@angular/forms';
 })
 export class DevicesComponent implements OnInit, AfterViewInit {
 
+  devices: Device[] = [];
 
   @ViewChild('deviceForm') deviceForm!: NgForm;
 
-  constructor() { }
+  constructor(
+    private deviceService: DeviceService
+  ) { }
 
   ngOnInit(): void {
+
+    this.getAllDevices();
+
   }
+
+  getAllDevices() {
+
+    this.deviceService.loadAllDevices().subscribe(devices => this.devices = devices)
+    console.log('Client side devices:'+ this.devices);
+  }
+
   ngAfterViewInit(): void {
 
   }
 
   onSubmit() {
     alert(JSON.stringify(this.deviceForm.value));
+
   }
+
+
+
 
 }

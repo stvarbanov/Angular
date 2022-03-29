@@ -1,37 +1,43 @@
-export class User {
-    _id!: String;
-    name!: String;
-    email!: String;
-    password!: String;
+export interface Base {
+    _id: string;
+    created_at: string;
+    updatedAt: string;
+    __v: string;
+}
+export interface User extends Base {
+    username: String;
+    email: String;
+    password: String;
 }
 
-export class Device {
-    _id!: String;
-    model!: String;
-    brand!: String;
-    class!: String;
-    price!: String;
-    description!: String;
+export interface Device extends Base {
+
+    model: String;
+    brand: String;
+    interface: String;
+    price: String;
+    imageUrl: String;
+    description: String;
 }
 
-export class Service {
-    _id!: String;
-    title!: String;
-    imageURL!: String;
-    description!: String;
+export interface Service extends Base {
+
+    title: String;
+    imageURL: String;
+    description: String;
 }
-export class Project {
-    _id!: String;
-    title!: String;
-    imageURL!: String;
-    description!: String;
+export interface Project extends Base {
+
+    title: String;
+    imageURL: String;
+    description: String;
 }
-export class Request {
-    _id!: String;
-    title!: String;
-    city!: String;
-    adress!: String;
-    issue!: String;
-    user!: String;
-    
+export interface Request extends Base {
+
+    title: String;
+    city: String;
+    adress: String;
+    issue: String;
+    user: String;
+
 }

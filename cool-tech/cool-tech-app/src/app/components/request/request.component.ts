@@ -22,8 +22,6 @@ export class RequestComponent implements OnInit, AfterViewInit {
   onSubmit() {
     alert(JSON.stringify(this.requestForm.value));
 
-   var request = new Request();
-   
   }
 
 }
