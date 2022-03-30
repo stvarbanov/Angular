@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Device } from 'src/app/models/models.js';
 // import { Device } from '../../models/models';
 import { DeviceService } from '../../services/device.service';
 
@@ -21,12 +22,11 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllDevices();
-    console.log(this.devices)
   }
 
   getAllDevices() {
     this.deviceService.loadAllDevices().subscribe((data) => {
-      
+
       this.devices.push(data);
 
     })
@@ -37,7 +37,26 @@ export class DevicesComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    alert(JSON.stringify(this.deviceForm.value));
+
+    const newDevice: Device = {
+
+      model: this.deviceForm.value.model,
+      brand: this.deviceForm.value.brand,
+      price: this.deviceForm.value.price,
+      class: this.deviceForm.value.class,
+      imageUrl: this.deviceForm.value.imageUrl,
+      description: this.deviceForm.value.description,
+      _id: '',
+      created_at: '',
+      updatedAt: '',
+      __v: ''
+
+    }
+
+    this.deviceService.createDevice(newDevice)
+    // .subscribe(response => {
+    //     // this.devices.push(response)F
+    // })
 
   }
 

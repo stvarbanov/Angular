@@ -14,7 +14,7 @@ export interface Device extends Base {
 
     model: String;
     brand: String;
-    interface: String;
+    class: String;
     price: String;
     imageUrl: String;
     description: String;

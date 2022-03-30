@@ -12,5 +12,16 @@ router.get('/all', (req, res) => {
         .catch(err => console.log(err));
 });
 
+router.post('/create', (req, res) => {
+    console.log(req.body);
+    deviceService.createDevice(req.body)
+        .then(data => {
+            res.status(201).json({ message: 'Successfully created device!' });
+        })
+        .catch(err => console.log(err));
+
+})
+
+
 
 module.exports = router;

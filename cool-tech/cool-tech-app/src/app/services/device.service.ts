@@ -19,4 +19,26 @@ export class DeviceService {
     );
   }
 
+  createDevice(newDevice: any) {
+
+    console.log(newDevice);
+    return this.http.post(
+      `${apiUrl}/devices/create`, { body: JSON.stringify(newDevice) }
+    );
+
+  }
+
+  // addHero(newDevice: Device): Observable<Device> {
+  //   return this.http.post<Device>(newDevice)
+  //     .pipe(
+
+  //     );
+  // }
+
+
+
+
+
+
+
 }
