@@ -25,9 +25,17 @@ import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './auth/profile/profile.component';
 
 import { FormsModule } from '@angular/forms';
+import { DetailsComponent } from './components/devices/details/details.component';
+
 
 const routes: Routes = [
-  { path: 'browse-tech', component: DevicesComponent },
+  {
+    path: 'browse-tech', component: DevicesComponent, children: [
+      {
+        path: 'details/:id', component: DetailsComponent
+      }
+    ]
+  },
   { path: 'our-services', component: ServicesComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'request-help', component: RequestComponent },
@@ -62,7 +70,8 @@ const routes: Routes = [
     DevicesComponent,
     ServicesComponent,
     ProjectsComponent,
-    RequestComponent, 
+    RequestComponent,
+    DetailsComponent
   ],
   imports: [
     AuthModule,
