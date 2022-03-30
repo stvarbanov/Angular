@@ -7,7 +7,7 @@ router.get('/all', (req, res) => {
     deviceService.getAllDevices()
         .then(data => {
             res.status(201).json({ devices: data });
-            console.log(data);
+            console.log(res);
         })
         .catch(err => console.log(err));
 });

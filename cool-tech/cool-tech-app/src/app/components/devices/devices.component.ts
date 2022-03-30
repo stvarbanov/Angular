@@ -6,7 +6,8 @@ import { DeviceService } from '../../services/device.service';
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
-  styleUrls: ['./devices.component.css']
+  styleUrls: ['./devices.component.css'],
+  providers: [DeviceService]
 })
 export class DevicesComponent implements OnInit, AfterViewInit {
 
@@ -19,27 +20,26 @@ export class DevicesComponent implements OnInit, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-
     this.getAllDevices();
 
   }
 
   getAllDevices() {
-
-    this.deviceService.loadAllDevices().subscribe(devices => this.devices = devices)
-    console.log('Client side devices:'+ this.devices);
+    this.deviceService.loadAllDevices().subscribe((data) => {
+      console.log(JSON.stringify(data));
+      this.devices = data;
+    })
   }
 
-  ngAfterViewInit(): void {
 
+
+  ngAfterViewInit(): void {
+    console.log(this.devices)
   }
 
   onSubmit() {
     alert(JSON.stringify(this.deviceForm.value));
 
   }
-
-
-
 
 }
