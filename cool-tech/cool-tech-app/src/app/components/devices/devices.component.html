@@ -34,12 +34,12 @@
 
             <div class="device">
                 <span class="device-img-container">
-                    <img src={{device.imageUrl}}>
+                    <img src={{device[0].imageUrl}}>
                 </span>
-                <div class="device-model"> {{device.model}}</div>
-                <div class="device-brand"> {{device.brand}} </div>
+                <div class="device-model"> {{device[0].model}}</div>
+                <div class="device-brand"> {{device[0].brand}} </div>
                 <!-- <div class="device-class"> A+++ </div> -->
-                <div class="device-price"> {{device.price}} BGN </div>
+                <div class="device-price"> {{device[0].price}} BGN </div>
                 <!-- <div class="device-description"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, rem. </div> -->
                 <div class="device-buttons">
                     <button class="device-buy">Buy</button>
