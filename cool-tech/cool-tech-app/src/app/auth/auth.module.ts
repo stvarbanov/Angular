@@ -6,6 +6,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from '../middleware/jwt.interceptor';
 
 
 @NgModule({
@@ -13,12 +15,19 @@ import { RouterModule } from '@angular/router';
     LoginComponent,
     RegisterComponent,
     ProfileComponent
-    
+
   ],
   imports: [
     CommonModule,
     FormsModule,
     RouterModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
   ]
 
 })

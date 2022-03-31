@@ -3,20 +3,20 @@ const Device = require('../models/Device');
 
 const getAllDevices = async () => await Device.find();
 
-const createDevice = async (newDevice) => {
+const createDevice = async (data) => {
 
-    console.log(newDevice);
+    const newDevice = JSON.parse(data);
+    console.log('server ' + newDevice);
 
-    let device = new Device({
-        model: newDevice.model,
-        brand: newDevice.brand,
-        class: newDevice.class,
-        price: newDevice.price,
-        description: newDevice.description,
-        imageUrl: newDevice.imageUrl
-    });
+    // const device = new Device({
+    //     model: newDevice.model,
+    //     brand: newDevice.brand,
+    //     class: newDevice.class,
+    //     price: newDevice.price,
+    //     description: newDevice.description,
+    //     imageUrl: newDevice.imageUrl
+    // });
 
-    
     // return device.save();
 
 }

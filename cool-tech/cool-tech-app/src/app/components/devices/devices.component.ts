@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { tap } from 'rxjs';
 import { Device } from 'src/app/models/models.js';
 // import { Device } from '../../models/models';
 import { DeviceService } from '../../services/device.service';
@@ -22,13 +23,12 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllDevices();
+
   }
 
   getAllDevices() {
     this.deviceService.loadAllDevices().subscribe((data) => {
-
       this.devices.push(data);
-
     })
   }
   ngAfterViewInit(): void {
@@ -53,10 +53,9 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
     }
 
-    this.deviceService.createDevice(newDevice)
-    // .subscribe(response => {
-    //     // this.devices.push(response)F
-    // })
+    this.deviceService.createDevice(newDevice).pipe(
+      tap((device) => console.log(device))
+    );
 
   }
 

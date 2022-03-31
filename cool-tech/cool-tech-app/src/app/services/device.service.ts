@@ -19,26 +19,16 @@ export class DeviceService {
     );
   }
 
-  createDevice(newDevice: any) {
+  createDevice(newDevice: Device): Observable<Device> {
 
-    console.log(newDevice);
-    return this.http.post(
-      `${apiUrl}/devices/create`, { body: JSON.stringify(newDevice) }
+    const headers = { 'content-type': 'application/json' }
+    const body = JSON.stringify(newDevice);
+
+
+    return this.http.post<Device>(
+      `${apiUrl}/devices/create`, body, { 'headers': headers }
     );
 
   }
-
-  // addHero(newDevice: Device): Observable<Device> {
-  //   return this.http.post<Device>(newDevice)
-  //     .pipe(
-
-  //     );
-  // }
-
-
-
-
-
-
 
 }
