@@ -52,9 +52,13 @@ export class DevicesComponent implements OnInit, AfterViewInit {
       __v: ''
 
     }
+    console.log(newDevice);
 
-    this.deviceService.createDevice(newDevice).pipe(
-      tap((device) => console.log(device))
+    this.deviceService.createDevice(newDevice).subscribe((response) => {
+      console.log('response post', response)
+    }, (error) => {
+      console.log('post error: ' + error);
+    }
     );
 
   }

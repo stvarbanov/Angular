@@ -8,5 +8,5 @@ module.exports = app => {
     app.use(bodyParser.json());
     app.use(cors());
 
-    app.use(auth());
+    // app.use(auth());
 }
