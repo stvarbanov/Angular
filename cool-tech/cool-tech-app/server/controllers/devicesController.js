@@ -1,6 +1,4 @@
 const router = require('express').Router();
-
-const bodyParser = require('body-parser');
 const deviceService = require('../services/deviceService');
 
 
@@ -13,9 +11,9 @@ router.get('/all', (req, res) => {
         .catch(err => console.log(err));
 });
 
-router.post('/create', bodyParser.json(), (req, res) => {
+router.post('/create', (req, res) => {
 
-    console.log('1');
+    console.log('in create');
 
     deviceService.createDevice(req.body)
         .then(data => {

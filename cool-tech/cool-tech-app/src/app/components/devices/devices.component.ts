@@ -46,13 +46,10 @@ export class DevicesComponent implements OnInit, AfterViewInit {
       class: this.deviceForm.value.class,
       imageUrl: this.deviceForm.value.imageUrl,
       description: this.deviceForm.value.description,
-      _id: '',
-      created_at: '',
-      updatedAt: '',
-      __v: ''
+
 
     }
-    console.log(newDevice);
+    console.log(newDevice)
 
     this.deviceService.createDevice(newDevice).subscribe((response) => {
       console.log('response post', response)
