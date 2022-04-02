@@ -11,9 +11,14 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
   @ViewChild('requestForm') requestForm!: NgForm;
 
+  isLoggedIn: boolean = false;
+  isLoggedAdmin: boolean = false;
+
+  requests: Request[] = [];
   constructor() { }
 
   ngOnInit(): void {
+    this.checkLoggedUser();
   }
   ngAfterViewInit(): void {
 
@@ -21,6 +26,24 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
   onSubmit() {
     alert(JSON.stringify(this.requestForm.value));
+
+  }
+
+  checkLoggedUser() {
+
+    const user = localStorage.getItem('user');
+    const userObj = JSON.parse(user!);
+    if (userObj) {
+      this.isLoggedIn = true;
+    }
+    if (userObj.isAdmin == true) {
+      this.isLoggedAdmin = true;
+      this.isLoggedIn = false;
+    }
+  }
+
+
+  getAllRequests(){
 
   }
 

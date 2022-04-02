@@ -30,11 +30,8 @@
 
     </div>
     <aside *ngIf="isLoggedAdmin">
-        <h3>Admin panel for projects</h3>
-        <h3>Hide if not logged as admin</h3>
 
-
-        <h3>Add project</h3>
+        <h3>Admin panel - Add project</h3>
 
         <form #projectForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">

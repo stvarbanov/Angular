@@ -54,12 +54,7 @@
     </div>
     <aside *ngIf="isLoggedAdmin">
         <h3>Admin panel for services</h3>
-        <h3>Hide if not logged as admin</h3>
-
-
-        <h3>Add service</h3>
-
-
+      
         <form #serviceForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">
                 <input class="form-control" id="title" name="title" ngModel />

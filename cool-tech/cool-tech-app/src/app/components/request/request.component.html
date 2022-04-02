@@ -1,10 +1,7 @@
-<h3>if logged in - autopopulates user data - create request</h3>
-
-<h3>if guest - ask for register - create request</h3>
-
 <div class="request-wrapper">
     <!-- new request - hide for admin -->
-    <form #requestForm="ngForm" (ngSubmit)="onSubmit()">
+    <form #requestForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="isLoggedIn">
+        <h3> Submit a request to us</h3>
         <div class="input">
             <input class="form-control" id="title" name="title" ngModel />
             <label for="title" class="add-title">Title</label>
@@ -24,26 +21,27 @@
         </div>
 
         <div class="action">
-            <button class="action-button">Submit (requires registration)</button>
+            <button class="action-button">Submit</button>
         </div>
     </form>
-    <!-- my requests - show all from this user -->
-    <div class="requests">
-        <div class="request">
-            <span class="request-img-container">
-                <img>
-            </span>
-            <div class="request-user"> User: </div>
-            <div class="request-title"> Title: </div>
-            <div class="request-city"> City: </div>
-            <div class="request-adress"> Adress: </div>
-            <div class="request-issue"> Issue: </div>
-            <!-- <div class="request-issue"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, rem. </div> -->
-            <div class="request-buttons">
-                <button class="request-buy">Edit</button>
-                <button class="request-details">Delete</button>
+
+    <!-- only for admin - show all requests -->
+    <div class="requests" *ngIf="isLoggedAdmin">
+        <div *ngFor=" let request of requests">
+            <div class="request">
+                <span class="request-img-container">
+                    <img>
+                </span>
+                <div class="request-user"> User: {{request.owner}}</div>
+                <div class="request-title"> Title: {{request.title}} </div>
+                <div class="request-city"> City: {{request.city}}</div>
+                <div class="request-adress"> Adress: {{request.adress}}</div>
+                <div class="request-issue"> Issue: {{request.issue}}</div>
+                <!-- <div class="request-issue"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, rem. </div> -->
+                <div class="request-buttons">
+                    <button class="request-buy">Edit</button>
+                    <button class="request-details">Delete</button>
+                </div>
             </div>
         </div>
     </div>
-    <!-- only for admin - show all requests -->
-</div>
