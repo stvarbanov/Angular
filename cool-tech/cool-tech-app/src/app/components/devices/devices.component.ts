@@ -46,8 +46,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
       class: this.deviceForm.value.class,
       imageUrl: this.deviceForm.value.imageUrl,
       description: this.deviceForm.value.description,
-
-
+      
     }
     console.log(newDevice)
 

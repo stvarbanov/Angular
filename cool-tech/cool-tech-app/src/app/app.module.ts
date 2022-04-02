@@ -1,8 +1,6 @@
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-
-
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -26,7 +24,7 @@ import { ProfileComponent } from './auth/profile/profile.component';
 
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './components/devices/details/details.component';
-import { AuthService } from './services/auth.service.js';
+import { AuthService } from './services/auth.service';
 
 
 const routes: Routes = [

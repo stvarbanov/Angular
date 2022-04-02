@@ -1,5 +1,11 @@
+export interface Base {
+    // _id: string;
+    // created_at: string;
+    // updatedAt: string;
+    // __v: string;
+}
 
-export interface User {
+export interface User extends Base {
     username: String;
     email: String;
     password: String;
@@ -8,7 +14,8 @@ export interface User {
     requests: String[];
 }
 
-export interface Device {
+
+export interface Device extends Base {
 
     model: String;
     brand: String;
@@ -18,24 +25,27 @@ export interface Device {
     description: String;
 }
 
-export interface Service {
+
+export interface Service extends Base {
 
     title: String;
     imageUrl: String;
     description: String;
 }
-export interface Project {
+
+export interface Project extends Base {
 
     title: String;
     imageUrl: String;
     description: String;
 }
-export interface Request {
+
+export interface Request extends Base {
 
     title: String;
     city: String;
     adress: String;
     issue: String;
-    user: String;
+    owner: String;
 
 }
