@@ -1,17 +1,7 @@
-<h3>Login - > see your help request</h3>
+<div class='profile-no' *ngIf="!isLoggedIn">
 
-<h3>Admin - see 3 other - add tech, add service, add project, view all help request </h3>
-
-<span><br></span>
-<span><br></span>
-<span><br></span>
-<span><br></span>
-
-<div *ngIf="isLoggedIn">
-    <h3>isLoggedIn = true</h3>
-
+    <h3 class="profile-heading profile-field">You need a profile to see your profile, bro</h3>
     <ul class="profile-buttons">
-
         <li class="profile-button">
             <i class="fa-solid fa-arrow-right-to-bracket"></i>
             <a class="profile-item-link" routerLink="/auth/login" routerLinkActive="active">
@@ -22,10 +12,25 @@
             <a class="profile-item-link" routerLink="/auth/register" routerLinkActive="active">
                 Register</a>
         </li>
-        <!-- <li class="profile-button">
+    </ul>
+</div>
+<div *ngIf="isLoggedIn" class="profile-data">
+
+    <h2 class="profile-username profile-field">Username: {{user.username}}</h2>
+    <h2 class="profile-email profile-field">Email: {{user.email}}</h2>
+    <h2 class="profile-phone profile-field">Phone: {{user.phone}}</h2>
+    <!-- <h2 class="profile-requests ">Your requests: </h2> -->
+
+    <ul class="profile-buttons">
+        <li class="profile-button">
+            <i class="fa-solid fa-arrow-right-to-bracket"></i>
+            <a class="profile-item-link" href='/auth/profile' (click)='edit()' routerLinkActive="active">
+                Edit </a>
+        </li>
+        <li class="profile-button">
             <i class="fa-solid fa-address-card"></i>
-            <a class="profile-item-link" routerLink="/auth/admin" routerLinkActive="active">
-                I am Admin</a>
-        </li> -->
+            <a class="profile-item-link" href='/auth/profile' (click)='logout()' routerLinkActive="active">
+                Logout </a>
+        </li>
     </ul>
 </div>

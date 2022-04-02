@@ -9,8 +9,8 @@ import { Component, OnInit } from '@angular/core';
 
 export class ProfileComponent implements OnInit {
 
-  isLoggedIn: boolean = true;
-
+  isLoggedIn: boolean = false;
+  user: any;
 
   constructor() {
 
@@ -18,7 +18,24 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.checkLoggedUser()
   }
 
+  checkLoggedUser() {
+
+    const user = localStorage.getItem('user');
+    const userObj = JSON.parse(user!);
+    if (userObj != null) {
+      this.isLoggedIn = true;
+      this.user = userObj;
+    }
+
+  }
+  logout() {
+    localStorage.clear();
+  }
+
+  edit(){
+    alert('TO DO...')
+  }
 }

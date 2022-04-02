@@ -20,7 +20,7 @@ router.post('/login', (req, res) => {
     authServices.login(req.body)
         .then(data => {
             res.cookie(COOKIE_NAME, data.token, { httpOnly: false });
-            res.status(200).json({ message: 'You logged in successfully!', type: 'success', user: { id: data.user._id, username: data.user.username, email: data.user.email, requests: data.user.requests, isAdmin: data.user.isAdmin } });
+            res.status(200).json({ message: 'You logged in successfully!', type: 'success', user: { id: data.user._id, username: data.user.username, email: data.user.email, phone: data.user.phone, requests: data.user.requests, isAdmin: data.user.isAdmin } });
         })
         .catch(err => {
             console.log(err);
