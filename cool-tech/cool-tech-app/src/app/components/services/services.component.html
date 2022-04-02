@@ -52,7 +52,7 @@
             </article>
         </mat-card>
     </div>
-    <aside>
+    <aside *ngIf="isLoggedAdmin">
         <h3>Admin panel for services</h3>
         <h3>Hide if not logged as admin</h3>
 
@@ -80,5 +80,5 @@
 
 
 
-    </aside>
+    </aside >
 </div>

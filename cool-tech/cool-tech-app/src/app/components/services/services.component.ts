@@ -9,14 +9,25 @@ import { NgForm } from '@angular/forms';
 export class ServicesComponent implements OnInit, AfterViewInit {
 
   @ViewChild('serviceForm') serviceForm!: NgForm;
+  isLoggedAdmin = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.checkLoggedUser()
+
+  }
+  checkLoggedUser() {
+
+    const user = localStorage.getItem('user');
+    const userObj = JSON.parse(user!);
+    if (userObj.isAdmin == true) {
+      this.isLoggedAdmin = true;
+    }
 
   }
   ngAfterViewInit(): void {
-    
+
   }
 
   onSubmit() {

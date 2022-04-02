@@ -24,7 +24,7 @@
 
 
     </div>
-    <aside>
+    <aside *ngIf="isLoggedAdmin">
         <h3>Add device</h3>
         <form #deviceForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">

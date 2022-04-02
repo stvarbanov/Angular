@@ -10,9 +10,20 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   
   @ViewChild('projectForm') projectForm!: NgForm;
 
+  isLoggedAdmin = false;
+
   constructor() { }
 
   ngOnInit(): void {
+ this.checkLoggedUser()
+  }
+  checkLoggedUser() {
+
+    const user = localStorage.getItem('user');
+    const userObj = JSON.parse(user!);
+    if (userObj.isAdmin == true) {
+      this.isLoggedAdmin = true;
+    }
 
   }
 

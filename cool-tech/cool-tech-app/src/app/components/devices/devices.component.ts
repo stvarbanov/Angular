@@ -1,7 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { tap } from 'rxjs';
-import { Device } from 'src/app/models/models.js';
+import { Device, User } from 'src/app/models/models.js';
 // import { Device } from '../../models/models';
 import { DeviceService } from '../../services/device.service';
 
@@ -14,6 +14,7 @@ import { DeviceService } from '../../services/device.service';
 export class DevicesComponent implements OnInit, AfterViewInit {
 
   devices: any = [];
+  isLoggedAdmin = false;
 
   @ViewChild('deviceForm') deviceForm!: NgForm;
 
@@ -23,8 +24,18 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.getAllDevices();
+    this.checkLoggedUser()
+  }
+  checkLoggedUser() {
+
+    const user = localStorage.getItem('user');
+    const userObj = JSON.parse(user!);
+    if (userObj.isAdmin == true) {
+      this.isLoggedAdmin = true;
+    }
 
   }
+
 
   getAllDevices() {
     this.deviceService.loadAllDevices().subscribe((data) => {
@@ -46,7 +57,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
       class: this.deviceForm.value.class,
       imageUrl: this.deviceForm.value.imageUrl,
       description: this.deviceForm.value.description,
-      
+
     }
     console.log(newDevice)
 
