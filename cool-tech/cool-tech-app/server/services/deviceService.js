@@ -6,7 +6,6 @@ const getAllDevices = async () => await Device.find();
 const createDevice = async (data) => {
 
     const newDevice = data;
-    console.log('server ' + newDevice);
 
     const device = new Device({
         model: newDevice.model,

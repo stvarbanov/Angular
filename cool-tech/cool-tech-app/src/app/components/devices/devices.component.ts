@@ -52,12 +52,14 @@ export class DevicesComponent implements OnInit, AfterViewInit {
     console.log(newDevice)
 
     this.deviceService.createDevice(newDevice).subscribe((response) => {
-      console.log('response post', response)
+
+
     }, (error) => {
-      console.log('post error: ' + error);
+      console.log('post device error: ' + error);
     }
     );
 
+    //TODO update the state after creating
   }
 
 }
