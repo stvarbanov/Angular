@@ -13,8 +13,7 @@ import { JwtInterceptor } from '../middleware/jwt.interceptor';
 @NgModule({
   declarations: [
     LoginComponent,
-    RegisterComponent,
-    ProfileComponent
+    RegisterComponent
 
   ],
   imports: [

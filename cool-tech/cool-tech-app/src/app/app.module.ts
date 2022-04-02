@@ -70,7 +70,7 @@ const routes: Routes = [
     ServicesComponent,
     ProjectsComponent,
     RequestComponent,
-    DetailsComponent
+    DetailsComponent, ProfileComponent
   ],
   imports: [
     AuthModule,
