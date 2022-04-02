@@ -6,6 +6,7 @@ export interface Base {
 }
 
 export interface User extends Base {
+    [x: string]: any;
     username: String;
     email: String;
     password: String;

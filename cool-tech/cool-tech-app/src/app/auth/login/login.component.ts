@@ -25,11 +25,12 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-  
+
 
     this.authService.login$(this.loginForm.value).subscribe(
       (response) => {
         console.log(response)
+        localStorage.setItem('user', JSON.stringify(response['user']));
         this.router.navigate(['/auth/profile']);
       });
 

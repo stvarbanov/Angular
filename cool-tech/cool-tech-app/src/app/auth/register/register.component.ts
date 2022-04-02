@@ -34,7 +34,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     }
 
     this.authService.register$(body).subscribe((response) => {
-      console.log(response)
+      localStorage.setItem('user', JSON.stringify(response.user));
       this.router.navigate(['/auth/profile']);
     })
 
