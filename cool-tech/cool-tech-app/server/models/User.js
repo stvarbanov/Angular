@@ -9,21 +9,27 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    phone: {
+        type: String,
+        required: true
+    },
     password: {
         type: String,
         required: true,
         minLength: 8
     },
-    color:{
-        type: String,
-        required: true,
-    },
-    notes: [{
+    requests: [{
         type: mongoose.Types.ObjectId,
-        ref: 'Note'
-    }]
+        ref: 'Request'
+    }],
+    isAdmin: {
+        type: Boolean,
+        default: false,
+        required: false
+    }
 
 });
+
 
 const User = mongoose.model('User', userSchema);
 

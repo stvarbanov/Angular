@@ -1,16 +1,19 @@
 const mongoose = require('mongoose');
 
-const noteSchema = new mongoose.Schema({
+const requestSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
     },
-    state: {
+    city: {
         type: String,
-        enum: ['To Do', 'In Progress', 'Done'],
         required: true
     },
-    color: {
+    adress: {
+        type: String,
+        required: true
+    },
+    issue: {
         type: String,
         required: true
     },
@@ -20,13 +23,12 @@ const noteSchema = new mongoose.Schema({
             ref: 'User'
         }
     ],
-
 }, {
     timestamps: true
 });
 
 
 
-const Note = mongoose.model('Note', noteSchema);
+const Request = mongoose.model('Request', requestSchema);
 
-module.exports = Note;
+module.exports = Request;

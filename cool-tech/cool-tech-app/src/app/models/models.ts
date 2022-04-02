@@ -1,13 +1,14 @@
-export interface Base {
 
-}
-export interface User extends Base {
+export interface User {
     username: String;
     email: String;
     password: String;
+    phone: String;
+    isAdmin: boolean;
+    requests: String[];
 }
 
-export interface Device extends Base {
+export interface Device {
 
     model: String;
     brand: String;
@@ -17,19 +18,19 @@ export interface Device extends Base {
     description: String;
 }
 
-export interface Service extends Base {
+export interface Service {
 
     title: String;
-    imageURL: String;
+    imageUrl: String;
     description: String;
 }
-export interface Project extends Base {
+export interface Project {
 
     title: String;
-    imageURL: String;
+    imageUrl: String;
     description: String;
 }
-export interface Request extends Base {
+export interface Request {
 
     title: String;
     city: String;
