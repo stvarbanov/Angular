@@ -27,7 +27,7 @@ export class AuthService {
   // }
 
   login$(userData: { email: string, password: string }): Observable<User> {
-    return this.httpClient.post<User>(`${environment.apiUrl}/login`, userData, { withCredentials: true })
+    return this.httpClient.post<User>(`${environment.apiUrl}/auth/login`, userData, { withCredentials: true })
     // .pipe(
     // map(response => response.body?)
     // )

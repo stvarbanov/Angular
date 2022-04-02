@@ -33,7 +33,8 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       phone: phone
     }
 
-    this.authService.register$(body).subscribe(() => {
+    this.authService.register$(body).subscribe((response) => {
+      console.log(response)
       this.router.navigate(['/auth/profile']);
     })
 

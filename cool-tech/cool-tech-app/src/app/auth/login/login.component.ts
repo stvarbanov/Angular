@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
   @ViewChild('loginForm') loginForm!: NgForm;
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -20,7 +25,14 @@ export class LoginComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    alert(JSON.stringify(this.loginForm.value));
+  
+
+    this.authService.login$(this.loginForm.value).subscribe(
+      (response) => {
+        console.log(response)
+        this.router.navigate(['/auth/profile']);
+      });
+
   }
 
 }

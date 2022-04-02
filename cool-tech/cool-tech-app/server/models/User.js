@@ -20,6 +20,7 @@ const userSchema = new mongoose.Schema({
     },
     requests: [{
         type: mongoose.Types.ObjectId,
+        required: true,
         ref: 'Request'
     }],
     isAdmin: {
