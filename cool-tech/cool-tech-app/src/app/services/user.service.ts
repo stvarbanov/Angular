@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 import { User } from '../models/models';
 import { StorageService } from './storage.service';
 
-export interface CreateUserDto { username: string, email: string, password: string, tel?: string }
+export interface CreateUserDto { username: string, email: string, password: string, rePassword: string, phone?: string }
 
 @Injectable()
 export class UserService {

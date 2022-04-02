@@ -5,6 +5,7 @@ const { COOKIE_NAME } = require('../config/config');
 const authServices = require('../services/authService');
 
 router.post('/register', (req, res) => {
+   
     authServices.register(req.body)
         .then(data => {
             res.cookie(COOKIE_NAME, data.token, { httpOnly: false });

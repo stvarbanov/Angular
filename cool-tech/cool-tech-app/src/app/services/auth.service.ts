@@ -38,8 +38,12 @@ export class AuthService {
       .post<void>(`${environment.apiUrl}/logout`, {}, { withCredentials: true })
   }
 
-  register$(userData: CreateUserDto): Observable<User> {
-    return this.httpClient.post<User>(`${environment.apiUrl}/register`, userData, { withCredentials: true })
+  register$(userData: CreateUserDto): Observable<any> {
+
+    
+    const body = JSON.stringify(userData);
+
+    return this.httpClient.post(`${environment.apiUrl}/auth/register`, body, { withCredentials: true })
   }
 
   authenticate(): Observable<User> {

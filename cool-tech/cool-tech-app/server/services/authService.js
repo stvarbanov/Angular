@@ -4,13 +4,11 @@ const User = require('../models/User');
 const { SALT_ROUNDS } = require('../config/config');
 
 const register = async data => {
-    // let username = userValidator.usernameValidation(data.username);
-    // let email = userValidator.emailValidation(data.email).toLowerCase();
-    // let password = userValidator.passwordValidation(data.password);
+  
     let username = data.username;
     let email = data.email;
     let password = data.password;
-    let color = data.color;
+    let phone = data.phone;
 
     if (password !== data.rePassword) {
         throw { errorMsg: 'Passwords must match!' };
@@ -30,10 +28,11 @@ const register = async data => {
     let salt = await bcrypt.genSalt(SALT_ROUNDS);
     let hash = await bcrypt.hash(password, salt);
 
-    const newUser = new User({ username, email, password: hash, color });
+    const newUser = new User({ username, email, password: hash, phone });
 
     await newUser.save();
 
+    console.log('new User ' + newUser);
     return { user: newUser };
 };
 

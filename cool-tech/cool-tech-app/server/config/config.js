@@ -4,4 +4,6 @@ module.exports = {
     SALT_ROUNDS: 10,
     SECRET: 'mysecret123cvarbanv2330022d',
     COOKIE_NAME: 'UserCookie',
+    ORIGIN: ['http://localhost:5000', 'http://localhost:4200']
 }
+
