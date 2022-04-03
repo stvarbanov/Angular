@@ -70,5 +70,20 @@ export class RequestComponent implements OnInit, AfterViewInit {
       return this.requests.push(data);
     })
   }
+  contactUser(requestId: string) {
+
+    
+    const userInfo = document.getElementsByClassName('request-contact-user') as HTMLCollectionOf<HTMLElement>;
+
+    for (let i = 0; i < this.requests[0].length; i++) {
+
+      if (this.requests[0][i]._id == requestId) {
+
+        // await this.
+
+        userInfo[i].style.display = "inline";
+      }
+    }
+  }
 }
 
