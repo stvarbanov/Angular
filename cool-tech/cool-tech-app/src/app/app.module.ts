@@ -25,6 +25,8 @@ import { ProfileComponent } from './auth/profile/profile.component';
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './components/devices/details/details.component';
 import { AuthService } from './services/auth.service';
+import { UserService } from './services/user.service';
+import { StorageService } from './services/storage.service';
 
 
 const routes: Routes = [
@@ -97,7 +99,9 @@ const routes: Routes = [
       },
       deps: [AuthService],
       multi: true
-    }
+    },
+    UserService,
+    StorageService
   ],
   bootstrap: [AppComponent]
 })

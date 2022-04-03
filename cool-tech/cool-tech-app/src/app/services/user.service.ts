@@ -18,7 +18,7 @@ export class UserService {
     return this.httpClient.get<User>(`${environment.apiUrl}/users/profile`, { withCredentials: true })
   }
 
-  getUser(userId: string): Observable<User> {
+  getUserById(userId: string): Observable<User> {
     return this.httpClient.get<User>(`${environment.apiUrl}/users/${userId}`, { withCredentials: true })
   }
 }

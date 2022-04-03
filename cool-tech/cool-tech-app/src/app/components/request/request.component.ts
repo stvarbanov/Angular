@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { RequestI } from 'src/app/models/models';
 import { RequestService } from 'src/app/services/request.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-request',
@@ -17,8 +18,9 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
 
   requests: any = [];
+  user: any = {};
 
-  constructor(private requestService: RequestService) { }
+  constructor(private requestService: RequestService, private userService: UserService) { }
 
   ngOnInit(): void {
     this.checkLoggedUser();
@@ -72,15 +74,16 @@ export class RequestComponent implements OnInit, AfterViewInit {
   }
   contactUser(requestId: string) {
 
-    
+
     const userInfo = document.getElementsByClassName('request-contact-user') as HTMLCollectionOf<HTMLElement>;
 
     for (let i = 0; i < this.requests[0].length; i++) {
 
       if (this.requests[0][i]._id == requestId) {
 
-        // await this.
-
+        this.userService.getUserById(this.requests[0][i].owner).subscribe((data) => {
+          this.user = data['user'];
+        })
         userInfo[i].style.display = "inline";
       }
     }

@@ -4,7 +4,7 @@ const User = require('../models/User');
 const { SALT_ROUNDS } = require('../config/config');
 
 const register = async data => {
-  
+
     let username = data.username;
     let email = data.email;
     let password = data.password;
@@ -54,10 +54,10 @@ const login = async data => {
     return { user };
 };
 
-
-
+const getUserById = async userId => await User.findById(userId);
 
 module.exports = {
     register,
-    login
+    login,
+    getUserById
 }

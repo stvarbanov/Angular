@@ -38,8 +38,8 @@
                 <div class="request-adress"> Adress: {{request.adress}}</div>
                 <div class="request-issue"> Issue: {{request.issue}}</div>
                 <div class="request-contact-user">
-                    <div class="request-user"> User email: </div>
-                    <div class="request-user"> User phone: </div>
+                    <div class="request-user"> User email: {{user.email}}</div>
+                    <div class="request-user"> User phone: {{user.phone}}</div>
                 </div>
                 <div class="request-buttons">
                     <button class="request-contact" (click)="contactUser(request._id)">Contact user</button>
