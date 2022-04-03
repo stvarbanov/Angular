@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Request } from 'src/app/models/models';
+import { RequestI } from 'src/app/models/models';
+import { RequestService } from 'src/app/services/request.service';
 
 @Component({
   selector: 'app-request',
@@ -14,18 +15,39 @@ export class RequestComponent implements OnInit, AfterViewInit {
   isLoggedIn: boolean = false;
   isLoggedAdmin: boolean = false;
 
-  requests: Request[] = [];
-  constructor() { }
+
+  requests: any = [];
+
+  constructor(private requestService: RequestService) { }
 
   ngOnInit(): void {
     this.checkLoggedUser();
+    this.getAllRequests();
+    console.log(this.requests);
   }
   ngAfterViewInit(): void {
 
   }
 
   onSubmit() {
-    alert(JSON.stringify(this.requestForm.value));
+
+    const user = localStorage.getItem('user');
+    const userObj = JSON.parse(user!)
+    const ownerId = userObj.id;
+    const newRequest: RequestI = {
+
+      title: this.requestForm.value.title,
+      city: this.requestForm.value.city,
+      adress: this.requestForm.value.adress,
+      issue: this.requestForm.value.issue,
+      owner: ownerId
+    }
+
+
+    this.requestService.createRequest(newRequest).subscribe((response) => {
+      console.log(response)
+
+    });
 
   }
 
@@ -43,8 +65,10 @@ export class RequestComponent implements OnInit, AfterViewInit {
   }
 
 
-  getAllRequests(){
-
+  getAllRequests() {
+    this.requestService.loadAllRequests().subscribe((data) => {
+      return this.requests.push(data);
+    })
   }
-
 }
+

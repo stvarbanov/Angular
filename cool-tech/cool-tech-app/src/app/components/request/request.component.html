@@ -27,12 +27,13 @@
 
     <!-- only for admin - show all requests -->
     <div class="requests" *ngIf="isLoggedAdmin">
-        <div *ngFor=" let request of requests">
+        <div *ngFor=" let request of requests[0]">
             <div class="request">
                 <span class="request-img-container">
                     <img>
                 </span>
-                <div class="request-user"> User: {{request.owner}}</div>
+                <div class="request-user"> User email: {{request.owner}}</div>
+                <div class="request-user"> User phone: {{request.owner}}</div>
                 <div class="request-title"> Title: {{request.title}} </div>
                 <div class="request-city"> City: {{request.city}}</div>
                 <div class="request-adress"> Adress: {{request.adress}}</div>

@@ -41,7 +41,7 @@ export interface Project extends Base {
     description: String;
 }
 
-export interface Request extends Base {
+export interface RequestI extends Base {
 
     title: String;
     city: String;
