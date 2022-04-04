@@ -11,7 +11,7 @@
   text-align: center;
   border: 1px;
   background-color: azure;
-  padding: 32px;
+  padding: 66px;
   position: relative;
 
 }
@@ -32,8 +32,10 @@
   width: 400px;
   height: 425px;
   border-radius: 15px;
+}
 
-
+.project-description{
+  margin-right: 10px;
 }
 
 .project-side-wrapper {
