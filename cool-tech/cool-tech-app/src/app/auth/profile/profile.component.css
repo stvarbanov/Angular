@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.profile-no {
+  display: inline-block;
+}
+
 .profile-button {
 
   padding: 15px;
