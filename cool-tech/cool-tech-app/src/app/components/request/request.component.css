@@ -22,16 +22,65 @@ form {
 
 }
 
-.request-wrapper{
+.request-wrapper {
   margin-top: 50px;
-color:rgb(15, 65, 37)
+  color: rgb(15, 65, 37)
 }
 
-.action-button{
+.action-button {
   margin-left: 125px;
   margin-top: 15px;
 }
 
-.request-contact-user{
+.request-contact-user {
   display: none;
+}
+
+.requests {
+  margin: 60px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.request {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 250px;
+  height: 280px;
+  background-color: aquamarine;
+  border-radius: 25px;
+  word-wrap: break-word;
+}
+
+.request div {
+  padding: 1px;
+  font-size: 16px;
+  font-weight: 500;
+  /* margin-left: 8px; */
+}
+
+.request-buttons {
+
+  display: flex;
+  margin-left: 25px;
+  gap: 25px;
+  margin-top: 25px;
+  margin-bottom: 1px;
+}
+
+.request-buttons button {
+  border-radius: 15px;
+  background-color: aqua;
+}
+
+.request-issue {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.request-contact-user {
+  margin-top: 10px;
 }
