@@ -1,16 +1,18 @@
  /* SERVICES */
 
  .services {
-   display: flex;
+   /* display: flex; */
    flex-direction: column;
-
+   justify-content: center;
+   /* width: 1200px */
+   /* max-width: 1500px; */
  }
 
  .service-box {
    display: flex;
    flex-direction: column;
    flex: 45%;
-   max-width: 750px;
+   /* max-width: 750px; */
  }
 
 
@@ -19,74 +21,82 @@
    display: flex;
    flex-direction: row;
    justify-content: center;
-   /* max-width: 1500px; */
-   /* margin-left: 100px; */
-   height: 350px;
-   width: 100%;
 
-   border-radius: 20px;
+   margin-left: 10px;
+   height: 320px;
+   width: 900px;
+
    text-align: center;
    padding: 15px 35px;
-   gap: 50px
+   /* gap: 50px */
+   border-radius: 18px;
+   box-shadow: 0px 0px 12px 1px #000000;
  }
 
  .service:nth-child(odd) {
    flex-direction: row-reverse;
-
  }
 
-
  .service-title {
-   padding-top: 35px;
+   padding-top: 15px;
    display: block;
    font-size: 32px;
  }
 
  .service .img-container {
    overflow: hidden;
-   max-width: 420px;
+   max-width: 620px;
 
-   height: 280px;
-   border-radius: 18px;
-   box-shadow: 0px 0px 12px 1px #000000;
+   /* height: 480px; */
+
  }
 
- .service div img {
+ .img-container img {
    display: block;
-
-
+   margin-top: 35px;
+   max-width: 300px;
+   border-radius: 15px;
  }
 
  .service-text {
    padding-top: 45px;
+   font-size: 14px;
+   white-space: wrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
  }
 
  aside {
-  /* display: none; */
-  width: 30%;
-  padding-left: 15px;
-  margin-left: 15px;
-  float: right;
-  font-style: italic;
-  background-color: lightgray;
+   /* display: none; */
+   width: 30%;
+   padding-left: 15px;
+   margin-left: 15px;
+   float: right;
+   font-style: italic;
+   background-color: lightgray;
+   position: sticky;
+ }
 
-}
-.services-wrapper {
-  display: flex;
+ .services-wrapper {
+   display: flex;
+   justify-content: space-around;
+   flex-direction: row;
+   gap: 15px;
+ }
 
-}
-.input {
+ .input {
 
-  margin: 20px 0px 10px;
-  display: flex;
-  flex-direction: column-reverse;
-  width: 300px;
+   margin: 20px 0px 10px;
+   display: flex;
+   flex-direction: column-reverse;
+   width: 300px;
 
-}
-.input label {
-  margin-bottom: 5px;
-}
+ }
 
-.h3{
-  margin: 10px;
-}
+ .input label {
+   margin-bottom: 5px;
+ }
+
+ .h3 {
+   margin: 10px;
+ }

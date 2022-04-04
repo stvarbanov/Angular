@@ -16,14 +16,15 @@ export class RequestComponent implements OnInit, AfterViewInit {
   isLoggedIn: boolean = false;
   isLoggedAdmin: boolean = false;
 
-
   requests: any = [];
   user: any = {};
 
   constructor(private requestService: RequestService, private userService: UserService) { }
 
   ngOnInit(): void {
+
     this.checkLoggedUser();
+  
     this.getAllRequests();
     console.log(this.requests);
   }
@@ -80,7 +81,7 @@ export class RequestComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < this.requests[0].length; i++) {
 
       userInfo[i].style.display = "none";
-      
+
       if (this.requests[0][i]._id == requestId) {
         this.userService.getUserById(this.requests[0][i].owner).subscribe((data) => {
           this.user = data['user'];

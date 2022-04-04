@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Service } from 'src/app/models/models';
+import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
   selector: 'app-services',
@@ -9,13 +11,19 @@ import { NgForm } from '@angular/forms';
 export class ServicesComponent implements OnInit, AfterViewInit {
 
   @ViewChild('serviceForm') serviceForm!: NgForm;
+  
+  services: any = [];
   isLoggedAdmin = false;
 
-  constructor() { }
+
+  constructor(private servicesService: ServicesService) { }
 
   ngOnInit(): void {
-    this.checkLoggedUser()
-
+    
+    this.getAllServices();
+    this.checkLoggedUser();
+    console.log(this.services);
+    
   }
   checkLoggedUser() {
 
@@ -31,6 +39,24 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    alert(JSON.stringify(this.serviceForm.value));
+
+    const newService: Service = {
+
+      title: this.serviceForm.value.title,
+      imageUrl: this.serviceForm.value.imageUrl,
+      description: this.serviceForm.value.description,
+
+    }
+
+    this.servicesService.createService(newService).subscribe((service) => {
+      console.log(service)
+
+    });
+  }
+  getAllServices() {
+    this.servicesService.getAllServices().subscribe((data) => {
+
+      return this.services.push(data);
+    })
   }
 }

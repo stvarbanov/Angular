@@ -7,7 +7,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
-  
+
   @ViewChild('projectForm') projectForm!: NgForm;
 
   isLoggedAdmin = false;
@@ -15,7 +15,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit(): void {
- this.checkLoggedUser()
+    this.checkLoggedUser()
   }
   checkLoggedUser() {
 

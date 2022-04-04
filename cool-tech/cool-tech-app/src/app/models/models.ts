@@ -37,7 +37,7 @@ export interface Service extends Base {
 export interface Project extends Base {
 
     title: String;
-    imageUrl: String;
+    imagesUrlArr: String[];
     description: String;
 }
 
