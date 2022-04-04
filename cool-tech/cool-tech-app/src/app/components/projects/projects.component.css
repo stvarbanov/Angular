@@ -89,7 +89,14 @@ aside h3 {
 
 }
 
-.gallery-img img {
+.gallery-img{
   width: 180px;
+  height: 180px;
   border-radius: 15px;
+  overflow: hidden;
+}
+.gallery-img img {
+  object-fit:cover;
+  width: 180px;
+  height: 180px;
 }
