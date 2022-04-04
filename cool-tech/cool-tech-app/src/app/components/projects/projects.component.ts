@@ -11,11 +11,12 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   @ViewChild('projectForm') projectForm!: NgForm;
 
   isLoggedAdmin = false;
-
+  projects: any = [];
   constructor() { }
 
   ngOnInit(): void {
     this.checkLoggedUser()
+    this.getAllProjects();
   }
   checkLoggedUser() {
 
@@ -34,5 +35,8 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   onSubmit() {
     alert(JSON.stringify(this.projectForm.value));
   }
+  getAllProjects() {
 
+    
+  }
 }

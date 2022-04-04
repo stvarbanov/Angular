@@ -37,8 +37,11 @@ export interface Service extends Base {
 export interface Project extends Base {
 
     title: String;
-    imagesUrlArr: String[];
     description: String;
+    image1Url: String;
+    image2Url: String;
+    image3Url: String;
+    image4Url: String;
 }
 
 export interface RequestI extends Base {

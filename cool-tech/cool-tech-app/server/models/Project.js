@@ -9,7 +9,19 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    imageUrl: {
+    image1Url: {
+        type: String,
+        required: true
+    },
+    image2Url: {
+        type: String,
+        required: true
+    },
+    image3Url: {
+        type: String,
+        required: true
+    },
+    image4Url: {
         type: String,
         required: true
     },

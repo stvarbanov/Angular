@@ -24,13 +24,15 @@
 
 .project-img {
   overflow: hidden;
-  border-radius: 25px;
+
   width: 400px;
 }
 
 .project-img img {
   width: 400px;
-  height: 250px;
+  height: 425px;
+  border-radius: 15px;
+
 
 }
 
@@ -44,7 +46,7 @@
 
 aside {
   /* display: none; */
-  width: 30%;
+  width: 280px;
   padding-left: 15px;
   margin-left: 15px;
   float: right;
@@ -55,15 +57,18 @@ aside {
 
 .projects-wrapper {
   display: flex;
-
+  justify-content: space-between;
 }
 
+.project:nth-child(even) {
+  flex-direction: row-reverse;
+}
 .input {
 
   margin: 20px 0px 10px;
   display: flex;
   flex-direction: column-reverse;
-  width: 300px;
+  width: 240px;
 
 }
 
@@ -77,6 +82,14 @@ aside h3 {
   padding: 10px;
 }
 
-.gallery{
+.gallery {
   margin-top: 45px;
+  display: flex;
+  gap: 15px;
+
+}
+
+.gallery-img img {
+  width: 180px;
+  border-radius: 15px;
 }

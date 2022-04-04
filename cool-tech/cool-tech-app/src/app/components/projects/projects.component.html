@@ -1,8 +1,8 @@
 <div class="projects-wrapper">
     <div class="projects">
 
-        <article class="project-card">
-            <article class="project">
+       
+            <article class="project" *ngFor=" let project of projects[0]">
                 <div class="project-img">
                     <img src="https://image.made-in-china.com/202f0j00fisGeuMrACbw/Al-2680A-Wall-Split-Air-Conditioner-Automatic-Production-Line.jpg"
                         alt="">
@@ -22,11 +22,25 @@
                         maiores obcaecati quidem!
                     </p>
 
-                    <h3 class="gallery">TODO:-------Gallery of other photos here--------</h3>
+                    <h3 class="gallery">
+                        <div class="gallery-img">
+                            <img src="https://image.made-in-china.com/202f0j00fisGeuMrACbw/Al-2680A-Wall-Split-Air-Conditioner-Automatic-Production-Line.jpg"
+                                alt="">
+                        </div>
+                        <div class="gallery-img">
+                            <img src="https://image.made-in-china.com/202f0j00fisGeuMrACbw/Al-2680A-Wall-Split-Air-Conditioner-Automatic-Production-Line.jpg"
+                                alt="">
+                        </div>
+                        <div class="gallery-img">
+                            <img src="https://image.made-in-china.com/202f0j00fisGeuMrACbw/Al-2680A-Wall-Split-Air-Conditioner-Automatic-Production-Line.jpg"
+                                alt="">
+                        </div>
+                    </h3>
                 </div>
 
             </article>
-        </article>
+        
+        
 
     </div>
     <aside *ngIf="isLoggedAdmin">
@@ -39,13 +53,26 @@
                 <label for="title" class="add-title">Project title</label>
             </div>
             <div class="input">
-                <input class="form-control" id="imageURL" name="imageURL" ngModel />
-                <label for="imageURL" class="add-image">Image URL</label>
-            </div>
-            <div class="input">
                 <textarea class="form-control" id="description" name="description" ngModel></textarea>
                 <label for="description" class="add-text">Description</label>
             </div>
+            <div class="input">
+                <input class="form-control" id="image1Url" name="image1Url" ngModel />
+                <label for="image1Url" class="add-image">Image 1 URL</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="image2Url" name="image2Url" ngModel />
+                <label for="image2Url" class="add-image">Image 2 URL</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="image3Url" name="image3Url" ngModel />
+                <label for="image3Url" class="add-image">Image 3 URL</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="image4Url" name="image4Url" ngModel />
+                <label for="image4Url" class="add-image">Image 4 URL</label>
+            </div>
+
             <div class="action">
                 <button class="action-button">Add project</button>
             </div>
