@@ -1,46 +1,33 @@
 <div class="projects-wrapper">
     <div class="projects">
 
-       
-            <article class="project" *ngFor=" let project of projects[0]">
-                <div class="project-img">
-                    <img src="https://image.made-in-china.com/202f0j00fisGeuMrACbw/Al-2680A-Wall-Split-Air-Conditioner-Automatic-Production-Line.jpg"
-                        alt="">
-                </div>
-                <div class="project-side-wrapper">
-                    <h3 class="project-title">PROJECT 1</h3>
-                    <p class="project-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia cum ipsum incidunt officiis
-                        expedita
-                        exercitationem numquam modi, aut assumenda magni et sapiente eaque illo! Dolorem nobis doloribus
-                        rem?
-                        Sunt, dolorem?
-                        Debitis modi temporibus iure deleniti autem quae numquam hic perspiciatis neque cupiditate
-                        nesciunt,
-                        provident illum dolore sunt maiores facere nemo impedit reiciendis inventore vitae, libero
-                        natus! Ex
-                        maiores obcaecati quidem!
-                    </p>
 
-                    <h3 class="gallery">
-                        <div class="gallery-img">
-                            <img src="https://image.made-in-china.com/202f0j00fisGeuMrACbw/Al-2680A-Wall-Split-Air-Conditioner-Automatic-Production-Line.jpg"
-                                alt="">
-                        </div>
-                        <div class="gallery-img">
-                            <img src="https://image.made-in-china.com/202f0j00fisGeuMrACbw/Al-2680A-Wall-Split-Air-Conditioner-Automatic-Production-Line.jpg"
-                                alt="">
-                        </div>
-                        <div class="gallery-img">
-                            <img src="https://image.made-in-china.com/202f0j00fisGeuMrACbw/Al-2680A-Wall-Split-Air-Conditioner-Automatic-Production-Line.jpg"
-                                alt="">
-                        </div>
-                    </h3>
-                </div>
+        <article class="project" *ngFor=" let project of projects[0]">
+            <div class="project-img">
+                <img src="{{project.image1Url}}" alt="">
+            </div>
+            <div class="project-side-wrapper">
+                <h3 class="project-title">{{project.title}}</h3>
+                <p class="project-description">
+                    {{project.description}}
+                </p>
 
-            </article>
-        
-        
+                <h3 class="gallery">
+                    <div class="gallery-img">
+                        <img src={{project.image2Url}} alt="">
+                    </div>
+                    <div class="gallery-img">
+                        <img src={{project.image3Url}} alt="">
+                    </div>
+                    <div class="gallery-img">
+                        <img src={{project.image4Url}} alt="">
+                    </div>
+                </h3>
+            </div>
+
+        </article>
+
+
 
     </div>
     <aside *ngIf="isLoggedAdmin">

@@ -1,0 +1,37 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Project } from '../models/models.js';
+
+
+const apiUrl = environment.apiUrl;
+
+@Injectable({
+  providedIn: 'root'
+})
+
+
+export class ProjectsService {
+
+  constructor(private http: HttpClient) { }
+
+  createProject(newProject: Project) {
+    const body = JSON.stringify(newProject);
+
+    return this.http.post(
+      `${apiUrl}/project/create`, body);
+
+  }
+
+  getAllProjects(): Observable<Project[]> {
+    return this.http.get<Project[]>(
+      `${apiUrl}/project/all`
+    );
+
+
+  }
+
+
+
+}

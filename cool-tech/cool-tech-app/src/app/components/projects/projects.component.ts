@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Project } from 'src/app/models/models';
+import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
   selector: 'app-projects',
@@ -11,12 +13,15 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   @ViewChild('projectForm') projectForm!: NgForm;
 
   isLoggedAdmin = false;
+
   projects: any = [];
-  constructor() { }
+
+  constructor(private projectsService: ProjectsService) { }
 
   ngOnInit(): void {
-    this.checkLoggedUser()
     this.getAllProjects();
+    this.checkLoggedUser()
+    console.log(this.projects)
   }
   checkLoggedUser() {
 
@@ -33,10 +38,30 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    alert(JSON.stringify(this.projectForm.value));
+    const newProject: Project = {
+
+      title: this.projectForm.value.title,
+      description: this.projectForm.value.description,
+      image1Url: this.projectForm.value.image1Url,
+      image2Url: this.projectForm.value.image2Url,
+      image3Url: this.projectForm.value.image3Url,
+      image4Url: this.projectForm.value.image4Url
+
+    }
+
+    this.projectsService.createProject(newProject).subscribe((project) => {
+      console.log(project)
+
+    });
+
+
   }
   getAllProjects() {
 
-    
+    this.projectsService.getAllProjects().subscribe((data) => {
+
+      return this.projects.push(data);
+    })
+
   }
 }
