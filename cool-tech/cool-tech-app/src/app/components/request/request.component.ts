@@ -94,7 +94,9 @@ export class RequestComponent implements OnInit, AfterViewInit {
   deleteRequest(requestId: string) {
 
     this.requestService.deleteRequest(requestId).subscribe((data) => {
+
       this.getAllRequests();
+      //list of requests should update
     })
   }
 }

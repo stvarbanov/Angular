@@ -33,15 +33,11 @@ export class RequestService {
 
   deleteRequest(requestId: string) {
 
-    const body = JSON.stringify(requestId);
-    alert('Deleting request id:'+ body);
+    // const body = JSON.stringify();
 
-    return this.http.post(
-      
-      `${apiUrl}/request/delete`, body);
+    return this.http.delete(
 
+      `${apiUrl}/request/delete/{requestId}`);
   }
-
-
 
 }

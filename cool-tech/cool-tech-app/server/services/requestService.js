@@ -23,15 +23,7 @@ const createRequest = async (data) => {
 
 }
 
-const deleteRequest = async (reqId) => {
-
-    console.log(reqId);
-
-     await Request.findOneAndDelete(reqId);
-
-     return 'completed delete';
-}
-
+const deleteRequest = async (reqId) => await Request.findOneAndDelete(reqId);
 
 module.exports = {
     getAllRequests,

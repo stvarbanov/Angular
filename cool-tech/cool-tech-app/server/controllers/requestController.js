@@ -20,10 +20,10 @@ router.post('/create', (req, res) => {
         .catch(err => console.log(err));
 
 })
-router.post('/delete', (req, res) => {
+router.delete('/delete/:reqId', (req, res) => {
 
 
-    requestService.deleteRequest(req.body)
+    requestService.deleteRequest(req.params.reqId)
         .then(data => {
             res.status(201).json(data);
         })
