@@ -27,6 +27,7 @@
     </form>
 
     <!-- only for admin - show all requests -->
+    <h3 *ngIf="isLoggedAdmin">List of all active requests: </h3>
     <div class="requests" *ngIf="isLoggedAdmin">
         <div *ngFor=" let request of requests[0]">
             <div class="request">
@@ -44,7 +45,7 @@
                 </div>
                 <div class="request-buttons">
                     <button class="request-contact" (click)="contactUser(request._id)">Contact user</button>
-                    <button class="request-delete">Delete</button>
+                    <button class="request-delete" (click)="deleteRequest(request._id)">Delete</button>
                 </div>
             </div>
         </div>

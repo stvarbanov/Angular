@@ -11,7 +11,7 @@ const apiUrl = environment.apiUrl;
 })
 export class RequestService {
 
- 
+
 
   constructor(private http: HttpClient) { }
 
@@ -31,6 +31,15 @@ export class RequestService {
 
   }
 
+  deleteRequest(requestId: string) {
+
+    const body = JSON.stringify(requestId);
+    alert('Deleting request id:'+ body);
+
+    return this.http.post(
+      `${apiUrl}/request/delete`, body);
+
+  }
 
 
 

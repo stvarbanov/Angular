@@ -14,6 +14,4 @@ router.use('/users', userController);
 router.use('/service', servicesController);
 router.use('/project', projectsController);
 
-//TODO:controller for each type
-
 module.exports = router;

@@ -20,6 +20,17 @@ router.post('/create', (req, res) => {
         .catch(err => console.log(err));
 
 })
+router.post('/delete', (req, res) => {
+
+    console.log(req.body);
+
+    requestService.deleteRequest(req.body)
+        .then(data => {
+            res.status(201).json(data);
+        })
+        .catch(err => console.log(err));
+
+})
 
 //TODO add update
 

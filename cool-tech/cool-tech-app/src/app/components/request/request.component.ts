@@ -24,7 +24,7 @@ export class RequestComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
 
     this.checkLoggedUser();
-  
+
     this.getAllRequests();
     console.log(this.requests);
   }
@@ -89,6 +89,13 @@ export class RequestComponent implements OnInit, AfterViewInit {
         userInfo[i].style.display = "inline";
       }
     }
+  }
+
+  deleteRequest(requestId: string) {
+
+    this.requestService.deleteRequest(requestId).subscribe((data) => {
+      this.getAllRequests();
+    })
   }
 }
 
