@@ -22,7 +22,6 @@ router.post('/create', (req, res) => {
 })
 router.post('/delete', (req, res) => {
 
-    console.log(req.body);
 
     requestService.deleteRequest(req.body)
         .then(data => {
