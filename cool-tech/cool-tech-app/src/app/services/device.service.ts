@@ -27,4 +27,12 @@ export class DeviceService {
       `${apiUrl}/devices/create`, body);
 
   }
+
+  deleteDevice(deviceId: String) {
+
+    return this.http.delete(
+
+      `${apiUrl}/devices/delete/{deviceId}`);
+  }
+
 }

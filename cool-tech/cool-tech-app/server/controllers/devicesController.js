@@ -21,6 +21,17 @@ router.post('/create', (req, res) => {
 
 })
 
+router.delete('/delete/:deviceId', (req, res) => {
+
+
+    deviceService.deleteDevice(req.params.deviceId)
+        .then(data => {
+            res.status(201).json(data);
+        })
+        .catch(err => console.log(err));
+
+})
+
 //TODO add update
 
 //TODO add delete

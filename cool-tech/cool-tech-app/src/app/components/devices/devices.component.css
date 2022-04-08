@@ -47,7 +47,7 @@
 }
 
 .device-buy,
-.device-details {
+.device-details,.device-delete,.device-edit {
   display: block;
   width: 100px;
   padding: 6px;
@@ -63,6 +63,13 @@
 
   background-color: rgb(13, 60, 80);
   border-color: rgb(45, 121, 51);
+}
+
+.device-delete{
+  background-color: rgb(200, 62, 62);
+}
+.device-edit{
+  background-color: rgb(206, 165, 51);
 }
 
 .devices-wrapper {

@@ -12,11 +12,16 @@
                 <!-- <div class="device-class"> A+++ </div> -->
                 <div class="device-price"> {{device.price}}.00 BGN </div>
                 <!-- <div class="device-description"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, rem. </div> -->
-                <div class="device-buttons">
+                <!-- <div *ngIf="!isLoggedAdmin" > -->
+                <div *ngIf="isLoggedAdmin != true" class="device-buttons user">
                     <button class="device-buy">Buy</button>
                     <button class="device-details" [routerLink]="['details',device._id]">Details</button>
                 </div>
-
+                <div *ngIf="isLoggedAdmin" class="device-buttons admin">
+                    <button class="device-delete" (click)="deleteDevice(device._id)">Delete</button>
+                    <button class="device-edit" [routerLink]="['details',device._id]">Update</button>
+                </div>
+                <!-- </div> -->
                 <!-- <jw-modal>https://jasonwatmore.com/post/2020/09/24/angular-10-custom-modal-window-dialog-box</jw-modal> -->
             </div>
 

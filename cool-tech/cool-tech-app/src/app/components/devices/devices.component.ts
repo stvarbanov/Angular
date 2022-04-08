@@ -72,4 +72,13 @@ export class DevicesComponent implements OnInit, AfterViewInit {
     //TODO update the state after creating
   }
 
+  deleteDevice(deviceId: string) {
+
+    this.deviceService.deleteDevice(deviceId).subscribe((data) => {
+
+      this.getAllDevices();
+      //list of requests should update
+    })
+  }
+
 }
