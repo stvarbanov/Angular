@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { tap } from 'rxjs';
-import { Device, User } from 'src/app/models/models.js';
-// import { Device } from '../../models/models';
+
+import { Device } from 'src/app/models/models.js';
 import { DeviceService } from '../../services/device.service';
 
 @Component({
@@ -63,11 +62,12 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
     this.deviceService.createDevice(newDevice).subscribe((response) => {
 
-
+      this.deviceForm.reset();
     }, (error) => {
       console.log('post device error: ' + error);
     }
     );
+
 
     //TODO update the state after creating
   }

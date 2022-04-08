@@ -48,7 +48,7 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
 
     this.requestService.createRequest(newRequest).subscribe((response) => {
-      console.log(response)
+      this.requestForm.reset();
 
     });
 

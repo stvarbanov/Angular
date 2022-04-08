@@ -50,8 +50,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     }
 
     this.projectsService.createProject(newProject).subscribe((project) => {
-      console.log(project)
-
+      this.projectForm.reset();
     });
 
 

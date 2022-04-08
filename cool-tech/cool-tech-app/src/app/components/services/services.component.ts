@@ -11,7 +11,7 @@ import { ServicesService } from 'src/app/services/services.service';
 export class ServicesComponent implements OnInit, AfterViewInit {
 
   @ViewChild('serviceForm') serviceForm!: NgForm;
-  
+
   services: any = [];
   isLoggedAdmin = false;
 
@@ -19,11 +19,11 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   constructor(private servicesService: ServicesService) { }
 
   ngOnInit(): void {
-    
+
     this.getAllServices();
     this.checkLoggedUser();
     console.log(this.services);
-    
+
   }
   checkLoggedUser() {
 
@@ -49,7 +49,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     }
 
     this.servicesService.createService(newService).subscribe((service) => {
-      console.log(service)
+      this.serviceForm.reset();
 
     });
   }
