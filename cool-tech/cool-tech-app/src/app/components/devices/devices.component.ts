@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { Device } from 'src/app/models/models.js';
@@ -18,7 +18,8 @@ export class DevicesComponent implements OnInit, AfterViewInit {
   @ViewChild('deviceForm') deviceForm!: NgForm;
 
   constructor(
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    public cd: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
@@ -63,10 +64,13 @@ export class DevicesComponent implements OnInit, AfterViewInit {
     this.deviceService.createDevice(newDevice).subscribe((response) => {
 
       this.deviceForm.reset();
+      this.cd.detectChanges();
+
     }, (error) => {
       console.log('post device error: ' + error);
     }
     );
+
 
 
     //TODO update the state after creating
@@ -76,6 +80,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
     this.deviceService.deleteDevice(deviceId).subscribe((data) => {
 
+      this.cd.detectChanges();
       this.getAllDevices();
       //list of requests should update
     })

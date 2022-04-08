@@ -28,6 +28,9 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { StorageService } from './services/storage.service';
 
+import { StoreModule } from '@ngrx/store';
+import { ListReducer } from './services/list.reducer.js';
+
 
 const routes: Routes = [
   {
@@ -85,6 +88,12 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
+    // StoreModule.forRoot(
+    //   {
+    //     listOfItems: ListReducer
+    //     // usersLoggedIn:UsersReducer
+    //   }
+    // )
 
 
   ],
