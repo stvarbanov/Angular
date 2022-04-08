@@ -21,9 +21,20 @@ router.post('/create', (req, res) => {
 
 })
 
+router.delete('/delete/:projectId', (req, res) => {
+
+
+    projectService.deleteProject(req.params.projectId)
+        .then(data => {
+            res.status(201).json(data);
+        })
+        .catch(err => console.log(err));
+
+})
+
+
 //TODO add update
 
-//TODO add delete
 
 
 module.exports = router;

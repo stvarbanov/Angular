@@ -22,7 +22,11 @@ const createProject = async (data) => {
 
 }
 
+const deleteProject = async (projectId) =>  await Project.findByIdAndDelete(projectId);
+
+
 module.exports = {
     getAllProjects,
-    createProject
+    createProject,
+    deleteProject
 }

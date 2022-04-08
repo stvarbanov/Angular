@@ -32,7 +32,7 @@ export class DeviceService {
 
     return this.http.delete(
 
-      `${apiUrl}/devices/delete/{deviceId}`);
+      `${apiUrl}/devices/delete/${deviceId}`);
   }
 
 }

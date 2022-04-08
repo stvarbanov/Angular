@@ -63,4 +63,12 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     })
 
   }
+  deleteProject(projectId: string) {
+
+    this.projectsService.deleteProject(projectId).subscribe((data) => {
+
+      this.getAllProjects();
+
+    })
+  }
 }

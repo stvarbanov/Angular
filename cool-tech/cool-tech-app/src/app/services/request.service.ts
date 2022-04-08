@@ -37,7 +37,7 @@ export class RequestService {
 
     return this.http.delete(
 
-      `${apiUrl}/request/delete/{requestId}`);
+      `${apiUrl}/request/delete/${requestId}`);
   }
 
 }

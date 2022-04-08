@@ -28,7 +28,14 @@ export class ServicesService {
       `${apiUrl}/service/all`
     );
 
+  }
+  deleteService(serviceId: string) {
 
+    // const body = JSON.stringify();
+
+    return this.http.delete(
+
+      `${apiUrl}/service/delete/${serviceId}`);
   }
 
 }

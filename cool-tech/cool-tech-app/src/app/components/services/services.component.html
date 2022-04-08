@@ -1,18 +1,27 @@
 <div class="services-wrapper">
-    <div class="services" >
-       
-            <div class="service" *ngFor=" let service of services[0]">
-                <div class="img-container">
-                    <img div-image src={{service.imageUrl}}>
-                </div>
-                <div class="service-box">
-                    <h3 class="service-title"> {{service.title}} </h3>
-                    <span class="service-text">
-                        <p>{{service.description}}</p>
-                    </span>
-                </div>
+    <div class="services">
+
+        <div class="service" *ngFor=" let service of services[0]">
+            <div class="img-container">
+                <img div-image src={{service.imageUrl}}>
             </div>
-      
+            <div class="service-box">
+                <h3 class="service-title"> {{service.title}} </h3>
+                <span class="service-text">
+                    <p>{{service.description}}</p>
+                </span>
+            </div>
+            <div *ngIf="isLoggedAdmin">
+
+                <button class="action-button delete" (click)="deleteService(service._id)">
+                    <i class="fa-solid fa-x"></i>
+                </button>
+                <button class="action-button edit">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+            </div>
+        </div>
+
     </div>
     <aside *ngIf="isLoggedAdmin">
         <h3>Admin panel for services</h3>

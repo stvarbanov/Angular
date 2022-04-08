@@ -17,7 +17,10 @@ const createService = async (data) => {
 
 }
 
+const deleteService = async (serviceId) =>  await Service.findByIdAndDelete(serviceId);
+
 module.exports = {
     getAllServices,
-    createService
+    createService,
+    deleteService
 }

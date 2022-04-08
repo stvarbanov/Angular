@@ -34,7 +34,7 @@ router.delete('/delete/:deviceId', (req, res) => {
 
 //TODO add update
 
-//TODO add delete
+
 
 
 module.exports = router;

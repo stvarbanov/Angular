@@ -59,4 +59,13 @@ export class ServicesComponent implements OnInit, AfterViewInit {
       return this.services.push(data);
     })
   }
+  deleteService(serviceId: string) {
+   
+    this.servicesService.deleteService(serviceId).subscribe((data) => {
+
+      this.getAllServices();
+      //list of requests should update
+    })
+
+  }
 }

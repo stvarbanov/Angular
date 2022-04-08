@@ -20,7 +20,7 @@ const createDevice = async (data) => {
 
 }
 
-const deleteDevice = async (deviceId) => await Device.findOneAndDelete(deviceId);
+const deleteDevice = async (deviceId) => await Device.findByIdAndDelete(deviceId);
 
 module.exports = {
     getAllDevices,

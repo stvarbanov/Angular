@@ -29,9 +29,15 @@ export class ProjectsService {
       `${apiUrl}/project/all`
     );
 
-
   }
 
+  deleteProject(projectId: string) {
+
+
+    return this.http.delete(
+
+      `${apiUrl}/project/delete/${projectId}`);
+  }
 
 
 }

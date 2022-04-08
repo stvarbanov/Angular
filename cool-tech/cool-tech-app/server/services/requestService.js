@@ -23,7 +23,7 @@ const createRequest = async (data) => {
 
 }
 
-const deleteRequest = async (reqId) => await Request.findOneAndDelete(reqId);
+const deleteRequest = async (reqId) => await Request.findByIdAndDelete(reqId);
 
 module.exports = {
     getAllRequests,
