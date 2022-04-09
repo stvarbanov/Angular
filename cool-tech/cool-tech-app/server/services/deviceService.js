@@ -22,8 +22,12 @@ const createDevice = async (data) => {
 
 const deleteDevice = async (deviceId) => await Device.findByIdAndDelete(deviceId);
 
+
+const getOneById = async (deviceId) => await Device.findById(deviceId);
+
 module.exports = {
     getAllDevices,
     createDevice,
-    deleteDevice
+    deleteDevice,
+    getOneById
 }

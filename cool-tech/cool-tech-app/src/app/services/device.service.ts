@@ -35,4 +35,11 @@ export class DeviceService {
       `${apiUrl}/devices/delete/${deviceId}`);
   }
 
+  getById(id: string) {
+
+    return this.http.get(
+
+      `${apiUrl}/devices/${id}`);
+  }
+
 }

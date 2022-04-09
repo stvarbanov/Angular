@@ -53,11 +53,7 @@ const routes: Routes = [
       },
       {
         path: 'register', component: RegisterComponent
-      },
-      //add admin route
-      // {
-      //   path: 'admin', component: RegisterComponent
-      // },
+      }
     ]
 
   },

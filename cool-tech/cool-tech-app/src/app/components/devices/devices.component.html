@@ -19,7 +19,7 @@
                 </div>
                 <div *ngIf="isLoggedAdmin" class="device-buttons admin">
                     <button class="device-delete" (click)="deleteDevice(device._id)">Delete</button>
-                    <button class="device-edit" [routerLink]="['details',device._id]">Update</button>
+                    <button class="device-edit" (click)="editDevice(device._id)" >Update</button>
                 </div>
                 <!-- </div> -->
                 <!-- <jw-modal>https://jasonwatmore.com/post/2020/09/24/angular-10-custom-modal-window-dialog-box</jw-modal> -->
@@ -29,9 +29,45 @@
 
 
     </div>
-    <aside *ngIf="isLoggedAdmin">
+    <aside *ngIf="isLoggedAdmin && !isUpdating">
         <h3>Admin panel - add device</h3>
         <form #deviceForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="input">
+                <input class="form-control" id="model" name="model" ngModel />
+                <label for="model" class="add-model">Model</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="brand" name="brand" ngModel />
+                <label for="brand" class="add-brand">Brand</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="class" name="class" ngModel />
+                <label for="class" class="add-class">Class</label>
+            </div>
+
+            <div class="input">
+                <input class="form-control" id="price" name="price" ngModel />
+                <label for="price" class="add-price">Price</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="imageUrl" name="imageUrl" ngModel />
+                <label for="imageUrl" class="add-image">Image URL</label>
+            </div>
+            <div class="input">
+                <textarea class="form-control" id="description" name="description" ngModel></textarea>
+                <label for="description" class="add-text">Description</label>
+            </div>
+            <div class="action">
+                <button class="action-button">Add device</button>
+            </div>
+        </form>
+
+
+
+    </aside>
+    <aside *ngIf="isLoggedAdmin && isUpdating">
+        <h3>Admin panel - editing device</h3>
+        <form #editForm="ngForm" (ngSubmit)="onUpdate()">
             <div class="input">
                 <input class="form-control" id="model" name="model" ngModel />
                 <label for="model" class="add-model">Model</label>

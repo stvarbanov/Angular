@@ -33,7 +33,6 @@ router.delete('/delete/:reqId', (req, res) => {
 
 //TODO add update
 
-//TODO add delete
 
 
 module.exports = router;

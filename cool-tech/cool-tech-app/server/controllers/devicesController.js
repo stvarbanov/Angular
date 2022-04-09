@@ -32,7 +32,15 @@ router.delete('/delete/:deviceId', (req, res) => {
 
 })
 
-//TODO add update
+router.get('/:deviceId', (req, res) => {
+
+    deviceService.getOneById(req.params.deviceId)
+        .then(data => {
+            res.status(201).json(data);
+        })
+        .catch(err => console.log(err));
+
+})
 
 
 

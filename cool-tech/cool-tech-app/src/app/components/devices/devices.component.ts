@@ -1,6 +1,7 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 import { Device } from 'src/app/models/models.js';
 import { DeviceService } from '../../services/device.service';
@@ -15,17 +16,20 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
   devices: any = [];
   isLoggedAdmin = false;
+  isUpdating = true;
 
   @ViewChild('deviceForm') deviceForm!: NgForm;
+  @ViewChild('editForm') editForm!: NgForm;
 
   constructor(
     private deviceService: DeviceService,
-     private router: Router
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.getAllDevices();
     this.checkLoggedUser()
+    this.resetUpdating();
   }
   checkLoggedUser() {
 
@@ -36,7 +40,9 @@ export class DevicesComponent implements OnInit, AfterViewInit {
     }
 
   }
-
+  resetUpdating() {
+    this.isUpdating = false;
+  }
 
   getAllDevices() {
     this.deviceService.loadAllDevices().subscribe((data) => {
@@ -60,7 +66,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
       description: this.deviceForm.value.description,
 
     }
-    console.log(newDevice)
+
 
     this.deviceService.createDevice(newDevice).subscribe((response) => {
 
@@ -70,10 +76,14 @@ export class DevicesComponent implements OnInit, AfterViewInit {
       console.log('post device error: ' + error);
     }
     );
+  }
+
+  onUpdate() {
+
+    //TODO show it on edit form
+    //on update is for edit form submit - create endpoints to update record 
 
 
-
-    //TODO update the state after creating
   }
 
   deleteDevice(deviceId: string) {
@@ -83,6 +93,34 @@ export class DevicesComponent implements OnInit, AfterViewInit {
       this.reloadCurrentRoute();
       //list of requests should update
     })
+  }
+
+  editDevice(deviceId: string) {
+    this.isUpdating = true;
+
+    let device: Device = {
+      model: "undefined",
+      brand: "undefined",
+      class: "undefined",
+      price: "undefined",
+      imageUrl: "undefined",
+      description: "undefined"
+    };
+
+    this.deviceService.getById(deviceId).subscribe((response) => {
+
+
+      device = response as Device;
+
+      this.editForm.controls['model'].setValue(device.model)
+      this.editForm.controls['brand'].setValue(device.brand)
+      this.editForm.controls['class'].setValue(device.class)
+      this.editForm.controls['price'].setValue(device.price)
+      this.editForm.controls['imageUrl'].setValue(device.imageUrl)
+      this.editForm.controls['description'].setValue(device.description)
+
+    });
+
   }
 
   reloadCurrentRoute() {
