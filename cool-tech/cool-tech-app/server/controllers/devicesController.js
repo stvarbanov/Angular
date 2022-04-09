@@ -42,6 +42,18 @@ router.get('/:deviceId', (req, res) => {
 
 })
 
+router.patch('/update/:deviceId', (req, res) => {
+
+    console.log('here');
+
+    deviceService.updateDevice(req.params.deviceId, req.body)
+        .then(data => {
+            res.status(201).json({ device: data });
+        })
+        .catch(err => console.log(err));
+
+})
+
 
 
 

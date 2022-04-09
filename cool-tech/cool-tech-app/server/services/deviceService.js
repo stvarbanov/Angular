@@ -25,9 +25,27 @@ const deleteDevice = async (deviceId) => await Device.findByIdAndDelete(deviceId
 
 const getOneById = async (deviceId) => await Device.findById(deviceId);
 
+const updateDevice = async (deviceId, newData) => {
+
+    console.log(newData);
+    
+    const device = await Device.findById(deviceId);
+
+    device.model = newData.model;
+    device.brand = newData.brand;
+    device.class = newData.class;
+    device.price = newData.price;
+    device.description = newData.description;
+    device.imageUrl = newData.imageUrl;
+
+    return device.save();
+
+}
+
 module.exports = {
     getAllDevices,
     createDevice,
     deleteDevice,
-    getOneById
+    getOneById,
+    updateDevice
 }

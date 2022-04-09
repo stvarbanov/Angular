@@ -42,4 +42,12 @@ export class DeviceService {
       `${apiUrl}/devices/${id}`);
   }
 
+  updateDevice(deviceId: string, newData: Device) {
+
+    const body = JSON.stringify(newData);
+
+    return this.http.patch(
+      `${apiUrl}/devices/update/${deviceId}`, body);
+  }
+
 }

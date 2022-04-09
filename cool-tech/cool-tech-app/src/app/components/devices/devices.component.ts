@@ -17,6 +17,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
   devices: any = [];
   isLoggedAdmin = false;
   isUpdating = true;
+  updatingID = '';
 
   @ViewChild('deviceForm') deviceForm!: NgForm;
   @ViewChild('editForm') editForm!: NgForm;
@@ -79,10 +80,22 @@ export class DevicesComponent implements OnInit, AfterViewInit {
   }
 
   onUpdate() {
+    const deviceId = this.updatingID;
 
-    //TODO show it on edit form
-    //on update is for edit form submit - create endpoints to update record 
+    const updatedDevice: Device = {
 
+      model: this.editForm.value.model,
+      brand: this.editForm.value.brand,
+      price: this.editForm.value.price,
+      class: this.editForm.value.class,
+      imageUrl: this.editForm.value.imageUrl,
+      description: this.editForm.value.description,
+
+    }
+
+    this.deviceService.updateDevice(deviceId, updatedDevice);
+
+    this.reloadCurrentRoute();
 
   }
 
@@ -96,7 +109,9 @@ export class DevicesComponent implements OnInit, AfterViewInit {
   }
 
   editDevice(deviceId: string) {
+
     this.isUpdating = true;
+    this.updatingID = deviceId;
 
     let device: Device = {
       model: "undefined",
