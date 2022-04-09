@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Service } from 'src/app/models/models';
 import { ServicesService } from 'src/app/services/services.service';
 
@@ -16,13 +17,14 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   isLoggedAdmin = false;
 
 
-  constructor(private servicesService: ServicesService) { }
+
+  constructor(private servicesService: ServicesService,
+     private router: Router) { }
 
   ngOnInit(): void {
 
     this.getAllServices();
     this.checkLoggedUser();
-    console.log(this.services);
 
   }
   checkLoggedUser() {
@@ -49,9 +51,12 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     }
 
     this.servicesService.createService(newService).subscribe((service) => {
-      this.serviceForm.reset();
+      // this.serviceForm.reset();
+      this.reloadCurrentRoute();
 
     });
+
+
   }
   getAllServices() {
     this.servicesService.getAllServices().subscribe((data) => {
@@ -60,12 +65,19 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     })
   }
   deleteService(serviceId: string) {
-   
-    this.servicesService.deleteService(serviceId).subscribe((data) => {
 
-      this.getAllServices();
-      //list of requests should update
+    this.servicesService.deleteService(serviceId).subscribe(() => {
+
+      this.reloadCurrentRoute();
+
     })
 
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 }

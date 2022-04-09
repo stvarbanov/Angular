@@ -1,9 +1,9 @@
 import { createAction, createReducer, INIT, on, UPDATE } from "@ngrx/store";
 
 
-export const enum state {
+export const enum stateE {
     INIT = "INIT",
-    UPDATED = "UPDATED",
+    UPDATED = "UPDATED"
 };
 
 
@@ -12,7 +12,7 @@ const updateAction = createAction(
 );
 
 export const ListReducer = createReducer(
-    state.INIT,
-    // on(updateAction, state.UPDATED)
+    stateE.INIT,
+    // on(updateAction, (stateE) => stateE = stateE.UPDATED)
 
 );

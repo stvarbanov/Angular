@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Project } from 'src/app/models/models';
 import { ProjectsService } from 'src/app/services/projects.service';
 
@@ -16,7 +17,8 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
   projects: any = [];
 
-  constructor(private projectsService: ProjectsService) { }
+  constructor(private projectsService: ProjectsService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAllProjects();
@@ -50,7 +52,8 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     }
 
     this.projectsService.createProject(newProject).subscribe((project) => {
-      this.projectForm.reset();
+
+      this.reloadCurrentRoute();
     });
 
 
@@ -67,8 +70,15 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
     this.projectsService.deleteProject(projectId).subscribe((data) => {
 
-      this.getAllProjects();
+      this.reloadCurrentRoute();
 
     })
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 }

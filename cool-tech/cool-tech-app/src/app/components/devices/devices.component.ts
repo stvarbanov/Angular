@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { Device } from 'src/app/models/models.js';
 import { DeviceService } from '../../services/device.service';
@@ -19,7 +20,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
   constructor(
     private deviceService: DeviceService,
-    public cd: ChangeDetectorRef
+     private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -63,8 +64,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
     this.deviceService.createDevice(newDevice).subscribe((response) => {
 
-      this.deviceForm.reset();
-      this.cd.detectChanges();
+      this.reloadCurrentRoute();
 
     }, (error) => {
       console.log('post device error: ' + error);
@@ -80,10 +80,16 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
     this.deviceService.deleteDevice(deviceId).subscribe((data) => {
 
-      this.cd.detectChanges();
-      this.getAllDevices();
+      this.reloadCurrentRoute();
       //list of requests should update
     })
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 
 }

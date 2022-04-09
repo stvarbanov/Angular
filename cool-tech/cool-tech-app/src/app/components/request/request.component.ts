@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { RequestI } from 'src/app/models/models';
 import { RequestService } from 'src/app/services/request.service';
 import { UserService } from 'src/app/services/user.service';
@@ -19,7 +20,9 @@ export class RequestComponent implements OnInit, AfterViewInit {
   requests: any = [];
   user: any = {};
 
-  constructor(private requestService: RequestService, private userService: UserService) { }
+  constructor(private requestService: RequestService,
+    private userService: UserService,
+    private router: Router) { }
 
   ngOnInit(): void {
 
@@ -48,7 +51,8 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
 
     this.requestService.createRequest(newRequest).subscribe((response) => {
-      this.requestForm.reset();
+   
+      this.reloadCurrentRoute();
 
     });
 
@@ -95,9 +99,16 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
     this.requestService.deleteRequest(requestId).subscribe((data) => {
 
-      this.getAllRequests();
+      this.reloadCurrentRoute();
       //list of requests should update
     })
+  }
+
+  reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
   }
 }
 
