@@ -56,5 +56,4 @@ router.patch('/update/:deviceId', (req, res) => {
 
 
 
-
 module.exports = router;
