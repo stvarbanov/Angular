@@ -38,5 +38,20 @@ export class ServicesService {
       `${apiUrl}/service/delete/${serviceId}`);
   }
 
+  getById(id: string) {
+
+    return this.http.get(
+
+      `${apiUrl}/service/${id}`);
+  }
+  
+  updateService(serviceId: string, newData: Service) {
+
+    const body = JSON.stringify(newData);
+
+    return this.http.post(
+      `${apiUrl}/service/update/${serviceId}`, body);
+  }
+
 }
 

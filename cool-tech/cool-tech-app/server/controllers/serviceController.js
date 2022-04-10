@@ -32,8 +32,26 @@ router.delete('/delete/:serviceId', (req, res) => {
 
 })
 
+router.get('/:serviceId', (req, res) => {
 
-//TODO add update
+    servicesService.getOneById(req.params.serviceId)
+        .then(data => {
+            res.status(201).json(data);
+        })
+        .catch(err => console.log(err));
+
+})
+
+router.post('/update/:serviceId', (req, res) => {
+
+    
+    servicesService.updateService(req.params.serviceId, req.body)
+        .then(data => {
+            res.status(201).json({ device: data });
+        })
+        .catch(err => console.log(err));
+
+})
 
 
 

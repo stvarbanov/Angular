@@ -16,7 +16,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
   devices: any = [];
   isLoggedAdmin = false;
-  isUpdating = true;
+  isUpdating = false;
   updatingID = '';
 
   @ViewChild('deviceForm') deviceForm!: NgForm;

@@ -12,19 +12,22 @@ import { ServicesService } from 'src/app/services/services.service';
 export class ServicesComponent implements OnInit, AfterViewInit {
 
   @ViewChild('serviceForm') serviceForm!: NgForm;
+  @ViewChild('editServiceForm') editServiceForm!: NgForm;
 
   services: any = [];
   isLoggedAdmin = false;
 
-
+  isUpdating = false;
+  updatingID = '';
 
   constructor(private servicesService: ServicesService,
-     private router: Router) { }
+    private router: Router) { }
 
   ngOnInit(): void {
 
     this.getAllServices();
     this.checkLoggedUser();
+    this.resetUpdating();
 
   }
   checkLoggedUser() {
@@ -58,6 +61,25 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
 
   }
+  onUpdate() {
+    const serviceId = this.updatingID;
+
+    const updatedService: Service = {
+
+      title: this.editServiceForm.value.title,
+      imageUrl: this.editServiceForm.value.imageUrl,
+      description: this.editServiceForm.value.description,
+
+    }
+
+    this.servicesService.updateService(serviceId, updatedService).subscribe((response) => {
+
+      this.reloadCurrentRoute();
+
+    })
+
+
+  }
   getAllServices() {
     this.servicesService.getAllServices().subscribe((data) => {
 
@@ -73,6 +95,29 @@ export class ServicesComponent implements OnInit, AfterViewInit {
     })
 
   }
+  editService(serviceId: string) {
+
+    this.isUpdating = true;
+    this.updatingID = serviceId;
+
+    let service: Service = {
+      title: "undefined",
+      imageUrl: "undefined",
+      description: "undefined"
+    };
+
+    this.servicesService.getById(serviceId).subscribe((response) => {
+
+
+      service = response as Service;
+
+      this.editServiceForm.controls['title'].setValue(service.title)
+      this.editServiceForm.controls['imageUrl'].setValue(service.imageUrl)
+      this.editServiceForm.controls['description'].setValue(service.description)
+
+    });
+
+  }
 
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
@@ -80,4 +125,16 @@ export class ServicesComponent implements OnInit, AfterViewInit {
       this.router.navigate([currentUrl]);
     });
   }
+
+  resetUpdating() {
+    this.isUpdating = false;
+  }
+
+  abortUpdate() {
+    this.isUpdating = false;
+    this.updatingID = '';
+  }
+
+
+
 }

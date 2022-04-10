@@ -16,15 +16,15 @@
                 <button class="action-button delete" (click)="deleteService(service._id)">
                     <i class="fa-solid fa-x"></i>
                 </button>
-                <button class="action-button edit">
+                <button class="action-button edit" (click)="editService(service._id)">
                     <i class="fa-solid fa-pen"></i>
                 </button>
             </div>
         </div>
 
     </div>
-    <aside *ngIf="isLoggedAdmin">
-        <h3>Admin panel for services</h3>
+    <aside *ngIf="isLoggedAdmin && !isUpdating">
+        <h3>Admin panel - add service</h3>
 
         <form #serviceForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">
@@ -40,7 +40,32 @@
                 <label for="description" class="add-text">Description</label>
             </div>
             <div class="action">
-                <button class="action-button">Add services</button>
+                <button class="action-button">Add service</button>
+            </div>
+        </form>
+
+
+
+    </aside>
+    <aside *ngIf="isLoggedAdmin && isUpdating">
+        <h3>Edit service</h3>
+
+        <form #editServiceForm="ngForm" (ngSubmit)="onUpdate()">
+            <div class="input">
+                <input class="form-control" id="title" name="title" ngModel />
+                <label for="title" class="add-title">Service title</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="imageUrl" name="imageUrl" ngModel />
+                <label for="imageUrl" class="add-image">Image URL</label>
+            </div>
+            <div class="input">
+                <textarea class="form-control" id="description" name="description" ngModel></textarea>
+                <label for="description" class="add-text">Description</label>
+            </div>
+            <div class="action">
+                <button class="action-button">Update </button>
+                <button class="action-button" onclick="abortUpdate()">Cancel</button>
             </div>
         </form>
 
