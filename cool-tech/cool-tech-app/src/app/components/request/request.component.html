@@ -30,7 +30,7 @@
     <div *ngIf="isLoggedIn" class="user-requests">
         <h3>Your requests:</h3>
         <div *ngFor=" let request of userRequests[0]">
-            <div class="request">
+            <div class="user-request">
                 <span class="request-img-container">
                     <img src="{{request.photoUrl}}">
                 </span>
