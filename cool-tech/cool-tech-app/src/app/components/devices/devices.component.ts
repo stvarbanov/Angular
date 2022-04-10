@@ -93,9 +93,12 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
     }
 
-    this.deviceService.updateDevice(deviceId, updatedDevice);
+    this.deviceService.updateDevice(deviceId, updatedDevice).subscribe((response)=>{
 
-    this.reloadCurrentRoute();
+      this.reloadCurrentRoute();
+
+    })
+
 
   }
 

@@ -46,7 +46,7 @@ export class DeviceService {
 
     const body = JSON.stringify(newData);
 
-    return this.http.patch(
+    return this.http.post(
       `${apiUrl}/devices/update/${deviceId}`, body);
   }
 

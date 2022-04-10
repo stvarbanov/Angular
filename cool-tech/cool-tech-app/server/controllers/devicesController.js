@@ -42,7 +42,7 @@ router.get('/:deviceId', (req, res) => {
 
 })
 
-router.patch('/update/:deviceId', (req, res) => {
+router.post('/update/:deviceId', (req, res) => {
 
     console.log('here');
 
