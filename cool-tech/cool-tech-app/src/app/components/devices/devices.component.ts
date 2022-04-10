@@ -148,4 +148,8 @@ export class DevicesComponent implements OnInit, AfterViewInit {
     });
   }
 
+  abortUpdate(){
+    this.isUpdating = false;
+    this.updatingID ='';
+  }
 }

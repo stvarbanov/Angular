@@ -19,7 +19,7 @@
                 </div>
                 <div *ngIf="isLoggedAdmin" class="device-buttons admin">
                     <button class="device-delete" (click)="deleteDevice(device._id)">Delete</button>
-                    <button class="device-edit" (click)="editDevice(device._id)" >Update</button>
+                    <button class="device-edit" (click)="editDevice(device._id)">Update</button>
                 </div>
                 <!-- </div> -->
                 <!-- <jw-modal>https://jasonwatmore.com/post/2020/09/24/angular-10-custom-modal-window-dialog-box</jw-modal> -->
@@ -95,6 +95,7 @@
             </div>
             <div class="action">
                 <button class="action-button">Update device</button>
+                <button class="action-button" onclick="abortUpdate()">Cancel</button>
             </div>
         </form>
 
