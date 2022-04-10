@@ -18,7 +18,9 @@ export class RequestComponent implements OnInit, AfterViewInit {
   isLoggedAdmin: boolean = false;
 
   requests: any = [];
+  userRequests: any = [];
   user: any = {};
+
 
   constructor(private requestService: RequestService,
     private userService: UserService,
@@ -28,8 +30,14 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
     this.checkLoggedUser();
 
-    this.getAllRequests();
-    console.log(this.requests);
+    if (this.isLoggedAdmin) {
+    
+      this.getAllRequests();
+    } else {
+      this.getUserRequests();
+    }
+
+  
   }
   ngAfterViewInit(): void {
 
@@ -51,7 +59,7 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
 
     this.requestService.createRequest(newRequest).subscribe((response) => {
-   
+
       this.reloadCurrentRoute();
 
     });
@@ -62,13 +70,16 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
     const user = localStorage.getItem('user');
     const userObj = JSON.parse(user!);
+   
     if (userObj) {
       this.isLoggedIn = true;
+      this.isLoggedAdmin = false;
     }
-    if (userObj.isAdmin == true) {
+    if (userObj.isAdmin) {
       this.isLoggedAdmin = true;
       this.isLoggedIn = false;
     }
+
   }
 
 
@@ -77,6 +88,16 @@ export class RequestComponent implements OnInit, AfterViewInit {
       return this.requests.push(data);
     })
   }
+  getUserRequests() {
+    const user = localStorage.getItem('user');
+    const userObj = JSON.parse(user!)
+    const userId = userObj.id;
+
+    this.requestService.loadUserRequests(userId).subscribe((data) => {
+      return this.userRequests.push(data);
+    })
+  }
+
   contactUser(requestId: string) {
 
 

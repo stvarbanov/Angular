@@ -1,5 +1,5 @@
 form {
-  display: flex;
+  display: block;
   flex-direction: column;
   width: 330px;
   /* display: none; */
@@ -24,10 +24,13 @@ form {
 
 .request-wrapper {
   margin-top: 50px;
-  color: rgb(15, 65, 37)
+  color: rgb(15, 65, 37);
+  display: flex;
+  gap:100px;
+  flex-wrap: wrap;
 }
 
-.action-button {
+.action-button   {
   margin-left: 125px;
   margin-top: 15px;
 }
@@ -36,7 +39,7 @@ form {
   display: none;
 }
 
-.requests {
+.requests, .user-requests {
   margin: 60px;
   display: flex;
   flex-direction: row;
@@ -70,7 +73,7 @@ form {
   margin-bottom: 1px;
 }
 
-.request-buttons button {
+.request-buttons button, .request-delete {
   border-radius: 15px;
   background-color:azure;
 }

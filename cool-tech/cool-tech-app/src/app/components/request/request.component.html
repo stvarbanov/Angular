@@ -1,6 +1,8 @@
 <div class="request-wrapper">
     <!-- new request - hide for admin -->
-    <h3 *ngIf="!isLoggedIn && !isLoggedAdmin" >You need a profile to create a request </h3>
+    <h3 *ngIf="!isLoggedIn && !isLoggedAdmin">You need a profile to create a request </h3>
+
+
     <form #requestForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="isLoggedIn">
         <h3> Submit a request to us</h3>
         <div class="input">
@@ -25,6 +27,24 @@
             <button class="action-button">Submit</button>
         </div>
     </form>
+    <div *ngIf="isLoggedIn" class="user-requests">
+        <h3>Your requests:</h3>
+        <div *ngFor=" let request of userRequests[0]">
+            <div class="request">
+                <span class="request-img-container">
+                    <img src="{{request.photoUrl}}">
+                </span>
+
+                <div class="request-title"> Title: {{request.title}} </div>
+                <div class="request-city"> City: {{request.city}}</div>
+                <div class="request-adress"> Adress: {{request.adress}}</div>
+                <div class="request-issue"> Issue: {{request.issue }} </div>
+                <button class="request-delete" (click)="deleteRequest(request._id)">Cancel request</button>
+
+            </div>
+
+        </div>
+    </div>
 
     <!-- only for admin - show all requests -->
     <h3 *ngIf="isLoggedAdmin">List of all active requests: </h3>

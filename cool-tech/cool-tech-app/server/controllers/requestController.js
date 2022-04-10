@@ -10,6 +10,14 @@ router.get('/all', (req, res) => {
         })
         .catch(err => console.log(err));
 });
+router.get('/user/:userId', (req, res) => {
+    requestService.getRequestOfUser(req.params.userId)
+        .then(data => {
+            res.status(201).json(data);
+            // console.log(res);
+        })
+        .catch(err => console.log(err));
+});
 
 router.post('/create', (req, res) => {
 

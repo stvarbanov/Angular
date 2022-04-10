@@ -40,4 +40,11 @@ export class RequestService {
       `${apiUrl}/request/delete/${requestId}`);
   }
 
+  loadUserRequests(userId: string) {
+
+    return this.http.get(
+
+      `${apiUrl}/request/user/${userId}`);
+  }
+
 }

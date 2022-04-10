@@ -3,6 +3,7 @@ const Request = require('../models/Request');
 const User = require('../models/User');
 
 const getAllRequests = async () => await Request.find();
+const getRequestOfUser = async (userId) => await Request.find({ owner: userId });
 
 const createRequest = async (data) => {
 
@@ -28,5 +29,6 @@ const deleteRequest = async (reqId) => await Request.findByIdAndDelete(reqId);
 module.exports = {
     getAllRequests,
     createRequest,
-    deleteRequest
+    deleteRequest,
+    getRequestOfUser
 }
