@@ -1,7 +1,7 @@
 <div class="projects-wrapper">
     <div class="projects">
 
-       
+
         <article class="project" *ngFor=" let project of projects[0]">
             <div class="project-img">
                 <img src="{{project.image1Url}}" alt="">
@@ -29,16 +29,16 @@
                 <button class="action-button delete" (click)="deleteProject(project._id)">
                     <i class="fa-solid fa-x"></i>
                 </button>
-                <button class="action-button edit">
+                <button class="action-button edit" (click)="editProject(project._id)">
                     <i class="fa-solid fa-pen"></i>
                 </button>
             </div>
         </article>
-        
-        
+
+
 
     </div>
-    <aside *ngIf="isLoggedAdmin">
+    <aside *ngIf="isLoggedAdmin && !isUpdating">
 
         <h3>Admin panel - Add project</h3>
 
@@ -70,6 +70,44 @@
 
             <div class="action">
                 <button class="action-button">Add project</button>
+            </div>
+        </form>
+
+
+    </aside>
+    <aside *ngIf="isLoggedAdmin && isUpdating">
+
+        <h3>Edit project</h3>
+
+        <form #editForm="ngForm" (ngSubmit)="onUpdate()">
+            <div class="input">
+                <input class="form-control" id="title" name="title" ngModel />
+                <label for="title" class="add-title">Project title</label>
+            </div>
+            <div class="input">
+                <textarea class="form-control" id="description" name="description" ngModel></textarea>
+                <label for="description" class="add-text">Description</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="image1Url" name="image1Url" ngModel />
+                <label for="image1Url" class="add-image">Image 1 URL</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="image2Url" name="image2Url" ngModel />
+                <label for="image2Url" class="add-image">Image 2 URL</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="image3Url" name="image3Url" ngModel />
+                <label for="image3Url" class="add-image">Image 3 URL</label>
+            </div>
+            <div class="input">
+                <input class="form-control" id="image4Url" name="image4Url" ngModel />
+                <label for="image4Url" class="add-image">Image 4 URL</label>
+            </div>
+
+            <div class="action">
+                <button class="action-button">Update </button>
+                <button class="action-button" onclick="abortUpdate()">Cancel</button>
             </div>
         </form>
 

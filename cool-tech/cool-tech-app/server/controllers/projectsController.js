@@ -32,8 +32,28 @@ router.delete('/delete/:projectId', (req, res) => {
 
 })
 
+router.get('/:projectId', (req, res) => {
 
-//TODO add update
+    projectService.getOneById(req.params.projectId)
+        .then(data => {
+            res.status(201).json(data);
+        })
+        .catch(err => console.log(err));
+
+})
+
+router.post('/update/:projectId', (req, res) => {
+
+    
+    projectService.updateProject(req.params.projectId, req.body)
+        .then(data => {
+            res.status(201).json({ device: data });
+        })
+        .catch(err => console.log(err));
+
+})
+
+
 
 
 

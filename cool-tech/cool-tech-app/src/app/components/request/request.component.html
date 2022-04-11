@@ -28,7 +28,7 @@
         </div>
     </form>
     <div *ngIf="isLoggedIn" class="user-requests">
-        <h3>Your requests:</h3>
+        <h3>Your submitted requests:</h3>
         <div *ngFor=" let request of userRequests[0]">
             <div class="user-request">
                 <span class="request-img-container">
@@ -47,7 +47,7 @@
     </div>
 
     <!-- only for admin - show all requests -->
-    <h3 *ngIf="isLoggedAdmin">List of all active requests: </h3>
+    <h3 *ngIf="isLoggedAdmin">Admin list - all active requests: </h3>
     <div class="requests" *ngIf="isLoggedAdmin">
         <div *ngFor=" let request of requests[0]">
             <div class="request">

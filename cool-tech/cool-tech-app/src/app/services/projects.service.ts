@@ -39,5 +39,20 @@ export class ProjectsService {
       `${apiUrl}/project/delete/${projectId}`);
   }
 
+  getById(id: string) {
 
+    return this.http.get(
+
+      `${apiUrl}/project/${id}`);
+  }
+
+  updateProject(projecId: string, newData: Project) {
+
+    const body = JSON.stringify(newData);
+
+    return this.http.post(
+      `${apiUrl}/project/update/${projecId}`, body);
+  }
+
+  
 }

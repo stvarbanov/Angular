@@ -12,18 +12,21 @@ import { ProjectsService } from 'src/app/services/projects.service';
 export class ProjectsComponent implements OnInit, AfterViewInit {
 
   @ViewChild('projectForm') projectForm!: NgForm;
-
-  isLoggedAdmin = false;
+  @ViewChild('editForm') editForm!: NgForm;
 
   projects: any = [];
+  isLoggedAdmin = false;
+  isUpdating = false;
+  updatingID = '';
+
 
   constructor(private projectsService: ProjectsService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.getAllProjects();
-    this.checkLoggedUser()
-    console.log(this.projects)
+    this.checkLoggedUser();
+    this.resetUpdating();
   }
   checkLoggedUser() {
 
@@ -33,6 +36,9 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       this.isLoggedAdmin = true;
     }
 
+  }
+  resetUpdating() {
+    this.isUpdating = false;
   }
 
   ngAfterViewInit(): void {
@@ -58,6 +64,29 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
 
   }
+
+  onUpdate() {
+    const projectId = this.updatingID;
+
+    const updatedProject: Project = {
+
+      title: this.editForm.value.title,
+      description: this.editForm.value.description,
+      image1Url: this.editForm.value.image1Url,
+      image2Url: this.editForm.value.image2Url,
+      image3Url: this.editForm.value.image3Url,
+      image4Url: this.editForm.value.image4Url,
+
+    }
+
+    this.projectsService.updateProject(projectId, updatedProject).subscribe((response) => {
+
+      this.reloadCurrentRoute();
+
+    })
+
+
+  }
   getAllProjects() {
 
     this.projectsService.getAllProjects().subscribe((data) => {
@@ -75,6 +104,36 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     })
   }
 
+
+  editProject(projectId: string) {
+
+    this.isUpdating = true;
+    this.updatingID = projectId;
+
+    let project: Project = {
+      title: "undefined",
+      description: "undefined",
+      image1Url: "undefined",
+      image2Url: "undefined",
+      image3Url: "undefined",
+      image4Url: "undefined",
+    };
+
+    this.projectsService.getById(projectId).subscribe((response) => {
+
+
+      project = response as Project;
+
+      this.editForm.controls['title'].setValue(project.title)
+      this.editForm.controls['description'].setValue(project.description)
+      this.editForm.controls['image1Url'].setValue(project.image1Url)
+      this.editForm.controls['image2Url'].setValue(project.image2Url)
+      this.editForm.controls['image3Url'].setValue(project.image3Url)
+      this.editForm.controls['image4Url'].setValue(project.image4Url)
+
+    });
+
+  }
   reloadCurrentRoute() {
     let currentUrl = this.router.url;
     this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
