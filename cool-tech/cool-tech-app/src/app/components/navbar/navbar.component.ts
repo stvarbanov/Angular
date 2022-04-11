@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import { NotifyService } from 'src/app/services/notify.service';
+
 
 
 @Component({
@@ -14,12 +15,14 @@ export class NavbarComponent implements OnInit {
   isLoggedIn: boolean = false;
   isLoggedAdmin: boolean = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private notify: NotifyService) { }
 
 
 
   ngOnInit(): void {
     this.checkLoggedUser();
+
+    // this.notify.show('Navbar demo', 'error');
   }
 
   checkLoggedUser() {
@@ -33,6 +36,8 @@ export class NavbarComponent implements OnInit {
       this.isLoggedAdmin = true;
       this.isLoggedIn = false;
     }
+
+
   }
 
 }

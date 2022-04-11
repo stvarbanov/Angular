@@ -68,3 +68,9 @@ header {
   color: black;
 }  
 
+#notification{
+  display: none;
+  background-color: rgb(151, 220, 220);
+  padding: 15px;
+border-radius: 11px;
+}

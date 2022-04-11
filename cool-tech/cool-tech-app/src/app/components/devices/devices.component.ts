@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NotifyService } from 'src/app/services/notify.service';
 
 
 import { Device } from 'src/app/models/models.js';
@@ -24,7 +25,8 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
   constructor(
     private deviceService: DeviceService,
-    private router: Router
+    private router: Router,
+    private notify: NotifyService
   ) { }
 
   ngOnInit(): void {
@@ -70,11 +72,12 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
 
     this.deviceService.createDevice(newDevice).subscribe((response) => {
-
-      this.reloadCurrentRoute();
+      
+        this.notify.show(response as string, 'success');
+        this.reloadCurrentRoute();
 
     }, (error) => {
-      console.log('post device error: ' + error);
+      this.notify.show(error, 'error');
     }
     );
   }
@@ -93,7 +96,7 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
     }
 
-    this.deviceService.updateDevice(deviceId, updatedDevice).subscribe((response)=>{
+    this.deviceService.updateDevice(deviceId, updatedDevice).subscribe((response) => {
 
       this.reloadCurrentRoute();
 
@@ -148,10 +151,10 @@ export class DevicesComponent implements OnInit, AfterViewInit {
     });
   }
 
-  abortUpdate(){
+  abortUpdate() {
     this.isUpdating = false;
-    this.updatingID ='';
+    this.updatingID = '';
   }
 
- 
+
 }
