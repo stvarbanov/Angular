@@ -28,18 +28,10 @@ import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
 import { StorageService } from './services/storage.service';
 
-import { StoreModule } from '@ngrx/store';
-import { ListReducer } from './services/list.reducer.js';
 
 
 const routes: Routes = [
-  {
-    path: 'browse-tech', component: DevicesComponent, children: [
-      {
-        path: 'details/:id', component: DetailsComponent
-      }
-    ]
-  },
+  { path: 'browse-tech', component: DevicesComponent, data: { animation: 'routeAnimations' } },
   { path: 'our-services', component: ServicesComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'request-help', component: RequestComponent },
@@ -77,6 +69,8 @@ const routes: Routes = [
     AuthModule,
     AdminModule,
 
+    BrowserAnimationsModule,
+
     BrowserModule,
     BrowserAnimationsModule,
     MatMenuModule,
@@ -84,12 +78,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
-    // StoreModule.forRoot(
-    //   {
-    //     listOfItems: ListReducer
-    //     // usersLoggedIn:UsersReducer
-    //   }
-    // )
+
 
 
   ],
@@ -97,14 +86,14 @@ const routes: Routes = [
     RouterModule
   ],
   providers: [
-    {
-      provide: APP_INITIALIZER,
-      useFactory: (authService: AuthService) => {
-        return () => authService.authenticate();
-      },
-      deps: [AuthService],
-      multi: true
-    },
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: (authService: AuthService) => {
+    //     return () => authService.authenticate();
+    //   },
+    //   deps: [AuthService],
+    //   multi: true
+    // },
     UserService,
     StorageService
   ],

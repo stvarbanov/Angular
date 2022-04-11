@@ -29,7 +29,7 @@
 
 
     </div>
-    <aside *ngIf="isLoggedAdmin && !isUpdating">
+    <aside  *ngIf="isLoggedAdmin && !isUpdating">
         <h3>Admin panel - add device</h3>
         <form #deviceForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">

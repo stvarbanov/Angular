@@ -1,7 +1,7 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+
 
 import { Device } from 'src/app/models/models.js';
 import { DeviceService } from '../../services/device.service';
@@ -152,4 +152,6 @@ export class DevicesComponent implements OnInit, AfterViewInit {
     this.isUpdating = false;
     this.updatingID ='';
   }
+
+ 
 }
