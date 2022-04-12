@@ -1,8 +1,8 @@
 .projects {
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  width: 800px;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  width: 1300px;
 }
 
 .project {
@@ -11,7 +11,6 @@
   flex-direction: row;
   text-align: center;
   border: 1px;
-  background-color: azure;
   padding-top:  66px;
   padding-bottom:  66px;
   position: relative;
@@ -65,7 +64,7 @@ aside {
   justify-content: space-between;
 }
 
-.project:nth-child(even) {
+.projects:nth-child(even) {
   flex-direction: row-reverse;
 }
 
@@ -109,4 +108,15 @@ aside h3 {
   width: 180px;
   height: 160px;
   border-radius: 15px;
+}
+
+.project-wrap{
+  display: flex;
+  flex-direction: column;
+}
+.project-admin-buttons{
+  width: 55px;
+  gap:5px;
+  display: flex;
+  margin-left:90px;
 }

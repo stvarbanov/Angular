@@ -2,29 +2,8 @@
     <div class="projects">
 
 
-        <article class="project" *ngFor=" let project of projects[0]">
-            <div class="project-img">
-                <img src="{{project.image1Url}}" alt="">
-            </div>
-            <div class="project-side-wrapper">
-                <h3 class="project-title">{{project.title}}</h3>
-                <p class="project-description">
-                    {{project.description}}
-                </p>
-
-                <h3 class="gallery">
-                    <div class="gallery-img">
-                        <img src={{project.image2Url}} alt="">
-                    </div>
-                    <div class="gallery-img">
-                        <img src={{project.image3Url}} alt="">
-                    </div>
-                    <div class="gallery-img">
-                        <img src={{project.image4Url}} alt="">
-                    </div>
-                </h3>
-            </div>
-            <div *ngIf="isLoggedAdmin">
+        <article class="project-wrap" *ngFor=" let project of projects[0]">
+            <div class='project-admin-buttons' *ngIf="isLoggedAdmin">
 
                 <button class="action-button delete" (click)="deleteProject(project._id)">
                     <i class="fa-solid fa-x"></i>
@@ -33,6 +12,30 @@
                     <i class="fa-solid fa-pen"></i>
                 </button>
             </div>
+            <div class="project">
+                <div class="project-img">
+                    <img src="{{project.image1Url}}" alt="">
+                </div>
+                <div class="project-side-wrapper">
+                    <h3 class="project-title">{{project.title}}</h3>
+                    <p class="project-description">
+                        {{project.description}}
+                    </p>
+
+                    <h3 class="gallery">
+                        <div class="gallery-img">
+                            <img src={{project.image2Url}} alt="">
+                        </div>
+                        <div class="gallery-img">
+                            <img src={{project.image3Url}} alt="">
+                        </div>
+                        <div class="gallery-img">
+                            <img src={{project.image4Url}} alt="">
+                        </div>
+                    </h3>
+                </div>
+            </div>
+
         </article>
 
 
