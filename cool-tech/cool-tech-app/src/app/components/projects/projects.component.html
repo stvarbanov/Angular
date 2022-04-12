@@ -14,7 +14,7 @@
             </div>
             <div class="project">
                 <div class="project-img">
-                    <img src="{{project.image1Url}}" alt="">
+                    <img class="{{project._id}}-image1" src="{{project.image1Url}}" alt="">
                 </div>
                 <div class="project-side-wrapper">
                     <h3 class="project-title">{{project.title}}</h3>
@@ -23,14 +23,17 @@
                     </p>
 
                     <h3 class="gallery">
-                        <div class="gallery-img">
-                            <img src={{project.image2Url}} alt="">
+                        <div class="gallery-img ">
+                            <img class="{{project._id}}-image2" src={{project.image2Url}} (click)="clickImg('2',project._id)"
+                                alt="">
                         </div>
                         <div class="gallery-img">
-                            <img src={{project.image3Url}} alt="">
+                            <img class="{{project._id}}-image3" src={{project.image3Url}} (click)="clickImg('3',project._id)"
+                                alt="">
                         </div>
                         <div class="gallery-img">
-                            <img src={{project.image4Url}} alt="">
+                            <img class="{{project._id}}-image4" src={{project.image4Url}} (click)="clickImg('4',project._id)"
+                                alt="">
                         </div>
                     </h3>
                 </div>

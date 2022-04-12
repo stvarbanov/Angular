@@ -140,4 +140,15 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       this.router.navigate([currentUrl]);
     });
   }
+
+
+  clickImg(imgId: string, projectId: string) {
+
+    const image = document.getElementsByClassName(`${projectId + '-image' + imgId}`)[0] as HTMLImageElement;
+
+    const front = document.getElementsByClassName(`${projectId}` + '-image1')[0] as HTMLImageElement;
+    front.src = image.src;
+
+
+  }
 }
