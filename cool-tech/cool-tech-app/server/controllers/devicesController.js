@@ -38,7 +38,7 @@ router.get('/:deviceId', (req, res) => {
         .then(data => {
             res.status(201).json(data);
         })
-        .catch(err => console.log(err));
+        .catch(error => res.json(error));
 
 })
 

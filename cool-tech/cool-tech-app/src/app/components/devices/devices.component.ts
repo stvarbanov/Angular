@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { NotifyService } from 'src/app/services/notify.service';
 
 
-import { Device } from 'src/app/models/models.js';
+import { Device } from 'src/app/models/models';
 import { DeviceService } from '../../services/device.service';
 
 @Component({
@@ -70,15 +70,17 @@ export class DevicesComponent implements OnInit, AfterViewInit {
 
     }
 
-
     this.deviceService.createDevice(newDevice).subscribe((response) => {
-      
-        this.notify.show(response as string, 'success');
-        this.reloadCurrentRoute();
 
-    }, (error) => {
-      this.notify.show(error, 'error');
-    }
+      
+
+      // this.notify.show(response as string, 'success');
+      this.reloadCurrentRoute();
+
+    }, (errors) => {
+
+      // this.notify.show(errors, 'error');
+    } 
     );
   }
 
