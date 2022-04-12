@@ -145,13 +145,10 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   clickImg(imgId: string, projectId: string) {
 
     const image = document.getElementsByClassName(`${projectId + '-image' + imgId}`)[0] as HTMLImageElement;
-
-
     const front = document.getElementsByClassName(`${projectId}` + '-image1')[0] as HTMLImageElement;
     const storage = front.src;
 
     front.src = image.src;
-
     image.src = storage;
 
   }

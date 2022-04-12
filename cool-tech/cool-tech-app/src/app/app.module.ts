@@ -14,24 +14,26 @@ import { DevicesComponent } from './components/devices/devices.component';
 import { ServicesComponent } from './components/services/services.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { RequestComponent } from './components/request/request.component';
+import { LandingComponent } from './components/landing/landing.component';
 
 import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
-import { AdminModule } from './admin/admin.module';
+// import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './auth/profile/profile.component';
 
 import { FormsModule } from '@angular/forms';
 import { DetailsComponent } from './components/devices/details/details.component';
-import { AuthService } from './services/auth.service';
+
 import { UserService } from './services/user.service';
 import { StorageService } from './services/storage.service';
 
 
 
 const routes: Routes = [
-  { path: 'browse-tech', component: DevicesComponent, data: { animation: 'routeAnimations' } },
+  { path: '', component: LandingComponent, data: { animation: 'routeAnimations' } },
+  { path: 'browse-tech', component: DevicesComponent, },
   { path: 'our-services', component: ServicesComponent },
   { path: 'projects', component: ProjectsComponent },
   { path: 'request-help', component: RequestComponent },
@@ -63,11 +65,10 @@ const routes: Routes = [
     ServicesComponent,
     ProjectsComponent,
     RequestComponent,
-    DetailsComponent, ProfileComponent
+    DetailsComponent, ProfileComponent, LandingComponent
   ],
   imports: [
     AuthModule,
-    AdminModule,
 
     BrowserAnimationsModule,
 
