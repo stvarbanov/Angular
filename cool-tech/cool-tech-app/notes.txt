@@ -1,8 +1,24 @@
-//TODO add css custom properties for
-non-admin-min-width
-admin-styling
-colors
 
+
+
+//TODO page architecture - try for devices only, it's a few hours of work
+
+DevicesModule:
+DevicesPageComponent
+DevicesListComponent => DeviceCardComponent
+DevicesAdminPanelComponent
+
+How will updateButton on DeviceCard will pass info to AdminPanel ? Via deviceService on Page level
+
+
+
+// Make one AdminPanelComponents that receives interface as input to generate the fields ? Very nice
+
+
+
+
+
+//TODO editable user 
 
 //TODO make admin panels separate components 
 
@@ -17,3 +33,9 @@ colors
 
 
 //TODO try deploying to heroku
+
+//TODO add css custom properties for
+non-admin-min-width
+admin-styling
+colors
+
