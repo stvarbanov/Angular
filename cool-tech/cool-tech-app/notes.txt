@@ -4,26 +4,16 @@ admin-styling
 colors
 
 
-//TODO profile page
-//TODO -you see your queries
+//TODO make admin panels separate components 
 
-//TODO update auth 
+//TODO add route guards for admin panels for non-admin
 
-//TODO admin can login from profile page
+//TODO auth guards for login/register on logged in users
 
-//TODO user is asked to register when buy tech or service
-
-//TODO update server for CRUD
-
-//TODO update db models
-
-//TODO create services to read from db 
-
-//TODO add routing
-
-//TODO add state management in components
-
-//TODO add route guards
+//TODO auth guards for edit/logout for guests
 
 
+//TODO fix jwt and use it to verify posting data
 
+
+//TODO try deploying to heroku
