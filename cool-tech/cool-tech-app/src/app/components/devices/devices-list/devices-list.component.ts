@@ -9,7 +9,7 @@ import { DeviceService } from 'src/app/services/device.service';
   styleUrls: ['./devices-list.component.css'],
 
   providers: [DeviceService],
-  outputs: ['isUpdating', 'updatingId']
+  // outputs: ['isUpdating', 'updatingId']
 })
 export class DevicesListComponent implements OnInit {
 
@@ -24,11 +24,10 @@ export class DevicesListComponent implements OnInit {
   @Input()
   isLoggedAdmin: boolean = false;
 
-
   devices: any = [];
 
-  @Output() isUpdating = new EventEmitter<boolean>();
-  @Output() updatingID = new EventEmitter<string>();
+  isUpdating: boolean = false;
+  updatingID: String = '';
 
   getAllDevices() {
     this.deviceService.loadAllDevices().subscribe((data) => {
@@ -38,10 +37,9 @@ export class DevicesListComponent implements OnInit {
 
   editDevice(deviceId: string) {
 
-    this.isUpdating.emit(true);
-    this.updatingID.emit(deviceId);
-
-    console.log('from list ' + deviceId)
+    this.isUpdating = true;
+    this.deviceService.setUpdatingId(deviceId);
+  
 
   }
 

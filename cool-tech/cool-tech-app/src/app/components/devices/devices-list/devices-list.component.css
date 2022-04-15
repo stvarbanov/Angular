@@ -72,15 +72,11 @@
     background-color: rgb(206, 165, 51);
   }
   
-
-
-  
   .cards {
     display: flex;
     flex-wrap: wrap;
     min-width: 950px;
     gap: 15px;
-    width: 75%;
   }
   
 

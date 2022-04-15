@@ -1,19 +1,16 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
   styleUrls: ['./devices.component.css'],
-  inputs: ['ongoingUpdate', 'updatingId']
+  // inputs: ['ongoingUpdate', 'updatingId']
 })
 export class DevicesComponent implements OnInit {
 
   devices: any = [];
   isLoggedAdmin = false;
-
-  @Input() ongoingUpdate: boolean = false;
-  @Input() idBeingUpdated: string = 'id';
 
   constructor(
 
@@ -23,12 +20,6 @@ export class DevicesComponent implements OnInit {
   ngOnInit(): void {
 
     this.checkLoggedUser();
-
-  }
-
-  OnChanges() {
-    console.log('parent' + this.ongoingUpdate);
-    console.log('parent' + this.idBeingUpdated);
 
   }
 

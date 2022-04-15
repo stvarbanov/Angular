@@ -1,8 +1,9 @@
 <div class="devices-wrapper">
 
-    <app-devices-list [isLoggedAdmin]="isLoggedAdmin"> </app-devices-list>
-    <app-devices-admin [updatingID]="this.idBeingUpdated" 
-    [isUpdating]="this.ongoingUpdate">
+    <app-devices-list [isLoggedAdmin]="isLoggedAdmin">
+    </app-devices-list>
+
+    <app-devices-admin *ngIf="isLoggedAdmin">
     </app-devices-admin>
 
 </div>

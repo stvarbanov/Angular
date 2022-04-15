@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { __values } from 'tslib';
 import { Device } from '../models/models';
 
 const apiUrl = environment.apiUrl;
@@ -12,6 +13,23 @@ const apiUrl = environment.apiUrl;
 export class DeviceService {
 
   constructor(private http: HttpClient) { }
+
+  private _updatingId = new BehaviorSubject<string>('62509b689f3a69769b8e4bca');
+  
+  private _updatingId$ = this._updatingId.asObservable();
+  
+
+  getUpdatingId(): Observable<string> {
+    console.log('getter ' + this._updatingId$)
+    return this._updatingId$;
+  }
+
+  setUpdatingId(latest: string) {
+    console.log('setter ' + latest)
+    return this._updatingId.next(latest);
+  }
+
+
 
   loadAllDevices(): Observable<Device[]> {
     return this.http.get<Device[]>(
@@ -49,5 +67,7 @@ export class DeviceService {
     return this.http.post(
       `${apiUrl}/devices/update/${deviceId}`, body);
   }
+
+
 
 }

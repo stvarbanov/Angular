@@ -8,8 +8,7 @@ DevicesComponent
 DevicesListComponent => DeviceCardComponent
 DevicesAdminPanelComponent
 
-How will updateButton on DeviceCard will pass info to AdminPanel ? Via deviceService on Page level
-
+How will updateButton on DeviceCard will pass info to AdminPanel ?
 
 
 // Make one AdminPanelComponents that receives interface as input to generate the fields ? Very nice

@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Device } from 'src/app/models/models';
 import { DeviceService } from 'src/app/services/device.service';
 
@@ -8,7 +9,7 @@ import { DeviceService } from 'src/app/services/device.service';
   selector: 'app-devices-admin',
   templateUrl: './devices-admin.component.html',
   styleUrls: ['./devices-admin.component.css'],
-  inputs: ['isUpdating', 'updatingId', 'isLoggedAdmin']
+  // inputs: ['isUpdating', 'updatingId', 'isLoggedAdmin']
 })
 export class DevicesAdminComponent implements OnInit {
 
@@ -18,61 +19,35 @@ export class DevicesAdminComponent implements OnInit {
 
   ) { }
 
+  isLoggedAdmin: boolean = false;
+  subscription: Subscription = new Subscription;
+  isUpdating = false;
+  updatingID: string = '';
+
   @ViewChild('deviceForm') deviceForm!: NgForm;
   @ViewChild('editForm') editForm!: NgForm;
 
+  ngOnDestroy(): void {
+
+    this.subscription!.unsubscribe();
+
+  }
+
   ngOnInit(): void {
     this.checkLoggedUser();
+    
   }
 
-  @Input() isLoggedAdmin: boolean = false;
+  loadDeviceData() {
 
-  @Input() isUpdating = false;
-  @Input() updatingID = '';
-
-  OnChanges() {
-    alert('admin upd ' + this.isUpdating)
-    this.loadDeviceData(this.updatingID);
-
-  }
-
-  checkLoggedUser() {
-
-    const user = localStorage.getItem('user');
-    const userObj = JSON.parse(user!);
-    if (userObj.isAdmin == true) {
-      this.isLoggedAdmin = true;
-    }
-
-  }
-
-  onSubmit() {
-
-    const newDevice: Device = {
-
-      model: this.deviceForm.value.model,
-      brand: this.deviceForm.value.brand,
-      price: this.deviceForm.value.price,
-      class: this.deviceForm.value.class,
-      imageUrl: this.deviceForm.value.imageUrl,
-      description: this.deviceForm.value.description,
-
-    }
-
-    this.deviceService.createDevice(newDevice).subscribe((response) => {
+    let deviceId: string = '';
+    this.subscription = this.deviceService.getUpdatingId().subscribe((id: string) => {
+      console.log('admin ' + id);
+      this.updatingID = id;
+      deviceId = id;
+    });
 
 
-      // this.notify.show(response as string, 'success');
-      this.reloadCurrentRoute();
-
-    }, (errors) => {
-
-      // this.notify.show(errors, 'error');
-    }
-    );
-  }
-
-  loadDeviceData(deviceId: string) {
     let device: Device = {
       model: "undefined",
       brand: "undefined",
@@ -116,36 +91,42 @@ export class DevicesAdminComponent implements OnInit {
 
     })
 
+
+  }
+  checkLoggedUser() {
+
+    const user = localStorage.getItem('user');
+    const userObj = JSON.parse(user!);
+    if (userObj.isAdmin == true) {
+      this.isLoggedAdmin = true;
+    }
+
   }
 
-  //TODO this should receive event from list component
-  adminUpdatesDevice(deviceId: string) {
+  onSubmit() {
 
-    this.isUpdating = true;
-    this.updatingID = deviceId;
+    const newDevice: Device = {
 
-    let device: Device = {
-      model: "undefined",
-      brand: "undefined",
-      class: "undefined",
-      price: "undefined",
-      imageUrl: "undefined",
-      description: "undefined"
-    };
+      model: this.deviceForm.value.model,
+      brand: this.deviceForm.value.brand,
+      price: this.deviceForm.value.price,
+      class: this.deviceForm.value.class,
+      imageUrl: this.deviceForm.value.imageUrl,
+      description: this.deviceForm.value.description,
 
-    this.deviceService.getById(deviceId).subscribe((response) => {
+    }
+
+    this.deviceService.createDevice(newDevice).subscribe((response) => {
 
 
-      device = response as Device;
+      // this.notify.show(response as string, 'success');
+      this.reloadCurrentRoute();
 
-      this.editForm.controls['model'].setValue(device.model)
-      this.editForm.controls['brand'].setValue(device.brand)
-      this.editForm.controls['class'].setValue(device.class)
-      this.editForm.controls['price'].setValue(device.price)
-      this.editForm.controls['imageUrl'].setValue(device.imageUrl)
-      this.editForm.controls['description'].setValue(device.description)
+    }, (errors) => {
 
-    });
+      // this.notify.show(errors, 'error');
+    }
+    );
   }
 
   reloadCurrentRoute() {
