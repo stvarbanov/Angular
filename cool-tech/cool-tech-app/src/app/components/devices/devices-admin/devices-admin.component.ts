@@ -21,6 +21,8 @@ export class DevicesAdminComponent implements OnInit {
 
   isLoggedAdmin: boolean = false;
   subscription: Subscription = new Subscription;
+  subscription2: Subscription = new Subscription;
+
   isUpdating = false;
   updatingID: string = '';
 
@@ -30,48 +32,74 @@ export class DevicesAdminComponent implements OnInit {
   ngOnDestroy(): void {
 
     this.subscription!.unsubscribe();
+    this.subscription2!.unsubscribe();
 
   }
 
   ngOnInit(): void {
+    this.isUpdating = false;
+
+    this.subscription2 = this.deviceService.getIsUpdatingId().subscribe((response) =>
+      this.isUpdating = response as unknown as boolean
+    )
+
     this.checkLoggedUser();
-    
+
+    this.loadDeviceData();
+
   }
+
+  abortUpdate() {
+    this.deviceService.setIsUpdatingId(false);
+    this.isUpdating = false;
+
+    this.subscription.unsubscribe();
+    this.subscription2.unsubscribe();
+
+  }
+
 
   loadDeviceData() {
 
     let deviceId: string = '';
+
     this.subscription = this.deviceService.getUpdatingId().subscribe((id: string) => {
-      console.log('admin ' + id);
-      this.updatingID = id;
-      deviceId = id;
+
+      if (id != '') {
+        console.log('admin ' + id);
+
+        this.updatingID = id;
+        this.deviceService.setIsUpdatingId(true);
+
+        deviceId = id;
+
+        let device: Device = {
+          model: "undefined",
+          brand: "undefined",
+          class: "undefined",
+          price: "undefined",
+          imageUrl: "undefined",
+          description: "undefined"
+        };
+
+        this.deviceService.getById(deviceId).subscribe((response) => {
+
+          device = response as Device;
+          console.log('loading' + device);
+
+          this.editForm.controls['model'].setValue(device.model)
+          this.editForm.controls['brand'].setValue(device.brand)
+          this.editForm.controls['class'].setValue(device.class)
+          this.editForm.controls['price'].setValue(device.price)
+          this.editForm.controls['imageUrl'].setValue(device.imageUrl)
+          this.editForm.controls['description'].setValue(device.description)
+        });
+
+      }
     });
-
-
-    let device: Device = {
-      model: "undefined",
-      brand: "undefined",
-      class: "undefined",
-      price: "undefined",
-      imageUrl: "undefined",
-      description: "undefined"
-    };
-
-    this.deviceService.getById(deviceId).subscribe((response) => {
-
-
-      device = response as Device;
-
-      this.editForm.controls['model'].setValue(device.model)
-      this.editForm.controls['brand'].setValue(device.brand)
-      this.editForm.controls['class'].setValue(device.class)
-      this.editForm.controls['price'].setValue(device.price)
-      this.editForm.controls['imageUrl'].setValue(device.imageUrl)
-      this.editForm.controls['description'].setValue(device.description)
-    });
-
   }
   onUpdate() {
+
     const deviceId = this.updatingID;
 
     const updatedDevice: Device = {
@@ -136,10 +164,7 @@ export class DevicesAdminComponent implements OnInit {
     });
   }
 
-  abortUpdate() {
-    this.isUpdating = false;
-    this.updatingID = '';
-  }
+
 
 
 }

@@ -8,18 +8,11 @@ import { DeviceService } from 'src/app/services/device.service';
   templateUrl: './devices-list.component.html',
   styleUrls: ['./devices-list.component.css'],
 
-  providers: [DeviceService],
   // outputs: ['isUpdating', 'updatingId']
 })
 export class DevicesListComponent implements OnInit {
 
-  constructor(private deviceService: DeviceService,
-    private router: Router
-  ) { }
 
-  ngOnInit(): void {
-    this.getAllDevices();
-  }
 
   @Input()
   isLoggedAdmin: boolean = false;
@@ -29,6 +22,17 @@ export class DevicesListComponent implements OnInit {
   isUpdating: boolean = false;
   updatingID: String = '';
 
+  constructor(private deviceService: DeviceService,
+    private router: Router
+  ) { }
+
+  ngOnInit(): void {
+    this.getAllDevices();
+    this.isUpdating = false;
+    this.updatingID = '';
+
+  }
+
   getAllDevices() {
     this.deviceService.loadAllDevices().subscribe((data) => {
       this.devices.push(data);
@@ -37,10 +41,13 @@ export class DevicesListComponent implements OnInit {
 
   editDevice(deviceId: string) {
 
-    this.isUpdating = true;
+    // this.isUpdating = true;
     this.deviceService.setUpdatingId(deviceId);
-  
+    this.deviceService.setIsUpdatingId(true);
 
+    this.deviceService.getIsUpdatingId().subscribe((response) =>
+      this.isUpdating = response as unknown as boolean
+    );
   }
 
   deleteDevice(deviceId: string) {

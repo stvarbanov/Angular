@@ -14,19 +14,31 @@ export class DeviceService {
 
   constructor(private http: HttpClient) { }
 
-  private _updatingId = new BehaviorSubject<string>('62509b689f3a69769b8e4bca');
-  
+  private _updatingId = new BehaviorSubject<string>('');
   private _updatingId$ = this._updatingId.asObservable();
-  
+
+  private _isUpdatingId = new BehaviorSubject<boolean>(false);
+  private _isUpdatingId$ = this._updatingId.asObservable();
+
 
   getUpdatingId(): Observable<string> {
-    console.log('getter ' + this._updatingId$)
+    console.log('getter ID ' + this._updatingId$)
     return this._updatingId$;
   }
 
   setUpdatingId(latest: string) {
-    console.log('setter ' + latest)
+    console.log('setter ID' + latest)
     return this._updatingId.next(latest);
+  }
+
+  getIsUpdatingId(): Observable<string> {
+    console.log('getter is Updating' + this._isUpdatingId$)
+    return this._isUpdatingId$;
+  }
+
+  setIsUpdatingId(latest: boolean) {
+    console.log('setter isUpdating ' + latest)
+    return this._isUpdatingId.next(latest);
   }
 
 
