@@ -3,8 +3,8 @@
 
 //TODO page architecture - try for devices only, it's a few hours of work
 
-DevicesModule:
-DevicesPageComponent
+
+DevicesComponent
 DevicesListComponent => DeviceCardComponent
 DevicesAdminPanelComponent
 

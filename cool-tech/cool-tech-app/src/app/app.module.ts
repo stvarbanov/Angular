@@ -20,14 +20,14 @@ import { AuthModule } from './auth/auth.module';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
-// import { AdminModule } from './admin/admin.module';
 import { ProfileComponent } from './auth/profile/profile.component';
 
 import { FormsModule } from '@angular/forms';
-import { DetailsComponent } from './components/devices/details/details.component';
 
 import { UserService } from './services/user.service';
 import { StorageService } from './services/storage.service';
+import { DevicesListComponent } from './components/devices/devices-list/devices-list.component';
+import { DevicesAdminComponent } from './components/devices/devices-admin/devices-admin.component';
 
 
 
@@ -65,7 +65,10 @@ const routes: Routes = [
     ServicesComponent,
     ProjectsComponent,
     RequestComponent,
-    DetailsComponent, ProfileComponent, LandingComponent
+    ProfileComponent,
+    LandingComponent,
+    DevicesListComponent,
+    DevicesAdminComponent
   ],
   imports: [
     AuthModule,
