@@ -6,9 +6,9 @@
             <span class="device-img-container">
                 <img src={{device.imageUrl}}>
             </span>
-            <div class="device-model"> {{device.model | uppercase}}</div>
-            <div class="device-brand"> {{device.brand}} </div>
-            <div class="device-price"> {{device.price}}.00 BGN </div>
+            <div class="device-model">{{device.brand}} {{device.model | uppercase}}</div>
+            <div class="device-class"> Class: {{device.class}} </div>
+            <div class="device-price"> Price: {{device.price}}.00 BGN </div>
             <div *ngIf="isLoggedAdmin != true" class="device-buttons user">
                 <button class="device-buy">Buy</button>
                 <button class="device-details">Details</button>

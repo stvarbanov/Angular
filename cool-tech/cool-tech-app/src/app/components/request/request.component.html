@@ -1,6 +1,13 @@
 <div class="request-wrapper">
     <!-- new request - hide for admin -->
-    <h3 *ngIf="!isLoggedIn && !isLoggedAdmin">You need a profile to create a request </h3>
+    <div *ngIf="!isLoggedIn && !isLoggedAdmin">
+        <h3>You need a profile to create a request </h3>
+        <div class=" card-info">
+            <small>No account? <a href="/auth/register">Register here</a>
+            </small>
+        </div>
+
+    </div>
 
 
     <form #requestForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="isLoggedIn">

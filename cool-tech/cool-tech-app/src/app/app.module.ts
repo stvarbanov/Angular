@@ -72,9 +72,7 @@ const routes: Routes = [
   ],
   imports: [
     AuthModule,
-
     BrowserAnimationsModule,
-
     BrowserModule,
     BrowserAnimationsModule,
     MatMenuModule,
@@ -82,9 +80,6 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
-
-
-
   ],
   exports: [
     RouterModule

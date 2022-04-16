@@ -41,6 +41,10 @@
   
   }
   
+.device-model{
+  font-weight: 500;
+}
+
   .device-buttons {
     display: flex;
     flex-direction: row;
