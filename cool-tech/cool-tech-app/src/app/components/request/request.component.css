@@ -59,6 +59,7 @@ form {
   border-radius: 25px;
   word-wrap: break-word;
 }
+
 .user-request {
   display: flex;
   flex-direction: column;
@@ -68,6 +69,12 @@ form {
   background-color: rgb(217, 243, 234);
   border-radius: 25px;
   word-wrap: break-word;
+}
+
+.user-requests h3{
+  display: inline-block;
+  word-wrap: break-word;
+width: 15%;
 }
 
 .request div, .user-request div {

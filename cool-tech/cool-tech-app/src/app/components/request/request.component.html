@@ -36,7 +36,7 @@
     </form>
     <div *ngIf="isLoggedIn" class="user-requests">
         <h3 *ngIf="userRequests[0].length>0">Your submitted requests:</h3>
-        <div *ngFor=" let request of userRequests[0]">
+        <div class="user-requests-list" *ngFor=" let request of userRequests[0]">
             <div class="user-request">
                 <span class="request-img-container">
                     <img src="{{request.photoUrl}}">
