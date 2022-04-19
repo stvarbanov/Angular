@@ -43,9 +43,9 @@ export class RegisterComponent implements OnInit, AfterViewInit {
       error: error => {
         const err = error as HttpErrorResponse;
         const msg = err.error.message.errors;
-        const arr: any = [];
-
-        console.log(msg);
+       
+       // const arr: any = [];
+       // console.log(msg);
         // Object.keys(msg).map(function (key, index) {
         //   arr.push(msg[key]['message']);
         // });

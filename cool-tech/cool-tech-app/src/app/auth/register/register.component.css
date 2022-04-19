@@ -1,10 +1,13 @@
 #register-page {
-  display: flex;
+  display: block;
+  width: 380px;
+  margin-left:500px;
+  margin-top: 25px;
   justify-content: center;
   flex-direction: column;
   background-color: rgb(127, 240, 255);
   padding: 25px;
-  padding-left: 500px;
+  /* padding-left: 500px; */
   color: rgb(114, 110, 110);
 }
 

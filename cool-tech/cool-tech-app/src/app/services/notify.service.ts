@@ -19,7 +19,7 @@ export class NotifyService {
 
     el!.style.display = 'inline';
 
-    el!.innerHTML = 'Server error:' + msg;
+    el!.innerHTML = 'Server error: ' + msg;
 
     if (type == 'error') {
       el!.style.background = 'rgb(200, 62, 62';
