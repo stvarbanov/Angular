@@ -10,31 +10,44 @@
         <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">
 
-                <input type="text" required minLength="5" class="input-field" placeholder="ivan98" id="username"
-                    name="username" ngModel #username="ngModel" />
+                <input type="text" class="input-field" placeholder="ivan98" id="username" name="username" ngModel
+                    #username="ngModel" required minlength='5' />
                 <label for="username">Username</label>
                 <div class="form-error" *ngIf="username.invalid && username.touched">
-                    Username is required!
+                    * Username is required!
                 </div>
                 <div class="form-error" *ngIf="username.errors?.['minlength']">
-                    Username must be at least 5 symbols!
+                    * Username must be at least 5 symbols!
                 </div>
 
             </div>
             <div class="input">
                 <input type="text" required minLength="5" class="input-field" placeholder="ivan@gmail.com" id="email"
-                    name="email" ngModel #email="ngModel" />
+                    name="email" ngModel #email="ngModel" email="true" />
                 <label for="email">Email</label>
+                <div class="form-error" *ngIf="email.invalid && email.touched">
+                    * Email is required!
+                </div>
+                <div class="form-error" *ngIf="email.errors?.['email']">
+                    * Email is not valid
+                </div>
             </div>
             <div class="input">
                 <input type="text" required minLength="5" class="input-field" id="phone" name="phone"
                     placeholder="+359896382164" ngModel #phone="ngModel" />
                 <label for="phone">Phone</label>
+                <div class="form-error" *ngIf="phone.invalid && phone.touched">
+                    * Phone is required!
+                </div>
+
             </div>
             <div class="input">
                 <input type="password" required minLength="5" class="input-field" id="password" name="password"
                     placeholder="******" ngModel #password="ngModel" />
                 <label for="password">Password</label>
+                <div class="form-error" *ngIf="password.invalid && password.touched">
+                    * Password is required!
+                </div>
             </div>
             <div class="input">
                 <input type="password" required minLength="5" class="input-field" id="rePassword" name="rePassword"
@@ -45,8 +58,11 @@
                 </div>
 
             </div>
-            <div class="action">
-                <button class="action-button" [disabled]="registerForm.invalid">Get started</button>
+            <div class="action" *ngIf="registerForm.invalid">
+                <button class="action-button-warn" [disabled]="registerForm.invalid">Fill the form, please</button>
+            </div>
+            <div class="action" *ngIf="!registerForm.invalid">
+                <button class="action-button">Let's go!</button>
             </div>
         </form>
 
