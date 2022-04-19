@@ -115,11 +115,21 @@ export class DevicesAdminComponent implements OnInit {
 
     this.deviceService.updateDevice(deviceId, updatedDevice).subscribe(
 
-      res => console.log('HTTP response', res),
-      err => console.log('HTTP Error', err),
-      () => console.log('HTTP request completed.')
+
+
+      res => {
+        console.log('HTTP response', res)
+        this.deviceService.setIsUpdatingId(false);
+        this.deviceService.setUpdatingId('');
+        this.reloadCurrentRoute();
+      },
+      err => {
+        console.log('HTTP Error', err)
+        //notification
+      }
 
     )
+
 
 
 
