@@ -17,7 +17,7 @@ How will updateButton on DeviceCard will pass info to AdminPanel ?
 TODO for the exam retake
 //more public/private separation ?
 
-//Form Validations
+//Form Validations - done on register and login
 
 //Notifications - make all errors in the server like in the AUTH controller
 then catch ERR, print error in error.message arr
@@ -26,7 +26,7 @@ then catch ERR, print error in error.message arr
 
 
 
-//TODO make admin panels separate components 
+//TODO make admin panels separate components - done for devices, use as example!
 
 //TODO add route guards for admin panels for non-admin
 
