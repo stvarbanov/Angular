@@ -9,14 +9,17 @@ export class NotifyService {
 
   visible = false;
 
+  messages: string[] = [];
 
   show(msg: string, type: string) {
+
+    console.log('show ' + JSON.stringify(msg));
 
     let el = document.getElementById("notification");
 
     el!.style.display = 'inline';
 
-    el!.innerHTML = msg;
+    el!.innerHTML = 'Server error:' + msg as string;
 
     if (type == 'error') {
       el!.style.background = 'rgb(200, 62, 62';
@@ -32,7 +35,9 @@ export class NotifyService {
     setTimeout(function () {
       el!.style.display = 'none';
     }, 4.0 * 1000)
-
   };
 
-}
+
+};
+
+
