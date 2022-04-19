@@ -22,7 +22,7 @@ import { RegisterComponent } from './auth/register/register.component';
 
 import { ProfileComponent } from './auth/profile/profile.component';
 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { UserService } from './services/user.service';
 import { StorageService } from './services/storage.service';
@@ -80,6 +80,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     RouterModule

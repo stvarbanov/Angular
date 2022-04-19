@@ -28,3 +28,12 @@ aside h3 {
   text-transform: uppercase;
 }
 
+.form-error{
+
+  background-color: red;
+  color: white;
+  font-size: 16px;
+  padding: 6px;
+  
+
+}

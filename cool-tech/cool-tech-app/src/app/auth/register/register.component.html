@@ -5,32 +5,55 @@
             Create a profile here
         </h2>
 
+
+
         <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
-            <div class=" input">
-                <input type="text" class="input-field" placeholder="ivan98" id="username" name="username" ngModel />
+            <div class="input">
+
+                <input type="text" required minLength="5" class="input-field" placeholder="ivan98" id="username"
+                    name="username" ngModel #username="ngModel" />
                 <label for="username">Username</label>
+                <div class="form-error" *ngIf="username.invalid && username.touched">
+                    Username is required!
+                </div>
+                <div class="form-error" *ngIf="username.errors?.['minlength']">
+                    Username must be at least 5 symbols!
+                </div>
+
             </div>
             <div class="input">
-                <input type="text" class="input-field" placeholder="ivan@gmail.com" id="email" name="email" ngModel />
+                <input type="text" required minLength="5" class="input-field" placeholder="ivan@gmail.com" id="email"
+                    name="email" ngModel #email="ngModel" />
                 <label for="email">Email</label>
             </div>
             <div class="input">
-                <input type="text" class="input-field" id="phone" name="phone" placeholder="+359896382164" ngModel />
+                <input type="text" required minLength="5" class="input-field" id="phone" name="phone"
+                    placeholder="+359896382164" ngModel #phone="ngModel" />
                 <label for="phone">Phone</label>
             </div>
             <div class="input">
-                <input type="password" class="input-field" id="password" name="password" placeholder="******" ngModel />
+                <input type="password" required minLength="5" class="input-field" id="password" name="password"
+                    placeholder="******" ngModel #password="ngModel" />
                 <label for="password">Password</label>
             </div>
             <div class="input">
-                <input type="password" class="input-field" id="rePassword" name="rePassword" placeholder="******"
-                    ngModel />
+                <input type="password" required minLength="5" class="input-field" id="rePassword" name="rePassword"
+                    placeholder="******" ngModel #rePassword="ngModel" />
                 <label for="rePassword">Repeat Password</label>
+                <div *ngIf="rePassword.invalid && rePassword.touched">
+                    Both passwords must be valid!
+                </div>
+
             </div>
             <div class="action">
-                <button class="action-button">Get started</button>
+                <button class="action-button" [disabled]="registerForm.invalid">Get started</button>
             </div>
         </form>
+
+
+
+
+
 
         <div class="card-info">
             <small>Already have an account? <a href="/auth/login"> Sign in </a>

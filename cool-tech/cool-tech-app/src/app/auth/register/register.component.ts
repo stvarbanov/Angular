@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { NotifyService } from 'src/app/services/notify.service';
@@ -21,6 +21,15 @@ export class RegisterComponent implements OnInit, AfterViewInit {
     private notify: NotifyService) { }
 
   ngOnInit(): void {
+
+    const group1 = new FormGroup({
+      username: new FormControl(this.registerForm, [Validators.required, Validators.minLength(5)]),
+      email: new FormControl(this.registerForm, [Validators.required, Validators.minLength(5)]),
+      phone: new FormControl(this.registerForm, [Validators.required, Validators.minLength(5)]),
+      password: new FormControl(this.registerForm, [Validators.required, Validators.minLength(5)]),
+      rePassword: new FormControl(this.registerForm, [Validators.required, Validators.minLength(5)])
+
+    })
   }
   ngAfterViewInit(): void {
 
@@ -48,7 +57,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
           arr.push(msg[key]['message']);
         });
 
-    
+
         this.notify.show(arr, 'error');
       },
       next: response => {

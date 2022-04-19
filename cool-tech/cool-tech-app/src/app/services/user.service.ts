@@ -14,9 +14,9 @@ export class UserService {
     // console.log('UserService#constructor')
   }
 
-  getProfile$(): Observable<User> {
-    return this.httpClient.get<User>(`${environment.apiUrl}/users/profile`, { withCredentials: true })
-  }
+  // getProfile$(): Observable<User> {
+  //   return this.httpClient.get<User>(`${environment.apiUrl}/users/profile`, { withCredentials: true })
+  // }
 
   getUserById(userId: string): Observable<User> {
     return this.httpClient.get<User>(`${environment.apiUrl}/users/${userId}`, { withCredentials: true })
