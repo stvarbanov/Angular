@@ -14,10 +14,17 @@ How will updateButton on DeviceCard will pass info to AdminPanel ?
 // Make one AdminPanelComponents that receives interface as input to generate the fields ? Very nice
 
 
+TODO for the exam retake
+//more public/private separation ?
+
+//Form Validations
+
+//Notifications - make all errors in the server like in the AUTH controller
+then catch ERR, print error in error.message arr
 
 
 
-//TODO editable user 
+
 
 //TODO make admin panels separate components 
 

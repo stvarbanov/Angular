@@ -8,7 +8,7 @@ router.post('/create/:userId/:title', (req, res) => {
         .then(data => {
             res.status(201).json({ message: 'Successfully created note!', noteId: data._id });
         })
-        .catch(err => console.log(err));
+        .catch(err => res.status(400).json({ error: err }));
 });
 
 

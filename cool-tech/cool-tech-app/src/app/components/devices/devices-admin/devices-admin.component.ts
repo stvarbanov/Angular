@@ -113,11 +113,14 @@ export class DevicesAdminComponent implements OnInit {
 
     }
 
-    this.deviceService.updateDevice(deviceId, updatedDevice).subscribe((response) => {
+    this.deviceService.updateDevice(deviceId, updatedDevice).subscribe(
 
-      this.reloadCurrentRoute();
+      res => console.log('HTTP response', res),
+      err => console.log('HTTP Error', err),
+      () => console.log('HTTP request completed.')
 
-    })
+    )
+
 
 
   }
