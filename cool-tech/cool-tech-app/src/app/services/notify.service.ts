@@ -13,13 +13,13 @@ export class NotifyService {
 
   show(msg: string, type: string) {
 
-    console.log('show ' + JSON.stringify(msg));
+
 
     let el = document.getElementById("notification");
 
     el!.style.display = 'inline';
 
-    el!.innerHTML = 'Server error:' + msg as string;
+    el!.innerHTML = 'Server error:' + msg;
 
     if (type == 'error') {
       el!.style.background = 'rgb(200, 62, 62';

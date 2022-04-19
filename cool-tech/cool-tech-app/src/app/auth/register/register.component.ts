@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
-  
+
   }
   ngAfterViewInit(): void {
 
@@ -45,13 +45,13 @@ export class RegisterComponent implements OnInit, AfterViewInit {
         const msg = err.error.message.errors;
         const arr: any = [];
 
+        console.log(msg);
+        // Object.keys(msg).map(function (key, index) {
+        //   arr.push(msg[key]['message']);
+        // });
 
-        Object.keys(msg).map(function (key, index) {
-          arr.push(msg[key]['message']);
-        });
 
-
-        this.notify.show(arr, 'error');
+        this.notify.show(msg, 'error');
       },
       next: response => {
         localStorage.setItem('user', JSON.stringify(response.user));

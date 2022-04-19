@@ -30,7 +30,7 @@ aside h3 {
 
 .form-error{
 
-  background-color: red;
+  background-color: rgb(200, 62, 62);
   color: white;
   font-size: 16px;
   padding: 6px;
