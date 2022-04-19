@@ -8,7 +8,9 @@ router.get('/all', (req, res) => {
             res.status(201).json(data);
             // console.log(res);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 });
 router.get('/user/:userId', (req, res) => {
     requestService.getRequestOfUser(req.params.userId)
@@ -16,7 +18,9 @@ router.get('/user/:userId', (req, res) => {
             res.status(201).json(data);
             // console.log(res);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 });
 
 router.post('/create', (req, res) => {
@@ -25,7 +29,9 @@ router.post('/create', (req, res) => {
         .then(data => {
             res.status(201).json({ request: data });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 router.delete('/delete/:reqId', (req, res) => {
@@ -35,7 +41,9 @@ router.delete('/delete/:reqId', (req, res) => {
         .then(data => {
             res.status(201).json(data);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 

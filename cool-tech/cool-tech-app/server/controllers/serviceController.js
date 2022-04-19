@@ -8,7 +8,9 @@ router.get('/all', (req, res) => {
             res.status(201).json(data);
             // console.log(res);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 });
 
 router.post('/create', (req, res) => {
@@ -17,7 +19,9 @@ router.post('/create', (req, res) => {
         .then(data => {
             res.status(201).json(data);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 
@@ -28,7 +32,9 @@ router.delete('/delete/:serviceId', (req, res) => {
         .then(data => {
             res.status(201).json(data);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 
@@ -38,7 +44,9 @@ router.get('/:serviceId', (req, res) => {
         .then(data => {
             res.status(201).json(data);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 
@@ -49,7 +57,9 @@ router.post('/update/:serviceId', (req, res) => {
         .then(data => {
             res.status(201).json({ device: data });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 

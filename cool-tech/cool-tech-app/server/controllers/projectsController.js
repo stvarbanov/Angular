@@ -8,7 +8,9 @@ router.get('/all', (req, res) => {
             res.status(201).json(data);
             // console.log(res);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 });
 
 router.post('/create', (req, res) => {
@@ -17,7 +19,9 @@ router.post('/create', (req, res) => {
         .then(data => {
             res.status(201).json({ project: data });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 
@@ -28,7 +32,9 @@ router.delete('/delete/:projectId', (req, res) => {
         .then(data => {
             res.status(201).json(data);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 
@@ -38,18 +44,22 @@ router.get('/:projectId', (req, res) => {
         .then(data => {
             res.status(201).json(data);
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 
 router.post('/update/:projectId', (req, res) => {
 
-    
+
     projectService.updateProject(req.params.projectId, req.body)
         .then(data => {
             res.status(201).json({ device: data });
         })
-        .catch(err => console.log(err));
+        .catch(err => {
+            res.status(400).json({ message: err, type: 'error' });
+        });
 
 })
 
