@@ -8,22 +8,26 @@
 
             <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
                 <div class="input">
-                    <input type="text" class="input-field" placeholder="ivan98" id="username" name="username" ngModel />
+                    <input type="text" required class="input-field" placeholder="ivan98" id="username" name="username" ngModel />
                     <label for="username">Username</label>
                 </div>
                 <div class="input">
-                    <input type="password" class="input-field" id="password" name="password" placeholder="******" ngModel />
+                    <input type="password" required class="input-field" id="password" name="password" placeholder="******"
+                        ngModel />
                     <label for="password">Password</label>
                 </div>
-                <div class="action">
-                    <button class="action-button" >Login</button>
-            </div>
-        </form>
-
-        <div class=" card-info">
-                        <small>No account? <a href="/auth/register">Register here</a>
-                        </small>
+                <div class="action" *ngIf="loginForm.invalid">
+                    <button class="action-button-warn" [disabled]="loginForm.invalid">Fill the form, please</button>
                 </div>
+                <div class="action" *ngIf="!loginForm.invalid">
+                    <button class="action-button">Log me in!</button>
+                </div>
+            </form>
+
+            <div class=" card-info">
+                <small>No account? <a href="/auth/register">Register here</a>
+                </small>
+            </div>
 
         </div>
     </section>

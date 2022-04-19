@@ -12,7 +12,6 @@ const register = async data => {
     let phone = data.phone;
 
     if (password != rePassword) {
-        console.log(' inn ')
         throw { errors: 'Passwords must match!' };
     }
 
