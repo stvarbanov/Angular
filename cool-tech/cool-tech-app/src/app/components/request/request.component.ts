@@ -1,7 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RequestI } from 'src/app/models/models';
+import { NotifyService } from 'src/app/services/notify.service';
 import { RequestService } from 'src/app/services/request.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -24,20 +26,21 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
   constructor(private requestService: RequestService,
     private userService: UserService,
-    private router: Router) { }
+    private router: Router,
+    private notify: NotifyService) { }
 
   ngOnInit(): void {
 
     this.checkLoggedUser();
 
     if (this.isLoggedAdmin) {
-    
+
       this.getAllRequests();
     } else {
       this.getUserRequests();
     }
 
-  
+
   }
   ngAfterViewInit(): void {
 
@@ -58,9 +61,19 @@ export class RequestComponent implements OnInit, AfterViewInit {
     }
 
 
-    this.requestService.createRequest(newRequest).subscribe((response) => {
+    this.requestService.createRequest(newRequest).subscribe({
+      error: error => {
+        const err = error as HttpErrorResponse;
+        const msg = err.error.message.errors;
+        console.log(JSON.stringify(msg))
+        this.notify.show(msg, 'error');
+      },
+      next: response => {
 
-      this.reloadCurrentRoute();
+        this.reloadCurrentRoute();
+      }
+
+
 
     });
 
@@ -70,7 +83,7 @@ export class RequestComponent implements OnInit, AfterViewInit {
 
     const user = localStorage.getItem('user');
     const userObj = JSON.parse(user!);
-   
+
     if (userObj) {
       this.isLoggedIn = true;
       this.isLoggedAdmin = false;
