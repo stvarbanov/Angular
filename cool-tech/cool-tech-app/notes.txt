@@ -16,7 +16,7 @@ How will updateButton on DeviceCard will pass info to AdminPanel ?
 
 TODO for the exam retake
 //more public/private separation ?
-//add app documentation
+
 //remake Projects and Services like Devices
 
 
