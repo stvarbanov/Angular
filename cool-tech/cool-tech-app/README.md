@@ -5,10 +5,11 @@ run npm install and start client with ng serve (localhost:4200).
 in server folder, run npm start (localhost:5000)
 
 # Guest users
-The guest can browse devices, projects and services.
+The guest can browse devices, projects and services. 
+TODO: They can add devices to cart, but can't order without profile.
 
 # Registered users
-Registered users can submit requests and see all their requests (and cancel them if they want.)
+Registered users can order and can submit requests and see all their requests (and cancel them if they want.)
 
 # Admin user
 The admin can add, edit and delete devices, projects and services via the admin panel that appears for him. 
