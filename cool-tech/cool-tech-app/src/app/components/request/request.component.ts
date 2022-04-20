@@ -6,6 +6,7 @@ import { RequestI } from 'src/app/models/models';
 import { NotifyService } from 'src/app/services/notify.service';
 import { RequestService } from 'src/app/services/request.service';
 import { UserService } from 'src/app/services/user.service';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @Component({
   selector: 'app-request',

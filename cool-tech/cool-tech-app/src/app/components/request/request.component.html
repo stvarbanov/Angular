@@ -16,7 +16,7 @@
             <input class="form-control" id="title" name="title" ngModel required minlength='5' #title="ngModel" />
             <label for="title" class="add-title">Title</label>
             <div class="form-error" *ngIf="title.invalid && title.touched">
-                * Title is required!
+                * Please, brief us..
             </div>
             <div class="form-error" *ngIf="title.errors?.['minlength']">
                 * Title must be at least 5 symbols!
@@ -26,7 +26,7 @@
             <input class="form-control" id="city" name="city" ngModel required minlength='5' #city="ngModel" />
             <label for="city" class="add-city">City</label>
             <div class="form-error" *ngIf="city.invalid && city.touched">
-                * City is required!
+                * We don't know where you live...
             </div>
             <div class="form-error" *ngIf="city.errors?.['minlength']">
                 * City must be at least 5 symbols!
@@ -36,7 +36,7 @@
             <input class="form-control" id="adress" name="adress" ngModel required minlength='7' #adress="ngModel" />
             <label for="adress" class="add-adress">Adress</label>
             <div class="form-error" *ngIf="adress.invalid && adress.touched">
-                * Address is required!
+                * We need to know where to come...
             </div>
             <div class="form-error" *ngIf="adress.errors?.['minlength']">
                 * Address must be at least 7 symbols!
@@ -79,6 +79,9 @@
 
     <!-- only for admin - show all requests -->
     <h3 *ngIf="isLoggedAdmin">Admin list - all active requests: </h3>
+    <markdown ngPreserveWhitespaces>
+        Admin user can see all active requests
+    </markdown>
     <div class="requests" *ngIf="isLoggedAdmin">
         <div *ngFor=" let request of requests[0]">
             <div class="request">

@@ -16,13 +16,12 @@ How will updateButton on DeviceCard will pass info to AdminPanel ?
 
 TODO for the exam retake
 //more public/private separation ?
-
-//Form Validations - done on register and login
-
-//Notifications - make all errors in the server like in the AUTH controller
-then catch ERR, print error in error.message arr
+//add app documentation
+//remake Projects and Services like Devices
 
 
+//Form Validations - done on register and login and request
+//Server error handling - done, all controllers updated
 
 
 
