@@ -28,7 +28,7 @@ import { UserService } from './services/user.service';
 import { StorageService } from './services/storage.service';
 import { DevicesListComponent } from './components/devices/devices-list/devices-list.component';
 import { DevicesAdminComponent } from './components/devices/devices-admin/devices-admin.component';
-import { MarkdownModule } from 'ngx-markdown';
+
 
 
 
@@ -82,7 +82,6 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MarkdownModule.forRoot()
   ],
   exports: [
     RouterModule

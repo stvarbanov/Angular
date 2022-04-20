@@ -10,7 +10,7 @@ export interface CreateUserDto { username: string, email: string, password: stri
 @Injectable()
 export class UserService {
 
-  constructor(private storage: StorageService, private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient) {
     // console.log('UserService#constructor')
   }
 
