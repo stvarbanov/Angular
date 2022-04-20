@@ -18,10 +18,4 @@ Admin can see all the request and load the request owner's contact info if neede
 On login, register and request forms required fields and their minLenght are handled.
 Errors thrown in the server are also displayed.
 
-# TODO List:
-
--- remake Projects and Services like Devices
--- add route guards
--- fix JWT issue
--- deploy to heroku
 
