@@ -79,9 +79,7 @@
 
     <!-- only for admin - show all requests -->
     <h3 *ngIf="isLoggedAdmin">Admin list - all active requests: </h3>
-    <markdown ngPreserveWhitespaces>
-        Admin user can see all active requests
-    </markdown>
+   
     <div class="requests" *ngIf="isLoggedAdmin">
         <div *ngFor=" let request of requests[0]">
             <div class="request">

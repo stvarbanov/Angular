@@ -82,7 +82,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MarkdownModule
+    MarkdownModule.forRoot()
   ],
   exports: [
     RouterModule
