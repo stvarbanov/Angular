@@ -2,7 +2,7 @@
     <h3>Admin panel - add device</h3>
     <form #deviceForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="input">
-            <input class="form-control" id="model" name="model"  ngModel required minlength='3' #model="ngModel" />
+            <input class="form-control" id="model" name="model" ngModel required minlength='3' #model="ngModel" />
             <label for="model" class="add-model">Model</label>
             <div class="form-error" *ngIf="model.invalid && model.touched">
                 * Model is mandatory!
@@ -13,7 +13,7 @@
         </div>
 
         <div class="input">
-            <input class="form-control" id="brand" name="brand"  ngModel required minlength='3' #brand="ngModel" />
+            <input class="form-control" id="brand" name="brand" ngModel required minlength='3' #brand="ngModel" />
             <label for="brand" class="add-brand">Brand</label>
             <div class="form-error" *ngIf="brand.invalid && brand.touched">
                 * Brand is mandatory!
@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="input">
-            <input class="form-control" id="class" name="class"  ngModel required minlength='3' #class="ngModel" />
+            <input class="form-control" id="class" name="class" ngModel required minlength='3' #class="ngModel" />
             <label for="class" class="add-class">Class</label>
             <div class="form-error" *ngIf="class.invalid && class.touched">
                 * Class is mandatory!
@@ -34,16 +34,17 @@
         </div>
 
         <div class="input">
-            <input class="form-control" id="price" name="price"  ngModel required #price="ngModel" />
+            <input class="form-control" id="price" name="price" ngModel required #price="ngModel" />
             <label for="price" class="add-price">Price</label>
             <div class="form-error" *ngIf="price.invalid && price.touched">
                 * Price is mandatory!
             </div>
-          
+
         </div>
 
         <div class="input">
-            <input class="form-control" id="imageUrl" name="imageUrl"  ngModel required minlength='10' #imageUrl="ngModel" />
+            <input class="form-control" id="imageUrl" name="imageUrl" ngModel required minlength='10'
+                #imageUrl="ngModel" />
             <label for="imageUrl" class="add-image">Image URL</label>
             <div class="form-error" *ngIf="imageUrl.invalid && imageUrl.touched">
                 * ImageUrl is mandatory!
@@ -54,53 +55,94 @@
         </div>
 
         <div class="input">
-            <textarea class="form-control" id="description" name="description"  ngModel required  #description="ngModel"></textarea>
+            <textarea class="form-control" id="description" name="description" ngModel required
+                #description="ngModel"></textarea>
             <label for="description" class="add-text">Description</label>
             <div class="form-error" *ngIf="description.invalid && description.touched">
                 * Description is mandatory!
             </div>
         </div>
-
-        <div class="action">
+        <div class="action" *ngIf="deviceForm.invalid">
+            <button class="action-button-warn" [disabled]="deviceForm.invalid">Fill all fields</button>
+        </div>
+        <div class="action" *ngIf="!deviceForm.invalid">
             <button class="action-button">Add device</button>
         </div>
     </form>
-
-
 
 </aside>
 <aside *ngIf="isUpdating">
     <h3>Editing device </h3>
     <form #editForm="ngForm" (ngSubmit)="onUpdate()">
         <div class="input">
-            <input class="form-control" id="model" name="model"  ngModel required minlength='5' #title="ngModel" />
+            <input class="form-control" id="model" name="model" ngModel required minlength='3' #model="ngModel" />
             <label for="model" class="add-model">Model</label>
-        </div>
-        <div class="input">
-            <input class="form-control" id="brand" name="brand"  ngModel required minlength='5' #title="ngModel" />
-            <label for="brand" class="add-brand">Brand</label>
-        </div>
-        <div class="input">
-            <input class="form-control" id="class" name="class"  ngModel required minlength='5' #title="ngModel" />
-            <label for="class" class="add-class">Class</label>
+            <div class="form-error" *ngIf="model.invalid && model.touched">
+                * Model is mandatory!
+            </div>
+            <div class="form-error" *ngIf="model.errors?.['minlength']">
+                * Model must be at least 3 symbols!
+            </div>
         </div>
 
         <div class="input">
-            <input class="form-control" id="price" name="price"  ngModel required minlength='5' #title="ngModel" />
+            <input class="form-control" id="brand" name="brand" ngModel required minlength='3' #brand="ngModel" />
+            <label for="brand" class="add-brand">Brand</label>
+            <div class="form-error" *ngIf="brand.invalid && brand.touched">
+                * Brand is mandatory!
+            </div>
+            <div class="form-error" *ngIf="brand.errors?.['minlength']">
+                * Brand must be at least 3 symbols!
+            </div>
+        </div>
+        <div class="input">
+            <input class="form-control" id="class" name="class" ngModel required minlength='3' #class="ngModel" />
+            <label for="class" class="add-class">Class</label>
+            <div class="form-error" *ngIf="class.invalid && class.touched">
+                * Class is mandatory!
+            </div>
+            <div class="form-error" *ngIf="class.errors?.['minlength']">
+                * Class must be at least 3 symbols!
+            </div>
+        </div>
+
+        <div class="input">
+            <input class="form-control" id="price" name="price" ngModel required #price="ngModel" />
             <label for="price" class="add-price">Price</label>
+            <div class="form-error" *ngIf="price.invalid && price.touched">
+                * Price is mandatory!
+            </div>
+
         </div>
+
         <div class="input">
-            <input class="form-control" id="imageUrl" name="imageUrl"  ngModel required minlength='5' #title="ngModel" />
+            <input class="form-control" id="imageUrl" name="imageUrl" ngModel required minlength='10'
+                #imageUrl="ngModel" />
             <label for="imageUrl" class="add-image">Image URL</label>
+            <div class="form-error" *ngIf="imageUrl.invalid && imageUrl.touched">
+                * ImageUrl is mandatory!
+            </div>
+            <div class="form-error" *ngIf="imageUrl.errors?.['minlength']">
+                * ImageUrl must be at least 10 symbols!
+            </div>
         </div>
+
         <div class="input">
-            <textarea class="form-control" id="description" name="description"  ngModel required minlength='5' #title="ngModel"></textarea>
+            <textarea class="form-control" id="description" name="description" ngModel required
+                #description="ngModel"></textarea>
             <label for="description" class="add-text">Description</label>
+            <div class="form-error" *ngIf="description.invalid && description.touched">
+                * Description is mandatory!
+            </div>
+        </div>
+        <div class="action" *ngIf="!editForm.invalid">
+            <button class="action-button" onclick="onUpdate()">Update device</button>
         </div>
         <div class="action">
-            <button class="action-button">Update device</button>
-            <button class="action-button" (onClick)="abortUpdate()">Cancel</button>
+            <button class="action-button" onclick="abortUpdate()">Cancel</button>
         </div>
+
+
     </form>
 
 

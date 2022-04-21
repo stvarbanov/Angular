@@ -50,6 +50,7 @@ export class DevicesAdminComponent implements OnInit {
   }
 
   abortUpdate() {
+    this.editForm.reset();
     this.deviceService.setIsUpdatingId(false);
     this.isUpdating = false;
 
