@@ -58,8 +58,9 @@
             <button class="action-button">Send request</button>
         </div>
     </form>
+    <h3  class='user-req-title' *ngIf="isLoggedIn && userRequests[0].length>0 ">Your requests
+        below:</h3>
     <div *ngIf="isLoggedIn" class="user-requests">
-        <h3 *ngIf="userRequests[0].length>0">Your submitted requests:</h3>
         <div class="user-requests-list" *ngFor=" let request of userRequests[0]">
             <div class="user-request">
                 <span class="request-img-container">
@@ -79,7 +80,7 @@
 
     <!-- only for admin - show all requests -->
     <h3 *ngIf="isLoggedAdmin">Admin list - all active requests: </h3>
-   
+
     <div class="requests" *ngIf="isLoggedAdmin">
         <div *ngFor=" let request of requests[0]">
             <div class="request">

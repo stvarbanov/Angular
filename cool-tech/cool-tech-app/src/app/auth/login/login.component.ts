@@ -47,11 +47,16 @@ export class LoginComponent implements OnInit, AfterViewInit {
 
       next: response => {
 
+
         localStorage.setItem('user', JSON.stringify(response['user']));
-        this.router.navigate(['/auth/profile']);
+        this.router.navigate(['/auth/profile']).then(
+          () => {
+            window.location.reload();
+          })
+
       }
     });
-
   }
+
 
 }

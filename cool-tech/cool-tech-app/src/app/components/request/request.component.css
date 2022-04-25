@@ -47,6 +47,7 @@ form {
   display: flex;
   flex-direction: row;
   gap: 30px;
+  flex-wrap: wrap;
 }
 
 .request {
@@ -106,4 +107,9 @@ width: 15%;
 
 .request-contact-user {
   margin-top: 10px;
+}
+
+.user-req-title{
+  margin-left:520px;
+  margin-top: 20px;
 }
