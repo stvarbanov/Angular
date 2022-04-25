@@ -1,21 +1,23 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Device } from 'src/app/models/models';
 import { DeviceService } from 'src/app/services/device.service';
+import { NotifyService } from 'src/app/services/notify.service';
 
 @Component({
   selector: 'app-devices-admin',
   templateUrl: './devices-admin.component.html',
   styleUrls: ['./devices-admin.component.css'],
-  // inputs: ['isUpdating', 'updatingId', 'isLoggedAdmin']
 })
 export class DevicesAdminComponent implements OnInit {
 
   constructor(
     private deviceService: DeviceService,
-    private router: Router
+    private router: Router,
+    private notify: NotifyService
 
   ) { }
 
@@ -85,8 +87,10 @@ export class DevicesAdminComponent implements OnInit {
 
         this.deviceService.getById(deviceId).subscribe((response) => {
 
+
+          this.notify.show('Device loaded for update', 'warn')
+
           device = response as Device;
-          console.log('loading' + device);
 
           this.editForm.controls['model'].setValue(device.model)
           this.editForm.controls['brand'].setValue(device.brand)
@@ -116,17 +120,17 @@ export class DevicesAdminComponent implements OnInit {
 
     this.deviceService.updateDevice(deviceId, updatedDevice).subscribe(
 
-
-
       res => {
-        console.log('HTTP response', res)
+        // console.log('HTTP response', res)
+        this.notify.show('Device updated!', 'success');
         this.deviceService.setIsUpdatingId(false);
         this.deviceService.setUpdatingId('');
         this.reloadCurrentRoute();
       },
       err => {
         console.log('HTTP Error', err)
-        //notification
+        this.notify.show(err, 'error');
+
       }
 
     )

@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { DeviceService } from 'src/app/services/device.service';
+import { NotifyService } from 'src/app/services/notify.service';
 
 @Component({
   selector: 'app-devices-list',
@@ -13,7 +14,6 @@ import { DeviceService } from 'src/app/services/device.service';
 export class DevicesListComponent implements OnInit {
 
 
-
   @Input()
   isLoggedAdmin: boolean = false;
 
@@ -23,7 +23,8 @@ export class DevicesListComponent implements OnInit {
   updatingID: String = '';
 
   constructor(private deviceService: DeviceService,
-    private router: Router
+    private router: Router,
+    private notify: NotifyService
   ) { }
 
   ngOnInit(): void {
@@ -54,6 +55,7 @@ export class DevicesListComponent implements OnInit {
 
     this.deviceService.deleteDevice(deviceId).subscribe((data) => {
 
+      this.notify.show('Device deleted','success');
       this.reloadCurrentRoute();
       //list of requests should update
     })

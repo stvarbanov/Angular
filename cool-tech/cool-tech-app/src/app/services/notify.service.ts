@@ -19,15 +19,21 @@ export class NotifyService {
 
     el!.style.display = 'inline';
 
-    el!.innerHTML = 'Server error: ' + msg;
 
     if (type == 'error') {
+      el!.innerHTML = 'Error: ' + msg;
       el!.style.background = 'rgb(200, 62, 62';
       el!.style.color = 'white';
 
 
     } else if (type == 'success') {
+      el!.innerHTML = 'Success: ' + msg;
       el!.style.background = '#71fea5';
+      el!.style.color = 'black';
+
+    } else if (type == 'warn') {
+      el!.innerHTML =  msg;
+      el!.style.background = '#cea533';
       el!.style.color = 'black';
 
     }
