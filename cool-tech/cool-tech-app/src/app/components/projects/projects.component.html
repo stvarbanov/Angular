@@ -24,16 +24,16 @@
 
                     <h3 class="gallery">
                         <div class="gallery-img ">
-                            <img class="{{project._id}}-image2" src={{project.image2Url}} (click)="clickImg('2',project._id)"
-                                alt="">
+                            <img class="{{project._id}}-image2" src={{project.image2Url}}
+                                (click)="clickImg('2',project._id)" alt="">
                         </div>
                         <div class="gallery-img">
-                            <img class="{{project._id}}-image3" src={{project.image3Url}} (click)="clickImg('3',project._id)"
-                                alt="">
+                            <img class="{{project._id}}-image3" src={{project.image3Url}}
+                                (click)="clickImg('3',project._id)" alt="">
                         </div>
                         <div class="gallery-img">
-                            <img class="{{project._id}}-image4" src={{project.image4Url}} (click)="clickImg('4',project._id)"
-                                alt="">
+                            <img class="{{project._id}}-image4" src={{project.image4Url}}
+                                (click)="clickImg('4',project._id)" alt="">
                         </div>
                     </h3>
                 </div>
@@ -50,28 +50,71 @@
 
         <form #projectForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">
-                <input class="form-control" id="title" name="title" ngModel />
+                <input class="form-control" id="title" name="title" ngModel required minlength='10'
+                #title="ngModel" />
                 <label for="title" class="add-title">Project title</label>
+                <div class="form-error" *ngIf="title.invalid && title.touched">
+                    * Title is mandatory!
+                </div>
+                <div class="form-error" *ngIf="title.errors?.['minlength']">
+                    * Title must be at least 10 symbols!
+                </div>
+
             </div>
             <div class="input">
-                <textarea class="form-control" id="description" name="description" ngModel></textarea>
+                <textarea class="form-control" id="description" name="description" ngModel required minlength='10'
+                    #description="ngModel"></textarea>
                 <label for="description" class="add-text">Description</label>
+                <div class="form-error" *ngIf="description.invalid && description.touched">
+                    * Description is mandatory!
+                </div>
+                <div class="form-error" *ngIf="description.errors?.['minlength']">
+                    * Description must be at least 10 symbols!
+                </div>
             </div>
             <div class="input">
-                <input class="form-control" id="image1Url" name="image1Url" ngModel />
+                <input class="form-control" id="image1Url" name="image1Url" ngModel required minlength='10'
+                #image1Url="ngModel"> 
                 <label for="image1Url" class="add-image">Image 1 URL</label>
+                <div class="form-error" *ngIf="image1Url.invalid && image1Url.touched">
+                    * Image 1 Url is mandatory!
+                </div>
+                <div class="form-error" *ngIf="image1Url.errors?.['minlength']">
+                    * Image 1 Url must be at least 10 symbols!
+                </div>
             </div>
             <div class="input">
-                <input class="form-control" id="image2Url" name="image2Url" ngModel />
+                <input class="form-control" id="image2Url" name="image2Url" ngModel required minlength='10'
+                #image2Url="ngModel"> 
                 <label for="image2Url" class="add-image">Image 2 URL</label>
+                <div class="form-error" *ngIf="image2Url.invalid && image2Url.touched">
+                    * Image 2 Url is mandatory!
+                </div>
+                <div class="form-error" *ngIf="image2Url.errors?.['minlength']">
+                    * Image 2 Url must be at least 10 symbols!
+                </div>
             </div>
             <div class="input">
-                <input class="form-control" id="image3Url" name="image3Url" ngModel />
+                <input class="form-control" id="image3Url" name="image3Url" ngModel required minlength='10'
+                #image3Url="ngModel"> 
                 <label for="image3Url" class="add-image">Image 3 URL</label>
+                <div class="form-error" *ngIf="image3Url.invalid && image3Url.touched">
+                    * Image 3 Url is mandatory!
+                </div>
+                <div class="form-error" *ngIf="image3Url.errors?.['minlength']">
+                    * Image 3 Url must be at least 10 symbols!
+                </div>
             </div>
             <div class="input">
-                <input class="form-control" id="image4Url" name="image4Url" ngModel />
+                <input class="form-control" id="image4Url" name="image4Url" ngModel required minlength='10'
+                #image4Url="ngModel"> 
                 <label for="image4Url" class="add-image">Image 4 URL</label>
+                <div class="form-error" *ngIf="image4Url.invalid && image4Url.touched">
+                    * Image 4 Url is mandatory!
+                </div>
+                <div class="form-error" *ngIf="image4Url.errors?.['minlength']">
+                    * Image 4 Url must be at least 10 symbols!
+                </div>
             </div>
 
             <div class="action">
@@ -87,33 +130,37 @@
 
         <form #editForm="ngForm" (ngSubmit)="onUpdate()">
             <div class="input">
-                <input class="form-control" id="title" name="title" ngModel />
-                <label for="title" class="add-title">Project title</label>
-            </div>
-            <div class="input">
-                <textarea class="form-control" id="description" name="description" ngModel></textarea>
-                <label for="description" class="add-text">Description</label>
-            </div>
-            <div class="input">
-                <input class="form-control" id="image1Url" name="image1Url" ngModel />
-                <label for="image1Url" class="add-image">Image 1 URL</label>
-            </div>
-            <div class="input">
-                <input class="form-control" id="image2Url" name="image2Url" ngModel />
+                <input class="form-control" id="image2Url" name="image2Url" ngModel required minlength='10'
+                #image2Url="ngModel"> 
                 <label for="image2Url" class="add-image">Image 2 URL</label>
+                <div class="form-error" *ngIf="image2Url.invalid && image2Url.touched">
+                    * Image 2 Url is mandatory!
+                </div>
+                <div class="form-error" *ngIf="image2Url.errors?.['minlength']">
+                    * Image 2 Url must be at least 10 symbols!
+                </div>
             </div>
             <div class="input">
-                <input class="form-control" id="image3Url" name="image3Url" ngModel />
+                <input class="form-control" id="image3Url" name="image3Url" ngModel required minlength='10'
+                #image3Url="ngModel"> 
                 <label for="image3Url" class="add-image">Image 3 URL</label>
+                <div class="form-error" *ngIf="image3Url.invalid && image3Url.touched">
+                    * Image 3 Url is mandatory!
+                </div>
+                <div class="form-error" *ngIf="image3Url.errors?.['minlength']">
+                    * Image 3 Url must be at least 10 symbols!
+                </div>
             </div>
             <div class="input">
-                <input class="form-control" id="image4Url" name="image4Url" ngModel />
+                <input class="form-control" id="image4Url" name="image4Url" ngModel required minlength='10'
+                #image4Url="ngModel"> 
                 <label for="image4Url" class="add-image">Image 4 URL</label>
-            </div>
-
-            <div class="action">
-                <button class="action-button">Update </button>
-                <button class="action-button" onclick="abortUpdate()">Cancel</button>
+                <div class="form-error" *ngIf="image4Url.invalid && image4Url.touched">
+                    * Image 4 Url is mandatory!
+                </div>
+                <div class="form-error" *ngIf="image4Url.errors?.['minlength']">
+                    * Image 4 Url must be at least 10 symbols!
+                </div>
             </div>
         </form>
 
