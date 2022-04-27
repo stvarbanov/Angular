@@ -2,6 +2,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Project } from 'src/app/models/models';
+import { NotifyService } from 'src/app/services/notify.service';
 import { ProjectsService } from 'src/app/services/projects.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
 
   constructor(private projectsService: ProjectsService,
-    private router: Router) { }
+    private router: Router,
+    private notify: NotifyService) { }
 
   ngOnInit(): void {
     this.getAllProjects();
@@ -58,7 +60,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     }
 
     this.projectsService.createProject(newProject).subscribe((project) => {
-
+      this.notify.show('Project added!', 'success');
       this.reloadCurrentRoute();
     });
 
@@ -80,7 +82,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     }
 
     this.projectsService.updateProject(projectId, updatedProject).subscribe((response) => {
-
+      this.notify.show('Project updated!', 'success');
       this.reloadCurrentRoute();
 
     })
@@ -98,7 +100,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   deleteProject(projectId: string) {
 
     this.projectsService.deleteProject(projectId).subscribe((data) => {
-
+      this.notify.show('Project deleted!', 'success');
       this.reloadCurrentRoute();
 
     })
@@ -121,15 +123,18 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
     this.projectsService.getById(projectId).subscribe((response) => {
 
+      this.notify.show('Project loaded for update!', 'warn');
 
       project = response as Project;
 
+      
       this.editForm.controls['title'].setValue(project.title)
       this.editForm.controls['description'].setValue(project.description)
       this.editForm.controls['image1Url'].setValue(project.image1Url)
       this.editForm.controls['image2Url'].setValue(project.image2Url)
       this.editForm.controls['image3Url'].setValue(project.image3Url)
       this.editForm.controls['image4Url'].setValue(project.image4Url)
+
 
     });
 
@@ -150,6 +155,15 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
     front.src = image.src;
     image.src = storage;
+
+  }
+  abortUpdate() {
+    this.editForm.reset();
+    // this.servicesService.setIsUpdatingId(false);
+    this.isUpdating = false;
+
+    // this.subscription.unsubscribe();
+    // this.subscription2.unsubscribe();
 
   }
 }

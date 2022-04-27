@@ -2,6 +2,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Service } from 'src/app/models/models';
+import { NotifyService } from 'src/app/services/notify.service';
 import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
@@ -21,7 +22,8 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   updatingID = '';
 
   constructor(private servicesService: ServicesService,
-    private router: Router) { }
+    private router: Router,
+    private notify: NotifyService) { }
 
   ngOnInit(): void {
 
@@ -74,6 +76,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
     this.servicesService.updateService(serviceId, updatedService).subscribe((response) => {
 
+      this.notify.show('Service updated!', 'success');
       this.reloadCurrentRoute();
 
     })
@@ -89,7 +92,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   deleteService(serviceId: string) {
 
     this.servicesService.deleteService(serviceId).subscribe(() => {
-
+      this.notify.show('Service deleted!', 'success');
       this.reloadCurrentRoute();
 
     })
@@ -115,6 +118,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
       this.editServiceForm.controls['imageUrl'].setValue(service.imageUrl)
       this.editServiceForm.controls['description'].setValue(service.description)
 
+      this.notify.show('Service loaded for update', 'warn')
     });
 
   }
@@ -137,7 +141,7 @@ export class ServicesComponent implements OnInit, AfterViewInit {
 
     // this.subscription.unsubscribe();
     // this.subscription2.unsubscribe();
-  
+
   }
 
 
