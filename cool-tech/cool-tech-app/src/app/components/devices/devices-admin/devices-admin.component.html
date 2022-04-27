@@ -96,14 +96,12 @@
             </div>
         </div>
         <div class="input">
-            <input class="form-control" id="class" name="class" ngModel required minlength='3' #class="ngModel" />
+            <input class="form-control" id="class" name="class" ngModel required #class="ngModel" />
             <label for="class" class="add-class">Class</label>
             <div class="form-error" *ngIf="class.invalid && class.touched">
                 * Class is mandatory!
             </div>
-            <div class="form-error" *ngIf="class.errors?.['minlength']">
-                * Class must be at least 3 symbols!
-            </div>
+    
         </div>
 
         <div class="input">

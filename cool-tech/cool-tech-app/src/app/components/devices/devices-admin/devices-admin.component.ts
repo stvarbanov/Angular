@@ -163,14 +163,14 @@ export class DevicesAdminComponent implements OnInit {
     }
 
     this.deviceService.createDevice(newDevice).subscribe((response) => {
-
-
-      // this.notify.show(response as string, 'success');
-      this.reloadCurrentRoute();
+     
+      this.notify.show('You added the device!', 'success');
+      this.deviceForm.reset();
+      // this.reloadCurrentRoute();
 
     }, (errors) => {
 
-      // this.notify.show(errors, 'error');
+      this.notify.show(errors, 'error');
     }
     );
   }

@@ -17,7 +17,7 @@ router.post('/create', (req, res) => {
 
     deviceService.createDevice(req.body)
         .then(data => {
-            res.status(201).json({ device: data, message: 'You added a device!' });
+            res.status(201).json({ device: data });
         })
         .catch(err => {
             res.status(400).json({ message: err, type: 'error' });
