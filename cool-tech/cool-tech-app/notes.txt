@@ -17,17 +17,17 @@ How will updateButton on DeviceCard will pass info to AdminPanel ?
 TODO for the exam retake
 //more public/private separation ?
 
-//remake Projects and Services like Devices
 
+not enough time - //remake Projects and Services like Devices
 
-//Form Validations - done on register and login and request
-//Server error handling - done, all controllers updated
+DONE - //Form Validations - done on register and login and request
+DONE - //Server error handling - done, all controllers updated
 
+//TODO add route guards for admin panels for non-admin
 
 
 //TODO make admin panels separate components - done for devices, use as example!
 
-//TODO add route guards for admin panels for non-admin
 
 //TODO auth guards for login/register on logged in users
 
