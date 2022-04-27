@@ -131,8 +131,13 @@ export class ServicesComponent implements OnInit, AfterViewInit {
   }
 
   abortUpdate() {
+    this.editServiceForm.reset();
+    // this.servicesService.setIsUpdatingId(false);
     this.isUpdating = false;
-    this.updatingID = '';
+
+    // this.subscription.unsubscribe();
+    // this.subscription2.unsubscribe();
+  
   }
 
 

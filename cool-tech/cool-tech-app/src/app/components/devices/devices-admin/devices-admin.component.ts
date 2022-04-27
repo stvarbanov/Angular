@@ -165,8 +165,8 @@ export class DevicesAdminComponent implements OnInit {
     this.deviceService.createDevice(newDevice).subscribe((response) => {
      
       this.notify.show('You added the device!', 'success');
-      this.deviceForm.reset();
-      // this.reloadCurrentRoute();
+      
+      this.reloadCurrentRoute();
 
     }, (errors) => {
 

@@ -28,19 +28,42 @@
 
         <form #serviceForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="input">
-                <input class="form-control" id="title" name="title" ngModel />
+                <input class="form-control" id="title" name="title" ngModel required minlength='5' #title="ngModel"/>
                 <label for="title" class="add-title">Service title</label>
+                <div class="form-error" *ngIf="title.invalid && title.touched">
+                    * Title is mandatory!
+                </div>
+                <div class="form-error" *ngIf="title.errors?.['minlength']">
+                    * Title must be at least 5 symbols!
+                </div>
             </div>
             <div class="input">
-                <input class="form-control" id="imageUrl" name="imageUrl" ngModel />
+                <input class="form-control" id="imageUrl" name="imageUrl" ngModel required minlength='5' #imageUrl="ngModel" />
                 <label for="imageUrl" class="add-image">Image URL</label>
+                <div class="form-error" *ngIf="imageUrl.invalid && imageUrl.touched">
+                    * Image URL is mandatory!
+                </div>
+                <div class="form-error" *ngIf="imageUrl.errors?.['minlength']">
+                    * Image URL must be at least 5 symbols!
+                </div>
             </div>
             <div class="input">
-                <textarea class="form-control" id="description" name="description" ngModel></textarea>
+                <textarea class="form-control" id="description" name="description" ngModel required minlength='5' #description="ngModel"></textarea>
                 <label for="description" class="add-text">Description</label>
+                <div class="form-error" *ngIf="description.invalid && description.touched">
+                    * Description is mandatory!
+                </div>
+                <div class="form-error" *ngIf="description.errors?.['minlength']">
+                    * Description must be at least 5 symbols!
+                </div>
             </div>
             <div class="action">
-                <button class="action-button">Add service</button>
+                <div class="action" *ngIf="serviceForm.invalid">
+                    <button class="action-button-warn" [disabled]="serviceForm.invalid">Fill all fields</button>
+                </div>
+                <div class="action" *ngIf="!serviceForm.invalid">
+                    <button class="action-button">Add service</button>
+                </div>
             </div>
         </form>
 
@@ -52,16 +75,34 @@
 
         <form #editServiceForm="ngForm" (ngSubmit)="onUpdate()">
             <div class="input">
-                <input class="form-control" id="title" name="title" ngModel />
+                <input class="form-control" id="title" name="title" ngModel required minlength='5' #title="ngModel"/>
                 <label for="title" class="add-title">Service title</label>
+                <div class="form-error" *ngIf="title.invalid && title.touched">
+                    * Title is mandatory!
+                </div>
+                <div class="form-error" *ngIf="title.errors?.['minlength']">
+                    * Title must be at least 5 symbols!
+                </div>
             </div>
             <div class="input">
-                <input class="form-control" id="imageUrl" name="imageUrl" ngModel />
+                <input class="form-control" id="imageUrl" name="imageUrl" ngModel required minlength='5' #imageUrl="ngModel" />
                 <label for="imageUrl" class="add-image">Image URL</label>
+                <div class="form-error" *ngIf="imageUrl.invalid && imageUrl.touched">
+                    * Image URL is mandatory!
+                </div>
+                <div class="form-error" *ngIf="imageUrl.errors?.['minlength']">
+                    * Image URL must be at least 5 symbols!
+                </div>
             </div>
             <div class="input">
-                <textarea class="form-control" id="description" name="description" ngModel></textarea>
+                <textarea class="form-control" id="description" name="description" ngModel required minlength='5' #description="ngModel"></textarea>
                 <label for="description" class="add-text">Description</label>
+                <div class="form-error" *ngIf="description.invalid && description.touched">
+                    * Description is mandatory!
+                </div>
+                <div class="form-error" *ngIf="description.errors?.['minlength']">
+                    * Description must be at least 5 symbols!
+                </div>
             </div>
             <div class="action">
                 <button class="action-button">Update </button>
