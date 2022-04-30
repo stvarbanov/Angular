@@ -6,7 +6,6 @@ in server folder, run npm start (localhost:5000)
 
 # Guest users
 The guest can browse devices, projects and services. 
-TODO: They can add devices to cart, but can't order without profile.
 
 # Registered users
 Registered users can order and can submit requests and see all their requests (and cancel them if they want.)
